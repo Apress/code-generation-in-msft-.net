@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<orm:MappingRoot xmlns:orm="http://kadgen.com/KADORM.xsd" MapDataStructure="PTracker" TransactionType="ADONET"
+   Namespace="KADGen.BusinessObjects" TransactionForRetrieve="false" RetrievePattern="[Object]_SelectOne"
+   SetSelectPattern="[Object]_SelectAll" CreatePattern="[Object]_Insert" UpdatePattern="[Object]_Update"
+   DeletePattern="[Object]_Delete" Generate="CRUDS">
+   <orm:DefaultPrivileges>
+      <orm:DefaultPrivilege Grantee="UserRole" Rights="CRUDS" />
+   </orm:DefaultPrivileges>
+   <orm:SQLFunctionReplacement>
+      <orm:SQLFunction Name="getdate" ReplaceWith="System.DateTime.Today" NETType="System.DateTime" />
+   </orm:SQLFunctionReplacement>
+   <orm:SpecialTypes>
+      <orm:SpecialType Name="CSLA.SmartDate">
+         <orm:UseForAllType Name="System.DateTime" />
+         <orm:Property Retrieve="Text" Set="Text" AccessVia="System.String" />
+         <orm:SafeDataRetrieve Name="GetSmartDate">
+            <orm:SafeDataProperty Explicit="ToString()" />
+         </orm:SafeDataRetrieve>
+         <orm:SafeDataStore Name="DBValue" />
+      </orm:SpecialType>
+   </orm:SpecialTypes>
+   <orm:Build>
+      <!-- Example of mapping a column -->
+      <orm:SPSet Name="Contact">
+         <orm:BuildRecordset>
+            <orm:BuildTable Name="Contact">
+               <orm:BuildColumn Name="ContactInformation" Column="ContactInfo" />
+               <orm:AllColumns />
+            </orm:BuildTable>
+         </orm:BuildRecordset>
+      </orm:SPSet>
+   </orm:Build>
+   <orm:Assembly Name="BusinessObject.Library">
+      <orm:AllObjects />
+   </orm:Assembly>
+</orm:MappingRoot>

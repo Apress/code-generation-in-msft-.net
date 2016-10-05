@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<orm:MappingRoot xmlns:orm="http://kadgen.com/KADORM.xsd" FreeForm="true" >
+   <ui:UIRoot xmlns:ui="http://kadgen.com/UserInterface.xsd" VerticalMargin="1" Sam="1976" >
+      <ui:Forms Fred="4">
+         <ui:Form Name="UserEdit" FormType="Edit" />
+         <ui:AllForms/>
+      </ui:Forms>
+   </ui:UIRoot> 
+   <orm:Assembly Name="BusinessLayer">
+      <orm:Object Name="ProjectAssignment" >
+         <orm:Property Name="RoleName" NETType="System.String" Caption="Role Name"/>
+      </orm:Object>
+   </orm:Assembly>
+</orm:MappingRoot>
+			
+

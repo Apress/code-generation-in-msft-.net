@@ -1,0 +1,321 @@
+<?xml version="1.0" ?>
+<xs:schema id="GenerationScript" targetNamespace="http://kadgen.com/KADGenDriving.xsd" xmlns="http://kadgen.com/KADGenDriving.xsd"
+   xmlns:kd="http://kadgen.com/KADGenDrivingx.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+   xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+   <xs:element name="GenerationScript">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="Filters" maxOccurs="1" minOccurs="0">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="Filter" maxOccurs="unbounded">
+                        <xs:complexType>
+                           <xs:attribute name="Name" form="unqualified" type="xs:string" />
+                           <xs:attribute name="Filter" form="unqualified" type="xs:string" kd:Special="XPath" />
+                        </xs:complexType>
+                     </xs:element>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+            <xs:element name="FilePaths" maxOccurs="1" minOccurs="0">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="FilePath" maxOccurs="unbounded">
+                        <xs:complexType>
+                           <xs:attribute name="Name" form="unqualified" type="xs:string" />
+                           <xs:attribute name="Path" form="unqualified" type="xs:string" kd:Special="Directory" />
+                           <xs:attribute name="File" form="unqualified" type="xs:string" kd:Special="File" />
+                        </xs:complexType>
+                     </xs:element>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+            <xs:element name="Section" maxOccurs="unbounded" minOccurs="0" kd:CanCheck="true">
+               <xs:complexType>
+                  <xs:choice maxOccurs="unbounded">
+                     <xs:element name="Standard" type="Standard" kd:auto="true" />
+                     <xs:element name="CreateMetadata" minOccurs="0" maxOccurs="unbounded" kd:NoChildrenInTree="true" kd:CanCheck="true" kd:Desc="Extracts metadata from database">
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="Standard" type="Standard" />
+                              <xs:element name="OutputRules" type="OutputRules" />
+                              <xs:element name="SinglePass" type="SinglePass" />
+                              <xs:element name="AlternateProcess" type="Process" minOccurs="0" />
+                           </xs:sequence>
+                           <xs:attribute name="Server" form="unqualified" type="xs:string" />
+                           <xs:attribute name="Database" form="unqualified" type="xs:string" />
+                           <xs:attribute name="SkipStoredProcs" form="unqualified" type="xs:boolean" />
+                           <xs:attribute name="SelectPatterns" form="unqualified" type="xs:string" />
+                           <xs:attribute name="SetSelectPatterns" form="unqualified" type="xs:string" />
+                           <xs:attribute name="RemovePrefix" form="unqualified" type="xs:boolean" />
+                           <xs:attribute name="LookupPrefix" form="unqualified" type="xs:string" />
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:element name="XSLTProcess" minOccurs="0" maxOccurs="unbounded" kd:NoChildrenInTree="true" kd:CanCheck="true" kd:Desc="Processes an XSLT file to create a single output">
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="Standard" type="Standard" />
+                              <xs:element name="OutputRules" type="OutputRules" />
+                              <xs:element name="SinglePass" type="SinglePass" />
+                              <xs:element name="XSLTFiles" type="XSLTFiles" />
+                           </xs:sequence>
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:element name="XSLTCheck" minOccurs="0" maxOccurs="unbounded" kd:NoChildrenInTree="true" kd:CanCheck="true" kd:Desc="Processes an XSLT file to create a single output">
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="Standard" type="Standard" />
+                              <xs:element name="OutputRules" type="OutputRules" />
+                              <xs:element name="SinglePass" type="SinglePass" />
+                              <xs:element name="XSLTFiles" type="XSLTFiles" />
+                           </xs:sequence>
+                           <xs:attribute name="AbortOnOutput" form="unqualified" type="xs:boolean" />
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:element name="RunProcess" minOccurs="0" maxOccurs="unbounded" kd:NoChildrenInTree="true" kd:CanCheck="true" kd:Desc="Run a processes to create a single output">
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="Standard" type="Standard" />
+                              <xs:element name="OutputRules" type="OutputRules" />
+                              <xs:element name="SinglePass" type="SinglePass" />
+                              <xs:element name="Parameter" type="Parameter" />
+                              <xs:element name="Process" type="Process" />
+                           </xs:sequence>
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:element name="MergeMetadata" minOccurs="0" maxOccurs="unbounded" kd:NoChildrenInTree="true" kd:CanCheck="true" kd:Desc="Merges two metadata files, data in the second merging file overwrites the first">
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="Standard" type="Standard" />
+                           </xs:sequence>
+                           <xs:attribute name="BaseXMLFileName" form="unqualified" type="FileName" />
+                           <xs:attribute name="MergingXMLFileName" form="unqualified" type="FileName" />
+                           <xs:attribute name="OutputXMLFileName" form="unqualified" type="FileName" />
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:element name="CopyFiles" minOccurs="0" maxOccurs="unbounded" kd:NoChildrenInTree="true" kd:CanCheck="true" kd:Desc="Copy files">
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="Standard" type="Standard" />
+                           </xs:sequence>
+                           <xs:attribute name="SourceFileName" form="unqualified" type="FileName" />
+                           <xs:attribute name="TargetFileName" form="unqualified" type="FileName" />
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:element name="NestedScript" minOccurs="0" maxOccurs="unbounded" kd:NoChildrenInTree="true" kd:CanCheck="true" kd:Desc="Execute nested script">
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="Standard" type="Standard" />
+                           </xs:sequence>
+                           <xs:attribute name="ScriptName" form="unqualified" type="xs:string" />
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:element name="XSLTGeneration" minOccurs="0" maxOccurs="unbounded" kd:NoChildrenInTree="true" kd:CanCheck="true" kd:Desc="Processes an XSLT file multiple times create multiple output files">
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="Standard" type="Standard" />
+                              <xs:element name="OutputRules" type="OutputRules" />
+                              <xs:element name="MultiPass" type="MultiPass" />
+                              <xs:element name="XSLTFiles" type="XSLTFiles" />
+                           </xs:sequence>
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:element name="BruteForceGeneration" minOccurs="0" maxOccurs="unbounded" kd:NoChildrenInTree="true" kd:CanCheck="true" kd:Desc="Calls an assembly's method (through reflection) multiple times creating multiple output files">
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="Standard" type="Standard" />
+                              <xs:element name="OutputRules" type="OutputRules" />
+                              <xs:element name="MultiPass" type="MultiPass" />
+                              <xs:element name="Process" type="Process" />
+                           </xs:sequence>
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:element name="CodeDOMGeneration" minOccurs="0" maxOccurs="unbounded" kd:NoChildrenInTree="true" kd:CanCheck="true" kd:Desc="Calls an assembly's method (through reflection) multiple times creating multiple output files for a specific language">
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="Standard" type="Standard" />
+                              <xs:element name="OutputRules" type="OutputRules" />
+                              <xs:element name="MultiPass" type="MultiPass" />
+                              <xs:element name="Process" type="Process" />
+                           </xs:sequence>
+                           <xs:attribute name="TargetLanguage" form="unqualified" type="TargetLanguage" />
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:element name="RunSQLScripts" minOccurs="0" maxOccurs="unbounded" kd:NoChildrenInTree="true" kd:CanCheck="true" kd:Desc="Runs scripts against SQL Server.">
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="Standard" type="Standard" />
+                              <xs:element name="OutputRules" type="OutputRules" />
+                              <xs:element name="MultiPass" type="MultiPass" />
+                           </xs:sequence>
+                           <xs:attribute name="Server" form="unqualified" type="xs:string" />
+                           <xs:attribute name="Database" form="unqualified" type="xs:string" />
+                        </xs:complexType>
+                     </xs:element>
+                  </xs:choice>
+               </xs:complexType>
+            </xs:element>
+         </xs:sequence>
+         <xs:attribute name="LocalSettings" form="unqualified" type="xs:string" />
+         <xs:attribute name="ProjectSettings" form="unqualified" type="xs:string" />
+      </xs:complexType>
+   </xs:element>
+   <xs:complexType name="Standard" kd:Desc="Standard attributes associated with all elements">
+      <xs:attribute name="Name" form="unqualified" type="xs:string" kd:Desc="The name of the processing step" />
+      <xs:attribute name="Ordinal" form="unqualified" type="xs:int" kd:Desc="Determines the order in which the process occurs" />
+      <xs:attribute name="Checked" form="unqualified" type="xs:boolean" kd:Desc="Whether the step is performed" />
+   </xs:complexType>
+   <xs:complexType name="OutputRules" kd:Desc="Defines how comparison between and hash is done">
+      <xs:attribute name="OutputFileType" form="unqualified" type="OutputFileType" />
+      <xs:attribute name="OutputGenType" form="unqualified" type="OutputGenType" />
+      <xs:attribute name="HashOutput" form="unqualified" type="xs:boolean" />
+      <xs:attribute name="CheckOut" form="unqualified" type="xs:boolean" />
+      <xs:attribute name="CheckOutProject" form="unqualified" type="xs:string" />
+   </xs:complexType>
+   <xs:complexType name="MultiPass" kd:Desc="Defines a multi-pass process with varying paramters and output filenames">
+      <xs:attribute name="SelectFile" form="unqualified" type="FileName" kd:Required="1" kd:Special="File"
+         kd:Desc="This will almost always be the same as the MetadataFile" />
+      <xs:attribute name="SelectXPath" form="unqualified" type="xs:string" kd:Required="1" kd:Desc="An XPath expression that results in a nodeset. The transform will be run for each node, which will also be used as the parameter source" />
+      <xs:attribute name="SelectNamespace" form="unqualified" type="xs:string" kd:Required="1" kd:Desc="Namespace for metadata document. Only one is allowed." />
+      <xs:attribute name="SelectNSPrefix" form="unqualified" type="xs:string" kd:Required="1" kd:Desc="Namespace for metadata document. Only one is allowed." />
+      <xs:attribute name="OutputDir" form="unqualified" type="Directory" kd:Required="1" kd:Special="Directory"
+         kd:Desc="File paths are a concatonation of this with parent paths unless one starts with / which is taken as a return to root" />
+      <xs:attribute name="OutputFilePattern" form="unqualified" type="xs:string" kd:Required="0" kd:Desc="Changeable information can be entered as XPath expressions in angle brackets" />
+   </xs:complexType>
+   <xs:complexType name="SinglePass" kd:Desc="Defines a single-pass process with a single output file">
+      <xs:attribute name="OutputFile" form="unqualified" type="FileName" />
+   </xs:complexType>
+   <xs:complexType name="Parameter" kd:Desc="Allows a comma delimited string of parameters">
+      <xs:attribute name="Parameter" form="unqualified" type="xs:string" />
+   </xs:complexType>
+   <xs:complexType name="Process" kd:Desc="Defines a process that can be run via reflection">
+      <!-- If both assemblyname and assemblyfilename are specified, assemblyname wins if it is loaded -->
+      <xs:attribute name="AssemblyFileName" form="unqualified" type="xs:string" />
+      <xs:attribute name="AssemblyName" form="unqualified" type="xs:string" kd:Desc="Not currently supported" />
+      <xs:attribute name="TypeName" form="unqualified" type="xs:string" />
+      <xs:attribute name="MethodName" form="unqualified" type="xs:string" />
+   </xs:complexType>
+   <xs:complexType name="XSLTFiles" kd:Desc="Defines and XSLT template and the appropriate input file">
+      <xs:attribute name="XSLTFileName" form="unqualified" type="FileName" kd:Special="File" kd:Desc="Output filenames are a concatonationof the prefix, outputFileParam, and suffix" />
+      <xs:attribute name="InputFileName" form="unqualified" type="FileName" />
+      <xs:attribute name="AssemblyFileName" form="unqualified" type="xs:string" kd:Desc="In rare cases where extension objects are used, defines the assembly" />
+      <xs:attribute name="AssemblyName" form="unqualified" type="xs:string" kd:Desc="In rare cases where extension objects are used, defines the assembly" />
+      <xs:attribute name="TypeName" form="unqualified" type="xs:string" kd:Desc="In rare cases where extension objects are used, defines the type - a new object of this type will be created" />
+      <xs:attribute name="NamespaceURI" form="unqualified" type="xs:string" kd:Desc="In rare cases where extension objects are used, defines the namespace" />
+   </xs:complexType>
+   <xs:complexType name="LocalSettings" kd:Desc="Not part of harness - merged from independent file to discourage edits">
+      <xs:sequence>
+         <xs:element name="BasePath">
+            <xs:complexType>
+               <xs:attribute name="Path" form="unqualified" type="xs:string" />
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="SourceSafePath">
+            <xs:complexType>
+               <xs:attribute name="Path" form="unqualified" type="xs:string" />
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="XFilePath">
+            <xs:complexType>
+               <xs:attribute name="Path" form="unqualified" type="xs:string" />
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ProjectSettings" kd:Desc="Not part of harness - merged from independent file to discourage edits">
+      <xs:sequence>
+         <xs:element name="Namespace">
+            <xs:complexType>
+               <xs:attribute name="Prefix" form="unqualified" type="xs:string" />
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="HashSettings">
+            <xs:complexType>
+               <xs:attribute name="HashExplanation" form="unqualified" type="xs:string" default="This funny number is a hash, dont change it" />
+               <xs:attribute name="HashMarker" form="unqualified" type="xs:string" default="%%%###%%%" />
+               <xs:attribute name="HeaderMarker" form="unqualified" type="xs:string" default="***^^^***|||***^^^***" />
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="CommentCharacters">
+            <xs:complexType>
+               <xs:choice maxOccurs="unbounded">
+                  <xs:element name="CharacterSet">
+                     <xs:complexType>
+                        <xs:attribute name="Language" form="unqualified" type="xs:string" />
+                        <xs:attribute name="Start" form="unqualified" type="xs:string" />
+                        <xs:attribute name="End" form="unqualified" type="xs:string" />
+                     </xs:complexType>
+                  </xs:element>
+               </xs:choice>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="Messages">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="GenOnceMessage">
+                     <xs:complexType>
+                        <xs:attribute name="en-US" form="unqualified" type="xs:string" default="This file is only generated if missing. Delete the file to force regeneration." />
+                        <xs:anyAttribute namespace="##local" processContents="skip" />
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="GenUntilEditedMessage">
+                     <xs:complexType>
+                        <xs:attribute name="en-US" form="unqualified" type="xs:string" default="This file is regenerated until its edited. Delete to force regeneration." />
+                        <xs:anyAttribute namespace="##local" processContents="skip" />
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="GenAlwaysMessage">
+                     <xs:complexType>
+                        <xs:attribute name="en-US" form="unqualified" type="xs:string" default="This file autogenerated - DO NOT EDIT THIS FILE" />
+                        <xs:anyAttribute namespace="##local" processContents="skip" />
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="GenNeverMessage">
+                     <xs:complexType>
+                        <xs:attribute name="en-US" form="unqualified" type="xs:string" default="Add an intelligent message if you figure out a way to use this" />
+                        <xs:anyAttribute namespace="##local" processContents="skip" />
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="GenOverwriteMessage">
+                     <xs:complexType>
+                        <xs:attribute name="en-US" form="unqualified" type="xs:string" default="This file will be overwritten – DO NOT EDIT THIS FILE – YOUR EDITS WILL BE LOST" />
+                        <xs:anyAttribute namespace="##local" processContents="skip" />
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:simpleType name="FileName">
+      <xs:restriction base="xs:string" />
+   </xs:simpleType>
+   <xs:simpleType name="Directory">
+      <xs:restriction base="xs:string" />
+   </xs:simpleType>
+   <xs:simpleType name="OutputFileType">
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="XML" />
+         <xs:enumeration value="VB" />
+         <xs:enumeration value="CSharp" />
+         <xs:enumeration value="StoredProc" />
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="OutputGenType">
+      <xs:restriction base="xs:string">
+         <!-- These strings should match those in KADGen.Generation.GenType -->
+         <xs:enumeration value="Never" />
+         <xs:enumeration value="Once" />
+         <xs:enumeration value="UntilEdited" />
+         <xs:enumeration value="Always" />
+         <xs:enumeration value="Overwrite" />
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="TargetLanguage">
+      <xs:restriction base="xs:string">
+         <!-- These strings should match those in KADGen.Utility.Tools.OutputType -->
+         <xs:enumeration value="VB" />
+         <xs:enumeration value="CSharp" />
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>

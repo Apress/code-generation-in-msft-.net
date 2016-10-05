@@ -1,0 +1,91 @@
+<?xml version="1.0" standalone="yes"?>
+<kg:GenerationScript xmlns:kg="http://kadgen.com/KADGenDriving.xsd" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://kadgen.com/KADGenDriving.xsd ..\..\XFiles\KADGenDriving.xsd" LocalSettings="" ProjectSettings="">
+  <kg:Filters>
+    <kg:Filter Name="BONoLookup" Filter="//orm:Object[not(@IsLookup='true')]"/>
+    <kg:Filter Name="BOLookup" Filter="//orm:Object[@NameValueList='true' and @Name]"/>
+    <kg:Filter Name="BOCollection" Filter="//orm:Object[@Collection='true']" />
+    <kg:Filter Name="BOList" Filter="//orm:Object[orm:SetSelectSP/*]" />
+    <kg:Filter Name="RetrieveSP" Filter="//orm:SPSet[contains(@Generate,'R')]"/>
+    <kg:Filter Name="CreateSP" Filter="//orm:SPSet[contains(@Generate,'C')]"/>
+    <kg:Filter Name="UpdateSP" Filter="//orm:SPSet[contains(@Generate,'U')]"/>
+    <kg:Filter Name="DeleteSP" Filter="//orm:SPSet[contains(@Generate,'D')]"/>
+    <kg:Filter Name="SetSelectSP" Filter="//orm:SPSet[orm:SetSelect/*]"/>
+    <kg:Filter Name="WinUI" Filter=""/>
+  </kg:Filters>
+  <kg:FilePaths>
+    <kg:FilePath Name="BasePath" Path="." File="" />
+    <kg:FilePath Name="Temp" Path="[BasePath]Temp" />
+    <kg:FilePath Name="Metadata" Path="[MetadataPath]" File="PTracker.xml" />
+    <kg:FilePath Name="ORMOrig" Path="[BasePath]" File="ORMSimplest.xml" />
+    <kg:FilePath Name="ORM" Path="[BasePath]" File="ORM2.xml" />
+    <kg:FilePath Name="ORMMetadata" Path="[BasePath]" File="ORMMetadata.xml" />
+    <kg:FilePath Name="XSLT" Path="[BasePath]" File="" />
+    <kg:FilePath Name="ORMTransform" Path="ORMTransform" File="" />
+    <kg:FilePath Name="Output" Path="[BasePath]Output" File="" />
+    <kg:FilePath Name="StoredProc" Path="Database" File="" />
+    <kg:FilePath Name="BusinessObjects" Path="BusinessObjects" File="" />
+    <kg:FilePath Name="SPInputMetadata" Path="[MetadataPath]" File="SPInputMetadata.xml" />
+    <kg:FilePath Name="GenInputMetadata" Path="[MetadataPath]" File="GenInputMetadata.xml" />
+    <kg:FilePath Name="MetadataPath" Path="[BasePath]..\..\Metadata Files\" File="" />
+    <kg:FilePath Name="Chapter6" Path="..\Chapter 6" File="" />
+  </kg:FilePaths>
+  <kg:Section>
+    <kg:Standard Name="Run Ch 6" Checked="false" />
+    <kg:NestedScript ScriptName="[Chapter6]Harness6NETGenerate.xml">
+      <kg:Standard Name="Chapter 6 Operations" Checked="true" Ordinal="0" />
+    </kg:NestedScript>
+  </kg:Section>
+  <kg:Section>
+    <kg:Standard Name="Ch 8 Generate Middle Tier" Checked="true" />
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Genned Business Objects" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Always" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[GenInputMetadata]" SelectXPath="[BONoLookup]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][BusinessObjects]Autogen\genCSLAEditSwitchable" OutputFilePattern="gen&lt;@Name&gt;.vb" />
+      <kg:XSLTFiles InputFileName="[GenInputMetadata]" XSLTFileName="[XSLT][BusinessObjects]genCSLAEditSwitchable.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Genned Business Name/Value Pairs" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Always" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[GenInputMetadata]" SelectXPath="[BOLookup]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][BusinessObjects]Autogen\genCSLANameValueList" OutputFilePattern="gen&lt;@Name&gt;.vb" />
+      <kg:XSLTFiles InputFileName="[GenInputMetadata]" XSLTFileName="[XSLT][BusinessObjects]genCSLANameValueList.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Genned Collections" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Always" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[GenInputMetadata]" SelectXPath="[BOCollection]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][BusinessObjects]Autogen\genCSLAEditCollection" OutputFilePattern="gen&lt;@CollectionName&gt;.vb" />
+      <kg:XSLTFiles InputFileName="[GenInputMetadata]" XSLTFileName="[XSLT][BusinessObjects]genCSLAEditCollection.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Genned List" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Always" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[GenInputMetadata]" SelectXPath="[BOList]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][BusinessObjects]Autogen\genCSLAList" OutputFilePattern="gen&lt;@Name&gt;List.vb" />
+      <kg:XSLTFiles InputFileName="[GenInputMetadata]" XSLTFileName="[XSLT][BusinessObjects]genCSLAList.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Editable Business Objects" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="UntilEdited" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[GenInputMetadata]" SelectXPath="[BONoLookup]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][BusinessObjects]Editable\CSLAEditSwitchable" OutputFilePattern="&lt;@Name&gt;.vb" />
+      <kg:XSLTFiles InputFileName="[GenInputMetadata]" XSLTFileName="[XSLT][BusinessObjects]CSLAEditSwitchable.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Editable Collections" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="UntilEdited" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[GenInputMetadata]" SelectXPath="[BOCollection]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][BusinessObjects]Editable\CSLAEditCollection" OutputFilePattern="&lt;@CollectionName&gt;.vb" />
+      <kg:XSLTFiles InputFileName="[GenInputMetadata]" XSLTFileName="[XSLT][BusinessObjects]CSLAEditCollection.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Editable NameValue Pairs" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="UntilEdited" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[GenInputMetadata]" SelectXPath="[BOLookup]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][BusinessObjects]Editable\CSLANameValueList" OutputFilePattern="&lt;@Name&gt;.vb" />
+      <kg:XSLTFiles InputFileName="[GenInputMetadata]" XSLTFileName="[XSLT][BusinessObjects]CSLANameValueList.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Editable List" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Always" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[GenInputMetadata]" SelectXPath="[BOList]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][BusinessObjects]Editable\CSLAList" OutputFilePattern="&lt;@Name&gt;List.vb" />
+      <kg:XSLTFiles InputFileName="[GenInputMetadata]" XSLTFileName="[XSLT][BusinessObjects]CSLAList.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" />
+    </kg:XSLTGeneration>
+  </kg:Section>
+</kg:GenerationScript>

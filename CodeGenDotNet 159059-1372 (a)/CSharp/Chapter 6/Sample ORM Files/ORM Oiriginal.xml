@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<orm:MappingRoot xmlns:orm="http://kadgen.com/KADORM.xsd" 
+			MapDataStructure="PTracker"
+			TransactionType="ADONET"
+			Namespace="cslaTest"
+			TransactionForRetrieve="false"
+			RetrievePattern="wx_app[Object]_SelectOne"
+			RetrieveSetPattern="wx_app[Object]_SelectAll[Filter]"
+			CreatePattern="wx_app[Object]_Insert"
+			UpdatePattern="wx_app[Object]_Update[Filter]"
+			DeletePattern="wx_app[Object]_Delete"
+			 > 
+			<!-- The current templates expect that the ToString for each object is unique, because its used for the hashcode -->
+			<!-- Transactions can be ADONET or Enterprise 
+			     CreateNew can be LocalAutoPK, LocalUserPK, DB 
+			     *** LocalAutoPK only supported for GUID right now *** -->
+	<orm:DefautPrivileges>
+		<orm:DefaultPrivilege Grantee="public" Rights="RS" />
+		<orm:DefaultPrivilege Grantee="Admin" Rights="CRUDS" />
+		<orm:DefaultPrivilege Grantee="Manager" Rights="RUS"	/>
+	</orm:DefautPrivileges>
+	
+	<orm:Assembly Name="BusinessLayer"   >
+		<!-- Individual objects can overrid MapDataStructure and Namespace -->
+		<!-- This is the sort of block that the default could create as a one time thing and you could alter -->
+		<orm:Object Name="Project" CollectionName="Projects" >
+			<!-- Consider defaulting to InferSP and AllProperties -->
+			<orm:InferSP TableName="Projects" />	<!-- You can both Use and Generate. Use defaults to CRUDS -->
+			<orm:UseSPSet Name="Projects" Use="CRUDS"/><!-- Explicit Default -->
+			<orm:AllProperties />
+			<orm:PropertyInfo Name="Started" Default="Today(), false" NETType="SmartDate" /><!-- case for C#, VB doesn't care -->
+			<orm:PropertyInfo Name="Ended" NETType="SmartDate" />
+			<orm:PropertyInfo Name="Name" IsRequired="true" />
+			<orm:ChildCollection Name="ProjectResources" Recordset="ProjectResources"/>
+			<orm:Privilege Grantee="Administrator" Rights="CRUS"/>
+			<orm:Privilege Grantee="ProjectManager" Rights="CRUDS"/>
+			<orm:Privilege Grantee="Public" Rights="R"/>
+		</orm:Object>
+		
+		<orm:Object Name="Resource" CollectionName="Resources" >
+			<orm:UseSPSet Name="Resources" Use="CRUDS"/><!-- Explicit Default -->
+			<orm:AllProperties />
+			<orm:ChildCollection Name="ResourceAssignment" Recordset="ResourceAssignment"/>
+			<orm:Privilege Grantee="Administrator" Rights="CRUS"/>
+			<orm:Privilege Grantee="ProjectManager" Rights="CRUDS"/>
+			<orm:Privilege Grantee="Public" Rights="R"/>
+		</orm:Object>
+
+		<orm:Object Name="RoleList" MapTable="Roles" NameValueList="true">
+			<orm:Property Name="id" />
+			<orm:Property Name="name" />
+		</orm:Object>
+		
+			<orm:Object Name="ProjectResource" CollectionName="ProjectResources" Inherits="Assignment" Root="false" Parent="Project" > <!-- CollectionInherits also valid -->
+			<orm:UseSPSet Name="Assignments" Use="CRUDS"/>
+			<orm:AllProperties />
+		</orm:Object>
+
+		<orm:Object Name="ResourceAssignment" CollectionName="ResourceAssignments" Inherits="Assignment" Root="false" Parent="Resource" > <!-- CollectionInherits also valid -->
+			<orm:UseSPSet Name="Assignments" Use="CRUDS"/>
+			<orm:AllProperties />
+		</orm:Object>
+
+		<orm:Object NameNoGen="BroadTest" CollectionNameNoGen="BroadTests" Namespace="overridingNamespace" MapDataStructure="PTracker"><!-- MapDatabase overrides Assembly -->
+			<orm:UseSPSet Name="BroadTest" Use="R"/>
+			<orm:Property Name="ProjectName" MapColumn="Name" />
+			<orm:Property Name="DepartmentName" />
+			<orm:Property Name="BuildingName" />
+			<orm:Property Name="CompanyName" />
+		</orm:Object>
+
+		<!-- This is a sample assuming you have stored procs -->
+		<orm:Object NameNoGen="Project2" >
+			<orm:AllProperties>
+				<orm:MapTable Name="Projects"/>
+			</orm:AllProperties>
+			<orm:UseSPSet Name="BroadTest" Use="R"/>
+		</orm:Object>
+	</orm:Assembly>
+	
+	<orm:BuildInfo>
+		<orm:SPSet Name="Projects" DataStructure="PTracker" GenerateProcs="CRUDS">
+			<orm:RetrieveParam Name="ProjectID" SQLType="uniqueidentifier" />
+			<orm:Privilege Grantee="Admin" Rights="CRUDS"/>
+			<orm:BuildRecordset Name="Main">
+				<orm:BuildTable Name="Projects">
+					<orm:AllColumns />
+				</orm:BuildTable>
+				<orm:WhereClause Clause="@ProjectID=ID" />
+			</orm:BuildRecordset>
+			<orm:BuildRecordset Name="Assignments" Recordset="Table1">
+				<orm:BuildTable Name="Assignments">
+					<orm:AllColumns />
+				</orm:BuildTable>
+				<orm:WhereClause Clause="@ProjectID=ProjectID" />
+			</orm:BuildRecordset>
+		</orm:SPSet>
+		
+		<orm:SPSet Name="Resources" DataStructure="PTracker" GenerateProcs="CRUDS">
+			<orm:RetrieveParam Name="ResourceID" SQLType="uniqueidentifier" />
+			<orm:BuildRecordset Name="Main">
+				<orm:BuildTable Name="Resources">
+					<orm:AllColumns />
+				</orm:BuildTable>
+				<orm:WhereClause Clause="@ResourceID=ID" />
+			</orm:BuildRecordset>
+			<orm:BuildRecordset Name="Assignments" Recordset="Table1">
+				<orm:BuildTable Name="Assignments">
+					<orm:AllColumns />
+				</orm:BuildTable>
+				<orm:WhereClause Clause="@ResourceID=ResourceID" />
+			</orm:BuildRecordset>
+		</orm:SPSet>
+		
+		<orm:SPSet Name="Assignments" DataStructure="PTracker" GenerateProcs="CRUDS">
+			<orm:RetrieveParam Name="ProjectID" SQLType="uniqueidentifier" />
+			<orm:RetrieveParam Name="ResourceID" SQLType="varchar" Length="10" />
+			<orm:BuildRecordset Name="Main">
+				<orm:BuildTable Name="Assignments">
+					<orm:AllColumns />
+				</orm:BuildTable>
+				<orm:WhereClause Clause="@ProjectID=ProjectID and @ResourceID=ResourceID" />
+			</orm:BuildRecordset>
+		</orm:SPSet>
+		
+		<!-- This is a more complex block with mapped columns and a join. 
+			  You could have mapped columns without a join and vice versa -->
+		<orm:SPSet Name="BroadTest" DataStructure="PTracker" GenerateProcs="R" >
+			<orm:RetrieveParam Name="ProjectID" SQLType="uniqueidentifier" />
+			<orm:BuildRecordset >
+				<orm:BuildTable Name="Projects">
+					<orm:AllColumns />
+				</orm:BuildTable>
+				<orm:BuildTable Name="Departments">
+					<orm:BuildColumn Name="DepartmentName" Column="Name" />
+					<orm:BuildColumn Name="DepartmentID" Column="ID" />
+				</orm:BuildTable>
+				<orm:BuildTable Name="Buildings">
+					<orm:BuildColumn Name="BuildingName" Column="Name" />
+					<orm:BuildColumn Name="BuildingID" Column="ID" />
+				</orm:BuildTable>
+				<orm:BuildTable Name="Companies">
+					<orm:BuildColumn Name="CompanyName" Column="Name" />
+					<orm:BuildColumn Name="CompanyID" Column="ID" />
+				</orm:BuildTable>
+				<orm:Joins>
+					<orm:Join Type="Inner">
+						<orm:Left JoinTable="Projects" On="Projects.DepartmentID" />
+						<orm:Right Join="Second" On="Departments.ID" />
+					</orm:Join>
+					<orm:Join Name="Second" Type="Inner">
+						<orm:Left JoinTable="Departments" On="Departments.BuildingID" />
+						<orm:Right Join="Third" On="Buildings.ID" />
+					</orm:Join>
+					<orm:Join Name="Third" Type="Inner">
+						<orm:Left JoinTable="Buildings" On="Buildings.CompanyID" />
+						<orm:Right JoinTable="Companies" On="Companies.ID" />
+					</orm:Join>
+				</orm:Joins>
+				<orm:WhereClause Clause="@ProjectID=Projects.ID" />
+			</orm:BuildRecordset>
+			<orm:BuildRecordset Name="Child">
+				<orm:BuildTable Name="Assignments">
+					<orm:AllColumns />
+				</orm:BuildTable>
+				<orm:WhereClause Clause="@ProjectID=ProjectID" />
+			</orm:BuildRecordset>
+		</orm:SPSet>
+		
+		<orm:SPSet Name="PrecreatedTest" >
+			<orm:BuildInfoSP Task="Create" Name="PreCreatedSP" />
+			<orm:BuildInfoSP Task="Retrieve" Name="PreCreatedSP2" />
+			<orm:BuildInfoSP Task="Update" Name="PreCreatedSP3" />
+			<orm:BuildInfoSP Task="Delete" Name="PreCreatedSP4" />
+			<orm:BuildInfoSP Task="Set" Name="PreCreatedSP5" />
+		</orm:SPSet>
+	</orm:BuildInfo>
+	
+	<orm:SpecialTypes>
+		<orm:SpecialType Name="SmartDate" >
+			<orm:Property Retrieve="Text" Set="Text" AccessVia="System.String" />
+			<orm:SafeDataRetrieve Name="GetSmartDate">
+				<orm:SafeDataProperty Explicit="ToString" />
+			</orm:SafeDataRetrieve>
+			<orm:SafeDataStore Name="DBValue" />
+		</orm:SpecialType>
+	</orm:SpecialTypes>
+</orm:MappingRoot>

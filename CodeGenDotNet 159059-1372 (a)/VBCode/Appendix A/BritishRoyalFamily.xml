@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="BritishRoyalFamilyTests.xslt" ?>
+<Family Name="British royals">
+    <Person Name="George VI" DOB="12/14/1895" Sex="Male">
+        <Person Name="Elizabeth I" DOB="4/21/1921" Sex="Female">
+            <Person Name="Charles" DOB="11/14/1948" Sex="Male">
+                <Person Name="William" DOB="6/21/1982" Sex="Male" />
+                <Person Name="Harry" DOB="9/15/1984" Sex="Male" />
+            </Person>
+            <Person Name="Anne" DOB="8/15/1950" Sex="Female">
+                <Person Name="Peter" DOB="11/15/1997" Sex="Male"/>
+                <Person Name="Zara" DOB="5/15/1981" Sex="Female" />
+            </Person>
+            <Person Name="Andrew" DOB="2/19/1960" Sex="Male">
+                <Person Name="Beatrice" DOB="8/8/1988" Sex="Female" />
+                <Person Name="Eugenie" DOB="3/23/1990" Sex="Female" />
+                <Person Name="Samuel" DOB="7/28/1996" Sex="Male" />
+                <Person Name="Arthur" DOB="2/5/1999" Sex="Male" />
+            </Person>
+            <Person Name="Edward" DOB="3/10/1964" Sex="Male" />
+        </Person>
+        <Person Name="Margaret" DOB="8/21/1930" Sex="Female">
+            <Person Name="David" DOB="11/3/1961" Sex="Male" >
+                <Person Name="Margarita" DOB="5/14/2002" Sex="Female" />
+                <Person Name="Charles" DOB="7/2/1999" Sex="Male" />
+            </Person>
+            <Person Name="Sarah" DOB="5/1/1964" Sex="Female" >
+                <Person Name="Samuel" DOB="7/28/1996" Sex="Male" />
+                <Person Name="Arthur" DOB="2/5/1999" Sex="Male" />
+            </Person>
+        </Person>
+    </Person>
+</Family>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<orm:MappingRoot xmlns:orm="http://kadgen.com/KADORM.xsd">
+	<orm:Assembly Namespace="cslaTest">
+		<!-- This is the sort of block that the default could create as a one time thing and you could alter -->
+		<orm:Object Name="Project" PluralName="Projects" SingularName="Project" GenerateProcs="CRUDS">
+			<orm:AllProperties />
+			<orm:BuildInfo StoredProcBase="@SingularName" DataStructure="Northwind">
+				<orm:BuildTable Name="Project" >
+					<orm:AllColumns />
+					<orm:ChildTable Name="Assignments" />
+				</orm:BuildTable>
+			</orm:BuildInfo>
+		</orm:Object>
+		<!-- This is a more complex block with mapped columns and a join. 
+			  You could have mapped columns without a join and vice versa -->
+		<orm:Object Name="BroadTest" Namespace="overridingNamespace" GenerateProcs="R">
+			<orm:Property Name="ProjectName" MapColumn="Name" />
+			<orm:Property Name="DepartmentName" MapColumn="DepartmentName" />
+			<orm:Property Name="BuildingName" MapColumn="BuildingName" />
+			<orm:Property Name="CompanyName" MapColumn="CompanyName" />
+			<orm:BuildInfo StoredProcBase="BroadTest">
+				<orm:BuildTable Name="Projects">
+					<orm:AllColumns />
+					<orm:ChildTable Name="Assignments" />
+				</orm:BuildTable>
+				<orm:BuildTable Name="Departments">
+					<orm:BuildColumn Name="DepartmentName" Column="Name" />
+				</orm:BuildTable>
+				<orm:BuildTable Name="Buildings">
+					<orm:BuildColumn Name="BuildingName" Column="Name" />
+				</orm:BuildTable>
+				<orm:BuildTable Name="Companies">
+					<orm:BuildColumn Name="CompanyName" Column="Name" />
+				</orm:BuildTable>
+				<orm:Joins>
+					<orm:Join Type="Inner">
+						<orm:Left JoinTable="Project" Where="Project.DepartmentID = Department.ID" />
+						<orm:Right Join="Second" />
+					</orm:Join>
+					<orm:Join Name="Second" Type="Inner">
+						<orm:Left JoinTable="Project" Where="Department.BuildingID = Building.ID" />
+						<orm:Right Join="Third" />
+					</orm:Join>
+					<orm:Join Name="Third" Type="Inner">
+						<orm:Left JoinTable="Project" Where="Building.CompanyID = Company.ID" />
+						<orm:Right JoinTable="Company" />
+					</orm:Join>
+				</orm:Joins>
+			</orm:BuildInfo>
+		</orm:Object>
+		<!-- This is a sample assuming you have stored procs -->
+		<orm:Object Name="Project" PluralName="Projects" SingularName="Project">
+			<orm:AllProperties />
+			<orm:BuildInfo>
+				<orm:BuildInfoSP Task="Create" Name="PreCreatedSP" />
+				<orm:BuildInfoSP Task="Retrieve" Name="PreCreatedSP2" />
+				<orm:BuildInfoSP Task="Update" Name="PreCreatedSP3" />
+				<orm:BuildInfoSP Task="Delete" Name="PreCreatedSP4" />
+				<orm:BuildInfoSP Task="Set" Name="PreCreatedSP5" />
+			</orm:BuildInfo>
+		</orm:Object>
+	</orm:Assembly>
+</orm:MappingRoot>

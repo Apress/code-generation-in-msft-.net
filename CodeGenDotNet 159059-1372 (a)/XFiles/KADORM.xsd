@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://kadgen.com/KADORM.xsd" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://kadgen.com/KADORM.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:q1="http://kadgen/DatabaseStructure">
+    <xs:import namespace="http://kadgen/DatabaseStructure" />
+    <xs:import />
+    <xs:element name="MappingRoot">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Build">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="SPSet">
+                                <xs:complexType mixed="true">
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" name="RetrieveParam">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute name="Name" type="xs:string" use="required" />
+                                                        <xs:attribute name="Column" type="xs:string" use="required" />
+                                                        <xs:attribute name="SQLType" type="xs:string" use="required" />
+                                                        <xs:attribute name="BaseNETType" type="xs:string" use="required" />
+                                                        <xs:attribute name="NETType" type="xs:string" use="required" />
+                                                        <xs:attribute name="Default" type="xs:string" use="optional" />
+                                                        <xs:attribute name="Empty" type="xs:string" use="required" />
+                                                        <xs:attribute name="IsPrimaryKey" type="xs:boolean" use="required" />
+                                                        <xs:attribute name="FKName" type="xs:string" use="required" />
+                                                        <xs:attribute name="MaxLength" type="xs:unsignedByte" use="optional" />
+                                                        <xs:attribute name="IsAutoIncrement" type="xs:boolean" use="optional" />
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="WhereClause">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute name="Clause" type="xs:string" use="required" />
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="SetSelect">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element maxOccurs="unbounded" name="SetSelectColumn">
+                                                        <xs:complexType>
+                                                            <xs:attribute name="IsPrimaryKey" type="xs:boolean" use="required" />
+                                                            <xs:attribute name="Name" type="xs:string" use="required" />
+                                                            <xs:attribute name="Column" type="xs:string" use="required" />
+                                                            <xs:attribute name="SQLType" type="xs:string" use="required" />
+                                                            <xs:attribute name="BaseNETType" type="xs:string" use="required" />
+                                                            <xs:attribute name="NETType" type="xs:string" use="required" />
+                                                            <xs:attribute name="Default" type="xs:string" use="optional" />
+                                                            <xs:attribute name="Empty" type="xs:string" use="required" />
+                                                            <xs:attribute name="MaxLength" type="xs:unsignedByte" use="optional" />
+                                                            <xs:attribute name="IsAutoIncrement" type="xs:boolean" use="optional" />
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="TableName" type="xs:string" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element maxOccurs="unbounded" name="Privilege">
+                                            <xs:complexType>
+                                                <xs:attribute name="Grantee" type="xs:string" use="required" />
+                                                <xs:attribute name="Rights" type="xs:string" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element maxOccurs="unbounded" name="BuildRecordset">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element minOccurs="0" name="Joins">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Join">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="Left">
+                                                                                <xs:complexType>
+                                                                                    <xs:attribute name="JoinTable" type="xs:string" use="required" />
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                            <xs:element name="Right">
+                                                                                <xs:complexType>
+                                                                                    <xs:attribute name="JoinTable" type="xs:string" use="required" />
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                            <xs:element name="JoinOn">
+                                                                                <xs:complexType>
+                                                                                    <xs:attribute name="Clause" type="xs:string" use="required" />
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                        <xs:attribute name="Type" type="xs:string" use="required" />
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="WhereClause">
+                                                        <xs:complexType>
+                                                            <xs:attribute name="Clause" type="xs:string" use="required" />
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element maxOccurs="unbounded" name="BuildTable">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element maxOccurs="unbounded" name="BuildColumn">
+                                                                    <xs:complexType>
+                                                                        <xs:attribute name="Name" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Test" type="xs:string" use="optional" />
+                                                                        <xs:attribute name="Column" type="xs:string" use="required" />
+                                                                        <xs:attribute name="SQLType" type="xs:string" use="required" />
+                                                                        <xs:attribute name="BaseNETType" type="xs:string" use="required" />
+                                                                        <xs:attribute name="NETType" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Default" type="xs:string" use="optional" />
+                                                                        <xs:attribute name="Empty" type="xs:string" use="required" />
+                                                                        <xs:attribute name="IsPrimaryKey" type="xs:boolean" use="required" />
+                                                                        <xs:attribute name="MaxLength" type="xs:unsignedByte" use="optional" />
+                                                                        <xs:attribute name="IsAutoIncrement" type="xs:boolean" use="optional" />
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                            <xs:attribute name="Name" type="xs:string" use="required" />
+                                                            <xs:attribute name="MapDataStructure" type="xs:string" use="required" />
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="Name" type="xs:string" use="required" />
+                                                <xs:attribute name="MapDataStructure" type="xs:string" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element maxOccurs="unbounded" name="RunSP">
+                                            <xs:complexType>
+                                                <xs:sequence minOccurs="0">
+                                                    <xs:element maxOccurs="unbounded" name="RunSPParam">
+                                                        <xs:complexType>
+                                                            <xs:attribute name="Name" type="xs:string" use="required" />
+                                                            <xs:attribute name="Column" type="xs:string" use="required" />
+                                                            <xs:attribute name="SQLType" type="xs:string" use="required" />
+                                                            <xs:attribute name="BaseNETType" type="xs:string" use="required" />
+                                                            <xs:attribute name="NETType" type="xs:string" use="required" />
+                                                            <xs:attribute name="Default" type="xs:string" use="optional" />
+                                                            <xs:attribute name="Empty" type="xs:string" use="required" />
+                                                            <xs:attribute name="IsPrimaryKey" type="xs:boolean" use="required" />
+                                                            <xs:attribute name="TableName" type="xs:string" use="optional" />
+                                                            <xs:attribute name="MaxLength" type="xs:unsignedByte" use="optional" />
+                                                            <xs:attribute name="IsAutoIncrement" type="xs:boolean" use="optional" />
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="Task" type="xs:string" use="required" />
+                                                <xs:attribute name="Name" type="xs:string" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="Name" type="xs:string" use="required" />
+                                    <xs:attribute name="ObjectName" type="xs:string" use="required" />
+                                    <xs:attribute name="TableName" type="xs:string" use="required" />
+                                    <xs:attribute name="Generate" type="xs:string" use="required" />
+                                    <xs:attribute name="MapDataStructure" type="xs:string" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="MapDataStructure" type="xs:string" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="DefaultPrivileges">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="DefaultPrivilege">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="Grantee" type="xs:string" use="required" />
+                                            <xs:attribute name="Rights" type="xs:string" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="SpecialTypes">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="SpecialType">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="UseForAllType">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute name="Name" type="xs:string" use="required" />
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Property">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute name="Retrieve" type="xs:string" use="required" />
+                                                        <xs:attribute name="Set" type="xs:string" use="required" />
+                                                        <xs:attribute name="AccessVia" type="xs:string" use="required" />
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="SafeDataRetrieve">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="SafeDataProperty">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string">
+                                                                    <xs:attribute name="Explicit" type="xs:string" use="required" />
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="Name" type="xs:string" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="SafeDataStore">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute name="Name" type="xs:string" use="required" />
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="Name" type="xs:string" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element ref="q1:DataStructures" />
+                <xs:element name="Assembly">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="AllObjects" type="xs:string" />
+                            <xs:element maxOccurs="unbounded" name="ObjectInfo">
+                                <xs:complexType mixed="true">
+                                    <xs:sequence minOccurs="0">
+                                        <xs:element name="PropertyInfo">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute name="Name" type="xs:string" use="required" />
+                                                        <xs:attribute name="IsRequired" type="xs:boolean" use="required" />
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="Name" type="xs:string" use="required" />
+                                    <xs:attribute name="IsLookup" type="xs:boolean" use="optional" />
+                                    <xs:attribute name="Root" type="xs:boolean" use="optional" />
+                                    <xs:attribute name="Collection" type="xs:boolean" use="optional" />
+                                    <xs:attribute name="Child" type="xs:boolean" use="optional" />
+                                    <xs:attribute name="HideInUI" type="xs:boolean" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element maxOccurs="unbounded" name="Object">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:choice maxOccurs="unbounded">
+                                            <xs:element name="UseSPSet">
+                                                <xs:complexType>
+                                                    <xs:simpleContent>
+                                                        <xs:extension base="xs:string">
+                                                            <xs:attribute name="Name" type="xs:string" use="required" />
+                                                            <xs:attribute name="TableName" type="xs:string" use="required" />
+                                                        </xs:extension>
+                                                    </xs:simpleContent>
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="ChildCollection">
+                                                <xs:complexType>
+                                                    <xs:sequence>
+                                                        <xs:element maxOccurs="unbounded" name="ChildKeyField">
+                                                            <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                    <xs:extension base="xs:string">
+                                                                        <xs:attribute name="Name" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Ordinal" type="xs:unsignedByte" use="required" />
+                                                                    </xs:extension>
+                                                                </xs:simpleContent>
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                    </xs:sequence>
+                                                    <xs:attribute name="Name" type="xs:string" use="required" />
+                                                    <xs:attribute name="ObjectName" type="xs:string" use="required" />
+                                                    <xs:attribute name="ChildTableName" type="xs:string" use="required" />
+                                                    <xs:attribute name="Ordinal" type="xs:unsignedByte" use="required" />
+                                                    <xs:attribute name="Namespace" type="xs:string" use="required" />
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="ParentObject">
+                                                <xs:complexType>
+                                                    <xs:sequence>
+                                                        <xs:element maxOccurs="unbounded" name="ParentKeyField">
+                                                            <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                    <xs:extension base="xs:string">
+                                                                        <xs:attribute name="Name" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Ordinal" type="xs:unsignedByte" use="required" />
+                                                                    </xs:extension>
+                                                                </xs:simpleContent>
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                        <xs:element maxOccurs="unbounded" name="ChildKeyField">
+                                                            <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                    <xs:extension base="xs:string">
+                                                                        <xs:attribute name="Name" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Ordinal" type="xs:unsignedByte" use="required" />
+                                                                    </xs:extension>
+                                                                </xs:simpleContent>
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                    </xs:sequence>
+                                                    <xs:attribute name="Name" type="xs:string" use="required" />
+                                                    <xs:attribute name="SingularName" type="xs:string" use="required" />
+                                                    <xs:attribute name="PluralName" type="xs:string" use="required" />
+                                                    <xs:attribute name="Ordinal" type="xs:unsignedByte" use="required" />
+                                                    <xs:attribute name="Namespace" type="xs:string" use="required" />
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="AllProperties" type="xs:string" />
+                                            <xs:element name="CreateSP">
+                                                <xs:complexType>
+                                                    <xs:sequence>
+                                                        <xs:element maxOccurs="unbounded" name="Parameter">
+                                                            <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                    <xs:extension base="xs:string">
+                                                                        <xs:attribute name="Name" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Type" type="xs:string" use="required" />
+                                                                    </xs:extension>
+                                                                </xs:simpleContent>
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                        <xs:element name="Privilege">
+                                                            <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                    <xs:extension base="xs:string">
+                                                                        <xs:attribute name="Grantor" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Grantee" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Type" type="xs:string" use="required" />
+                                                                        <xs:attribute name="ProtectType" type="xs:string" use="required" />
+                                                                    </xs:extension>
+                                                                </xs:simpleContent>
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                    </xs:sequence>
+                                                    <xs:attribute name="Name" type="xs:string" use="required" />
+                                                    <xs:attribute name="TransactionType" type="xs:string" use="required" />
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="RetrieveSP">
+                                                <xs:complexType>
+                                                    <xs:sequence>
+                                                        <xs:element maxOccurs="unbounded" name="Parameter">
+                                                            <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                    <xs:extension base="xs:string">
+                                                                        <xs:attribute name="Name" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Type" type="xs:string" use="required" />
+                                                                    </xs:extension>
+                                                                </xs:simpleContent>
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                        <xs:element maxOccurs="unbounded" name="Privilege">
+                                                            <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                    <xs:extension base="xs:string">
+                                                                        <xs:attribute name="Grantor" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Grantee" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Type" type="xs:string" use="required" />
+                                                                        <xs:attribute name="ProtectType" type="xs:string" use="required" />
+                                                                    </xs:extension>
+                                                                </xs:simpleContent>
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                        <xs:element maxOccurs="unbounded" name="SPRecordSet">
+                                                            <xs:complexType>
+                                                                <xs:sequence>
+                                                                    <xs:element maxOccurs="unbounded" name="Column">
+                                                                        <xs:complexType>
+                                                                            <xs:simpleContent>
+                                                                                <xs:extension base="xs:string">
+                                                                                    <xs:attribute name="Name" type="xs:string" use="required" />
+                                                                                    <xs:attribute name="Column" type="xs:string" use="optional" />
+                                                                                    <xs:attribute name="SQLType" type="xs:string" use="optional" />
+                                                                                    <xs:attribute name="BaseNETType" type="xs:string" use="optional" />
+                                                                                    <xs:attribute name="NETType" type="xs:string" use="required" />
+                                                                                    <xs:attribute name="Default" type="xs:string" use="optional" />
+                                                                                    <xs:attribute name="Empty" type="xs:string" use="optional" />
+                                                                                    <xs:attribute name="IsPrimaryKey" type="xs:boolean" use="optional" />
+                                                                                    <xs:attribute name="OriginalName" type="xs:string" use="optional" />
+                                                                                    <xs:attribute name="Caption" type="xs:string" use="required" />
+                                                                                    <xs:attribute name="Ordinal" type="xs:unsignedByte" use="required" />
+                                                                                    <xs:attribute name="AllowNulls" type="xs:boolean" use="optional" />
+                                                                                    <xs:attribute name="MaxLength" type="xs:byte" use="required" />
+                                                                                    <xs:attribute name="AllowDBNull" type="xs:boolean" use="required" />
+                                                                                    <xs:attribute name="AutoIncrement" type="xs:boolean" use="required" />
+                                                                                    <xs:attribute name="Unique" type="xs:boolean" use="required" />
+                                                                                    <xs:attribute name="Test2" type="xs:string" use="required" />
+                                                                                    <xs:attribute name="Test3" type="xs:string" use="required" />
+                                                                                    <xs:attribute name="IsAutoIncrement" type="xs:boolean" use="optional" />
+                                                                                    <xs:attribute name="UseForDesc" type="xs:boolean" use="optional" />
+                                                                                </xs:extension>
+                                                                            </xs:simpleContent>
+                                                                        </xs:complexType>
+                                                                    </xs:element>
+                                                                </xs:sequence>
+                                                                <xs:attribute name="Name" type="xs:string" use="required" />
+                                                                <xs:attribute name="Test1" type="xs:string" use="required" />
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                    </xs:sequence>
+                                                    <xs:attribute name="Name" type="xs:string" use="required" />
+                                                    <xs:attribute name="TransactionType" type="xs:string" use="required" />
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="UpdateSP">
+                                                <xs:complexType>
+                                                    <xs:sequence>
+                                                        <xs:element maxOccurs="unbounded" name="Parameter">
+                                                            <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                    <xs:extension base="xs:string">
+                                                                        <xs:attribute name="Name" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Type" type="xs:string" use="required" />
+                                                                    </xs:extension>
+                                                                </xs:simpleContent>
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                        <xs:element maxOccurs="unbounded" name="Privilege">
+                                                            <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                    <xs:extension base="xs:string">
+                                                                        <xs:attribute name="Grantor" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Grantee" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Type" type="xs:string" use="required" />
+                                                                        <xs:attribute name="ProtectType" type="xs:string" use="required" />
+                                                                    </xs:extension>
+                                                                </xs:simpleContent>
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                    </xs:sequence>
+                                                    <xs:attribute name="Name" type="xs:string" use="required" />
+                                                    <xs:attribute name="TransactionType" type="xs:string" use="required" />
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="DeleteSP">
+                                                <xs:complexType>
+                                                    <xs:sequence>
+                                                        <xs:element maxOccurs="unbounded" name="Parameter">
+                                                            <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                    <xs:extension base="xs:string">
+                                                                        <xs:attribute name="Name" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Type" type="xs:string" use="required" />
+                                                                    </xs:extension>
+                                                                </xs:simpleContent>
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                        <xs:element maxOccurs="unbounded" name="Privilege">
+                                                            <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                    <xs:extension base="xs:string">
+                                                                        <xs:attribute name="Grantor" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Grantee" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Type" type="xs:string" use="required" />
+                                                                        <xs:attribute name="ProtectType" type="xs:string" use="required" />
+                                                                    </xs:extension>
+                                                                </xs:simpleContent>
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                    </xs:sequence>
+                                                    <xs:attribute name="Name" type="xs:string" use="required" />
+                                                    <xs:attribute name="TransactionType" type="xs:string" use="required" />
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="SetSelectSP">
+                                                <xs:complexType>
+                                                    <xs:sequence>
+                                                        <xs:element maxOccurs="unbounded" name="Privilege">
+                                                            <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                    <xs:extension base="xs:string">
+                                                                        <xs:attribute name="Grantor" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Grantee" type="xs:string" use="required" />
+                                                                        <xs:attribute name="Type" type="xs:string" use="required" />
+                                                                        <xs:attribute name="ProtectType" type="xs:string" use="required" />
+                                                                    </xs:extension>
+                                                                </xs:simpleContent>
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                        <xs:element name="SPRecordSet">
+                                                            <xs:complexType>
+                                                                <xs:sequence>
+                                                                    <xs:element maxOccurs="unbounded" name="Column">
+                                                                        <xs:complexType>
+                                                                            <xs:simpleContent>
+                                                                                <xs:extension base="xs:string">
+                                                                                    <xs:attribute name="Name" type="xs:string" use="required" />
+                                                                                    <xs:attribute name="Column" type="xs:string" use="required" />
+                                                                                    <xs:attribute name="SQLType" type="xs:string" use="required" />
+                                                                                    <xs:attribute name="BaseNETType" type="xs:string" use="required" />
+                                                                                    <xs:attribute name="NETType" type="xs:string" use="required" />
+                                                                                    <xs:attribute name="Default" type="xs:string" use="optional" />
+                                                                                    <xs:attribute name="Empty" type="xs:string" use="required" />
+                                                                                    <xs:attribute name="IsPrimaryKey" type="xs:boolean" use="required" />
+                                                                                    <xs:attribute name="OriginalName" type="xs:string" use="required" />
+                                                                                    <xs:attribute name="Caption" type="xs:string" use="required" />
+                                                                                    <xs:attribute name="Ordinal" type="xs:unsignedByte" use="required" />
+                                                                                    <xs:attribute name="AllowNulls" type="xs:boolean" use="required" />
+                                                                                    <xs:attribute name="MaxLength" type="xs:byte" use="required" />
+                                                                                    <xs:attribute name="AllowDBNull" type="xs:boolean" use="required" />
+                                                                                    <xs:attribute name="AutoIncrement" type="xs:boolean" use="required" />
+                                                                                    <xs:attribute name="Unique" type="xs:boolean" use="required" />
+                                                                                    <xs:attribute name="Test2" type="xs:string" use="required" />
+                                                                                    <xs:attribute name="Test3" type="xs:string" use="required" />
+                                                                                    <xs:attribute name="IsAutoIncrement" type="xs:boolean" use="optional" />
+                                                                                    <xs:attribute name="UseForDesc" type="xs:boolean" use="optional" />
+                                                                                </xs:extension>
+                                                                            </xs:simpleContent>
+                                                                        </xs:complexType>
+                                                                    </xs:element>
+                                                                </xs:sequence>
+                                                                <xs:attribute name="Name" type="xs:string" use="required" />
+                                                                <xs:attribute name="Test1" type="xs:string" use="required" />
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                    </xs:sequence>
+                                                    <xs:attribute name="Name" type="xs:string" use="required" />
+                                                    <xs:attribute name="TransactionType" type="xs:string" use="required" />
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element ref="columnkey" />
+                                            <xs:element name="Property">
+                                                <xs:complexType>
+                                                    <xs:simpleContent>
+                                                        <xs:extension base="xs:string">
+                                                            <xs:attribute name="Name" type="xs:string" use="required" />
+                                                            <xs:attribute name="OriginalName" type="xs:string" use="optional" />
+                                                            <xs:attribute name="Caption" type="xs:string" use="required" />
+                                                            <xs:attribute name="Ordinal" type="xs:unsignedByte" use="required" />
+                                                            <xs:attribute name="AllowNulls" type="xs:boolean" use="optional" />
+                                                            <xs:attribute name="SQLType" type="xs:string" use="optional" />
+                                                            <xs:attribute name="NETType" type="xs:string" use="required" />
+                                                            <xs:attribute name="IsPrimaryKey" type="xs:boolean" use="optional" />
+                                                            <xs:attribute name="Column" type="xs:string" use="optional" />
+                                                            <xs:attribute name="BaseNETType" type="xs:string" use="required" />
+                                                            <xs:attribute name="Default" type="xs:string" use="optional" />
+                                                            <xs:attribute name="Empty" type="xs:string" use="required" />
+                                                            <xs:attribute name="AllowDBNull" type="xs:boolean" use="required" />
+                                                            <xs:attribute name="AutoIncrement" type="xs:boolean" use="required" />
+                                                            <xs:attribute name="Unique" type="xs:boolean" use="required" />
+                                                            <xs:attribute name="MaxLength" type="xs:unsignedInt" use="optional" />
+                                                            <xs:attribute name="IsAutoIncrement" type="xs:boolean" use="optional" />
+                                                            <xs:attribute name="UseForDesc" type="xs:boolean" use="optional" />
+                                                            <xs:attribute name="IsRequired" type="xs:boolean" use="optional" />
+                                                        </xs:extension>
+                                                    </xs:simpleContent>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:choice>
+                                    </xs:sequence>
+                                    <xs:attribute name="Name" type="xs:string" use="required" />
+                                    <xs:attribute name="TableName" type="xs:string" use="required" />
+                                    <xs:attribute name="CollectionName" type="xs:string" use="required" />
+                                    <xs:attribute name="Caption" type="xs:string" use="required" />
+                                    <xs:attribute name="Namespace" type="xs:string" use="required" />
+                                    <xs:attribute name="Generate" type="xs:string" use="required" />
+                                    <xs:attribute name="MapDataStructure" type="xs:string" use="required" />
+                                    <xs:attribute name="TransactionForRetrieve" type="xs:boolean" use="required" />
+                                    <xs:attribute name="RetrievePattern" type="xs:string" use="required" />
+                                    <xs:attribute name="RetrieveSetPattern" type="xs:string" use="required" />
+                                    <xs:attribute name="CreatePattern" type="xs:string" use="required" />
+                                    <xs:attribute name="UpdatePattern" type="xs:string" use="required" />
+                                    <xs:attribute name="DeletePattern" type="xs:string" use="required" />
+                                    <xs:attribute name="Root" type="xs:boolean" use="required" />
+                                    <xs:attribute name="Collection" type="xs:boolean" use="required" />
+                                    <xs:attribute name="Child" type="xs:boolean" use="required" />
+                                    <xs:attribute name="CollectionRoot" type="xs:boolean" use="required" />
+                                    <xs:attribute name="CollectionChild" type="xs:boolean" use="required" />
+                                    <xs:attribute name="ObjectChild" type="xs:boolean" use="required" />
+                                    <xs:attribute name="ReadOnly" type="xs:boolean" use="required" />
+                                    <xs:attribute name="IsLookup" type="xs:boolean" use="optional" />
+                                    <xs:attribute name="HideInUI" type="xs:boolean" use="optional" />
+                                    <xs:attribute name="Inherits" type="xs:string" use="optional" />
+                                    <xs:attribute name="ChildOf" type="xs:string" use="optional" />
+                                    <xs:attribute name="Position" type="xs:unsignedByte" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="Namespace" type="xs:string" use="required" />
+                        <xs:attribute name="MapDataStructure" type="xs:string" use="required" />
+                        <xs:attribute name="TransactionForRetrieve" type="xs:boolean" use="required" />
+                        <xs:attribute name="RetrievePattern" type="xs:string" use="required" />
+                        <xs:attribute name="RetrieveSetPattern" type="xs:string" use="required" />
+                        <xs:attribute name="CreatePattern" type="xs:string" use="required" />
+                        <xs:attribute name="UpdatePattern" type="xs:string" use="required" />
+                        <xs:attribute name="DeletePattern" type="xs:string" use="required" />
+                        <xs:attribute name="Name" type="xs:string" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="MapDataStructure" type="xs:string" use="required" />
+            <xs:attribute name="TransactionType" type="xs:string" use="required" />
+            <xs:attribute name="Namespace" type="xs:string" use="required" />
+            <xs:attribute name="TransactionForRetrieve" type="xs:boolean" use="required" />
+            <xs:attribute name="RetrievePattern" type="xs:string" use="required" />
+            <xs:attribute name="SetSelectPattern" type="xs:string" use="required" />
+            <xs:attribute name="CreatePattern" type="xs:string" use="required" />
+            <xs:attribute name="UpdatePattern" type="xs:string" use="required" />
+            <xs:attribute name="DeletePattern" type="xs:string" use="required" />
+            <xs:attribute name="Generate" type="xs:string" use="required" />
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

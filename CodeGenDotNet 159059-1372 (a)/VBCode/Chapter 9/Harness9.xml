@@ -1,0 +1,59 @@
+<?xml version="1.0" standalone="yes"?>
+<kg:GenerationScript xmlns:kg="http://kadgen.com/KADGenDriving.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://kadgen.com/KADGenDriving.xsd ..\..\XFiles\KADGenDriving.xsd" LocalSettings="Harness7_LocalOptions.xml" ProjectSettings="Harness7_ProjectOptions.xml">
+  <kg:FilePaths>
+    <kg:FilePath Name="Chapter6" Path="..\Chapter 6a" File="" />
+    <kg:FilePath Name="Metadata" Path="[MetadataPath]" File="WinInputMetadata.xml" />
+    <kg:FilePath Name="WindowsOutput" Path="Output\WinProject" File="" />
+    <kg:FilePath Name="XSLTWindows" Path="RichClient" File="" />
+    <kg:FilePath Name="MetadataPath" Path="[BasePath]..\..\Metadata Files\" File="" />
+    <kg:FilePath Name="Temp" Path="Temp" File="" />
+  </kg:FilePaths>
+  <kg:Section>
+    <kg:Standard Name="Run Ch 6" Checked="false" />
+    <kg:NestedScript ScriptName="[Chapter6]Harness6.xml">
+      <kg:Standard Name="Chapter 6 Operations" Checked="true" Ordinal="0" />
+    </kg:NestedScript>
+  </kg:Section>
+  <kg:Section>
+    <kg:Standard Name="Create Windows.Forms" Checked="true" />
+    <kg:MergeMetadata BaseXMLFileName="[MetadataPath]GenInputMetadata.xml" MergingXMLFileName="UIInfo.xml" OutputXMLFileName="[Temp]Interim1.xml">
+      <kg:Standard Name="Merge Manual UI Inforamtion" Ordinal="0" Checked="true" />
+    </kg:MergeMetadata>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Transform to Special Windows Input" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSUtility]" />
+      <kg:SinglePass OutputFile="[Metadata]" />
+      <kg:XSLTFiles InputFileName="[Temp]Interim1.xml" XSLTFileName="[XSLTWindows]WinInputTransform.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create Detail Layout Forms" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[Metadata]" SelectXPath="//ui:Form[@FormType='Edit' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WindowsOutput]Layout\layoutWinEdit" OutputFilePattern="layout&lt;@Name&gt;.vb" />
+      <kg:XSLTFiles InputFileName="[Metadata]" XSLTFileName="[XSLTWindows]layoutWinEdit.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create Autogen Detail Forms" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[Metadata]" SelectXPath="//ui:Form[@FormType='Edit' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WindowsOutput]Autogen\genWinEdit" OutputFilePattern="gen&lt;@Name&gt;.vb" />
+      <kg:XSLTFiles InputFileName="[Metadata]" XSLTFileName="[XSLTWindows]genWinEdit.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create Editable Detail Forms" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[Metadata]" SelectXPath="//ui:Form[@FormType='Edit' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WindowsOutput]Editable\WinEdit" OutputFilePattern="&lt;@Name&gt;.vb" />
+      <kg:XSLTFiles InputFileName="[Metadata]" XSLTFileName="[XSLTWindows]WinEdit.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create Autogen Select Forms" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[Metadata]" SelectXPath="//ui:Form[@FormType='Select' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WindowsOutput]Autogen\genWinSelect" OutputFilePattern="gen&lt;@Name&gt;.vb" />
+      <kg:XSLTFiles InputFileName="[Metadata]" XSLTFileName="[XSLTWindows]genWinSelect.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create Editable Select Forms" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[Metadata]" SelectXPath="//ui:Form[@FormType='Select' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WindowsOutput]Editable\WinSelect" OutputFilePattern="&lt;@Name&gt;.vb" />
+      <kg:XSLTFiles InputFileName="[Metadata]" XSLTFileName="[XSLTWindows]WinSelect.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+  </kg:Section>
+</kg:GenerationScript>

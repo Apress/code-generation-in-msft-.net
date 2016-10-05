@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BusinessObjects", "Business Objects\BusinessObjects.vbproj", "{8121CDF4-D020-4505-B9BA-D9A6687FA5BA}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Database", "Stored Procedures\Database.vbproj", "{85B37F14-353B-4743-AB7F-F56CCF235093}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "RichClient", "Windows UI\RichClient.vbproj", "{DBD09A0C-6A10-428F-A72F-20898BCA46BC}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ORMTransform", "ORM Transform\ORMTransform.vbproj", "{AFB30153-2602-4BFE-B64E-7D373E527B05}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WebClient", "Web UI\WebClient.vbproj", "{7D21761B-942B-4DB1-BE61-35A20F7976BF}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{8121CDF4-D020-4505-B9BA-D9A6687FA5BA}.Debug.ActiveCfg = Debug|.NET
+		{8121CDF4-D020-4505-B9BA-D9A6687FA5BA}.Debug.Build.0 = Debug|.NET
+		{8121CDF4-D020-4505-B9BA-D9A6687FA5BA}.Release.ActiveCfg = Release|.NET
+		{8121CDF4-D020-4505-B9BA-D9A6687FA5BA}.Release.Build.0 = Release|.NET
+		{85B37F14-353B-4743-AB7F-F56CCF235093}.Debug.ActiveCfg = Debug|.NET
+		{85B37F14-353B-4743-AB7F-F56CCF235093}.Debug.Build.0 = Debug|.NET
+		{85B37F14-353B-4743-AB7F-F56CCF235093}.Release.ActiveCfg = Release|.NET
+		{85B37F14-353B-4743-AB7F-F56CCF235093}.Release.Build.0 = Release|.NET
+		{DBD09A0C-6A10-428F-A72F-20898BCA46BC}.Debug.ActiveCfg = Debug|.NET
+		{DBD09A0C-6A10-428F-A72F-20898BCA46BC}.Debug.Build.0 = Debug|.NET
+		{DBD09A0C-6A10-428F-A72F-20898BCA46BC}.Release.ActiveCfg = Release|.NET
+		{DBD09A0C-6A10-428F-A72F-20898BCA46BC}.Release.Build.0 = Release|.NET
+		{AFB30153-2602-4BFE-B64E-7D373E527B05}.Debug.ActiveCfg = Debug|.NET
+		{AFB30153-2602-4BFE-B64E-7D373E527B05}.Debug.Build.0 = Debug|.NET
+		{AFB30153-2602-4BFE-B64E-7D373E527B05}.Release.ActiveCfg = Release|.NET
+		{AFB30153-2602-4BFE-B64E-7D373E527B05}.Release.Build.0 = Release|.NET
+		{7D21761B-942B-4DB1-BE61-35A20F7976BF}.Debug.ActiveCfg = Debug|.NET
+		{7D21761B-942B-4DB1-BE61-35A20F7976BF}.Debug.Build.0 = Debug|.NET
+		{7D21761B-942B-4DB1-BE61-35A20F7976BF}.Release.ActiveCfg = Release|.NET
+		{7D21761B-942B-4DB1-BE61-35A20F7976BF}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,521 @@
+<VisualStudioProject>
+    <VisualBasic
+        ProjectType = "Web"
+        ProductVersion = "7.10.3077"
+        SchemaVersion = "2.0"
+        ProjectGuid = "{D479AE14-DF80-42B1-9BAD-9DDC5840F533}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = ""
+                AssemblyKeyContainerName = ""
+                AssemblyName = "WebProject"
+                AssemblyOriginatorKeyFile = ""
+                AssemblyOriginatorKeyMode = "None"
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "Library"
+                OptionCompare = "Binary"
+                OptionExplicit = "On"
+                OptionStrict = "Off"
+                RootNamespace = "WebPTracker"
+                StartupObject = "WebPTracker.(None)"
+            >
+                <Config
+                    Name = "Debug"
+                    BaseAddress = "285212672"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = ""
+                    DefineDebug = "true"
+                    DefineTrace = "true"
+                    DebugSymbols = "true"
+                    IncrementalBuild = "true"
+                    Optimize = "false"
+                    OutputPath = "bin\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "1"
+                />
+                <Config
+                    Name = "Release"
+                    BaseAddress = "285212672"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = ""
+                    DefineDebug = "false"
+                    DefineTrace = "true"
+                    DebugSymbols = "false"
+                    IncrementalBuild = "false"
+                    Optimize = "true"
+                    OutputPath = "bin\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "1"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                />
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                />
+                <Reference
+                    Name = "System.Drawing"
+                    AssemblyName = "System.Drawing"
+                />
+                <Reference
+                    Name = "System.Web"
+                    AssemblyName = "System.Web"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                />
+                <Reference
+                    Name = "CSLA.Server.ServicedDataPortal"
+                    AssemblyName = "CSLA.Server.ServicedDataPortal"
+                    HintPath = "..\..\..\Chapter 8\Output\BusinessObjects\bin\CSLA.Server.ServicedDataPortal.dll"
+                />
+                <Reference
+                    Name = "CSLA.Core.Bindablebase"
+                    AssemblyName = "CSLA.Core.Bindablebase"
+                    HintPath = "..\..\..\Chapter 8\Output\BusinessObjects\bin\CSLA.Core.Bindablebase.dll"
+                />
+                <Reference
+                    Name = "CSLA"
+                    AssemblyName = "CSLA"
+                    HintPath = "..\..\..\Chapter 8\Output\BusinessObjects\bin\CSLA.dll"
+                />
+                <Reference
+                    Name = "CSLA.Server.DataPortal"
+                    AssemblyName = "CSLA.Server.DataPortal"
+                    HintPath = "..\..\..\Chapter 8\Output\BusinessObjects\bin\CSLA.Server.DataPortal.dll"
+                />
+                <Reference
+                    Name = "BusinessObjects"
+                    AssemblyName = "BusinessObjects"
+                    HintPath = "..\..\..\Chapter 8\Output\BusinessObjects\bin\BusinessObjects.dll"
+                />
+            </References>
+            <Imports>
+                <Import Namespace = "Microsoft.VisualBasic" />
+                <Import Namespace = "System" />
+                <Import Namespace = "System.Collections" />
+                <Import Namespace = "System.Configuration" />
+                <Import Namespace = "System.Data" />
+                <Import Namespace = "System.Drawing" />
+                <Import Namespace = "System.Web" />
+                <Import Namespace = "System.Web.UI" />
+                <Import Namespace = "System.Web.UI.HtmlControls" />
+                <Import Namespace = "System.Web.UI.WebControls" />
+            </Imports>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "AssemblyInfo.vb"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Default.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Default.aspx.vb"
+                    DependentUpon = "Default.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Default.aspx.resx"
+                    DependentUpon = "Default.aspx.vb"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Global.asax"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Global.asax.vb"
+                    DependentUpon = "Global.asax"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Global.asax.resx"
+                    DependentUpon = "Global.asax.vb"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Header.ascx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Header.ascx.vb"
+                    DependentUpon = "Header.ascx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Header.ascx.resx"
+                    DependentUpon = "Header.ascx.vb"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Login.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Login.aspx.vb"
+                    DependentUpon = "Login.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Login.aspx.resx"
+                    DependentUpon = "Login.aspx.vb"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Navigation.vb"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Styles.css"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "UnderConstruction.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "UnderConstruction.aspx.vb"
+                    DependentUpon = "UnderConstruction.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "UnderConstruction.aspx.resx"
+                    DependentUpon = "UnderConstruction.aspx.vb"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Web.config"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "WebEditBase.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "WebSelecttBase.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ASPX\WebEdit\AssignmentEdit.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "ASPX\WebEdit\AssignmentEdit.aspx.vb"
+                    DependentUpon = "AssignmentEdit.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ASPX\WebEdit\BuildingEdit.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "ASPX\WebEdit\BuildingEdit.aspx.vb"
+                    DependentUpon = "BuildingEdit.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ASPX\WebEdit\CompanyEdit.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "ASPX\WebEdit\CompanyEdit.aspx.vb"
+                    DependentUpon = "CompanyEdit.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ASPX\WebEdit\CompanyEdit.aspx.resx"
+                    DependentUpon = "CompanyEdit.aspx.vb"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "ASPX\WebEdit\DepartmentEdit.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "ASPX\WebEdit\DepartmentEdit.aspx.vb"
+                    DependentUpon = "DepartmentEdit.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ASPX\WebEdit\ProjectEdit.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "ASPX\WebEdit\ProjectEdit.aspx.vb"
+                    DependentUpon = "ProjectEdit.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ASPX\WebEdit\ProjectEdit.aspx.resx"
+                    DependentUpon = "ProjectEdit.aspx.vb"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "ASPX\WebEdit\ResourceEdit.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "ASPX\WebEdit\ResourceEdit.aspx.vb"
+                    DependentUpon = "ResourceEdit.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ASPX\WebEdit\TimesheetEdit.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "ASPX\WebEdit\TimesheetEdit.aspx.vb"
+                    DependentUpon = "TimesheetEdit.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ASPX\WebSelect\AssignmentSelect.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "ASPX\WebSelect\AssignmentSelect.aspx.vb"
+                    DependentUpon = "AssignmentSelect.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ASPX\WebSelect\BuildingSelect.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "ASPX\WebSelect\BuildingSelect.aspx.vb"
+                    DependentUpon = "BuildingSelect.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ASPX\WebSelect\CompanySelect.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "ASPX\WebSelect\CompanySelect.aspx.vb"
+                    DependentUpon = "CompanySelect.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ASPX\WebSelect\DepartmentSelect.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "ASPX\WebSelect\DepartmentSelect.aspx.vb"
+                    DependentUpon = "DepartmentSelect.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ASPX\WebSelect\ProjectSelect.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "ASPX\WebSelect\ProjectSelect.aspx.vb"
+                    DependentUpon = "ProjectSelect.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ASPX\WebSelect\ProjectSelect.aspx.resx"
+                    DependentUpon = "ProjectSelect.aspx.vb"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "ASPX\WebSelect\ResourceSelect.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "ASPX\WebSelect\ResourceSelect.aspx.vb"
+                    DependentUpon = "ResourceSelect.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ASPX\WebSelect\TimesheetSelect.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "ASPX\WebSelect\TimesheetSelect.aspx.vb"
+                    DependentUpon = "TimesheetSelect.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Autogen\genNavigation.vb"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Autogen\genWebEdit\genAssignmentEdit.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Autogen\genWebEdit\genBuildingEdit.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Autogen\genWebEdit\genCompanyEdit.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Autogen\genWebEdit\genDepartmentEdit.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Autogen\genWebEdit\genProjectEdit.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Autogen\genWebEdit\genResourceEdit.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Autogen\genWebEdit\genTimesheetEdit.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Autogen\genWebSelect\genAssignmentSelect.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Autogen\genWebSelect\genBuildingSelect.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Autogen\genWebSelect\genCompanySelect.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Autogen\genWebSelect\genDepartmentSelect.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Autogen\genWebSelect\genProjectSelect.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Autogen\genWebSelect\genResourceSelect.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Autogen\genWebSelect\genTimesheetSelect.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Editable\WebEdit\AssignmentEdit.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Editable\WebEdit\BuildingEdit.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Editable\WebEdit\CompanyEdit.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Editable\WebEdit\DepartmentEdit.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Editable\WebEdit\ProjectEdit.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Editable\WebEdit\ResourceEdit.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Editable\WebEdit\TimesheetEdit.vb"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Images\AG00174_.GIF"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Images\AN04385_.WMF"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Images\BD19988_.WMF"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Images\CRANE.WMF"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Images\J0195248.WMF"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Images\J0241019.WMF"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Images\PTracker.WMF"
+                    BuildAction = "None"
+                />
+            </Include>
+        </Files>
+    </VisualBasic>
+</VisualStudioProject>
+

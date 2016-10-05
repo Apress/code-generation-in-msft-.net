@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WebClient", "WebClient.vbproj", "{7D21761B-942B-4DB1-BE61-35A20F7976BF}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{7D21761B-942B-4DB1-BE61-35A20F7976BF}.Debug.ActiveCfg = Debug|.NET
+		{7D21761B-942B-4DB1-BE61-35A20F7976BF}.Debug.Build.0 = Debug|.NET
+		{7D21761B-942B-4DB1-BE61-35A20F7976BF}.Release.ActiveCfg = Release|.NET
+		{7D21761B-942B-4DB1-BE61-35A20F7976BF}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

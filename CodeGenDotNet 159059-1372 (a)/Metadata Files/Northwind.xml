@@ -1,0 +1,2008 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbs:MetaDataRoot FreeForm="true" xmlns:dbs="http://kadgen/DatabaseStructure">
+  <dbs:DataStructures>
+    <dbs:DataStructure Name="Northwind">
+      <dbs:Tables>
+        <dbs:Table Name="Category" OriginalName="Categories" Prefix="" SingularName="Category" PluralName="Categories" DisplayName="CategoryName" Caption="Category" PluralCaption="Categories" DeletePriority="" InsertPriority="0">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="CategoryID" OriginalName="CategoryID" Caption="Category ID" Ordinal="1" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="true" IsAutoIncrement="true">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="CategoryName" OriginalName="CategoryName" Caption="Category Name" Ordinal="2" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Description" OriginalName="Description" Caption="Description" Ordinal="3" AllowNulls="true" SQLType="NText" NETType="System.String" MaxLength="1073741823" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Picture" OriginalName="Picture" Caption="Picture" Ordinal="4" AllowNulls="true" SQLType="Image" NETType="System.Byte()" MaxLength="2147483647" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges>
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:TablePrivileges>
+          <dbs:TableConstraints>
+            <dbs:PrimaryKey>
+              <dbs:PKField Name="CategoryID" Ordinal="1" />
+            </dbs:PrimaryKey>
+            <dbs:TableRelations>
+              <dbs:ChildTables>
+                <dbs:ChildTable Name="Product">
+                  <dbs:ChildKeyField Name="CategoryID" Ordinal="1" />
+                </dbs:ChildTable>
+              </dbs:ChildTables>
+            </dbs:TableRelations>
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="CustomerCustomerDemo" OriginalName="CustomerCustomerDemo" Prefix="" SingularName="CustomerCustomerDemo" PluralName="CustomerCustomerDemos" DisplayName="CustomerID" Caption="Customer Customer Demo" PluralCaption="Customer Customer Demos" DeletePriority="" InsertPriority="1">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="CustomerID" OriginalName="CustomerID" Caption="Customer ID" Ordinal="1" AllowNulls="false" SQLType="NChar" NETType="System.String" MaxLength="5" IsPrimaryKey="true">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="CustomerTypeID" OriginalName="CustomerTypeID" Caption="Customer Type ID" Ordinal="2" AllowNulls="false" SQLType="NChar" NETType="System.String" MaxLength="10" IsPrimaryKey="true">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges>
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:TablePrivileges>
+          <dbs:TableConstraints>
+            <dbs:PrimaryKey>
+              <dbs:PKField Name="CustomerID" Ordinal="1" />
+              <dbs:PKField Name="CustomerTypeID" Ordinal="2" />
+            </dbs:PrimaryKey>
+            <dbs:TableRelations>
+              <dbs:ParentTables>
+                <dbs:ParentTable Name="CustomerDemographics">
+                  <dbs:ParentKeyField Name="CustomerTypeID" Ordinal="1" />
+                  <dbs:ChildField Name="CustomerTypeID" Ordinal="1" />
+                </dbs:ParentTable>
+                <dbs:ParentTable Name="Customers">
+                  <dbs:ParentKeyField Name="CustomerID" Ordinal="1" />
+                  <dbs:ChildField Name="CustomerID" Ordinal="1" />
+                </dbs:ParentTable>
+              </dbs:ParentTables>
+            </dbs:TableRelations>
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="CustomerDemographic" OriginalName="CustomerDemographics" Prefix="" SingularName="CustomerDemographic" PluralName="CustomerDemographics" DisplayName="CustomerTypeID" Caption="Customer Demographic" PluralCaption="Customer Demographics" DeletePriority="" InsertPriority="0">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="CustomerTypeID" OriginalName="CustomerTypeID" Caption="Customer Type ID" Ordinal="1" AllowNulls="false" SQLType="NChar" NETType="System.String" MaxLength="10" IsPrimaryKey="true">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="CustomerDesc" OriginalName="CustomerDesc" Caption="Customer Desc" Ordinal="2" AllowNulls="true" SQLType="NText" NETType="System.String" MaxLength="1073741823" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges>
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:TablePrivileges>
+          <dbs:TableConstraints>
+            <dbs:PrimaryKey>
+              <dbs:PKField Name="CustomerTypeID" Ordinal="1" />
+            </dbs:PrimaryKey>
+            <dbs:TableRelations>
+              <dbs:ChildTables>
+                <dbs:ChildTable Name="CustomerCustomerDemo">
+                  <dbs:ChildKeyField Name="CustomerTypeID" Ordinal="1" />
+                </dbs:ChildTable>
+              </dbs:ChildTables>
+            </dbs:TableRelations>
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="Customer" OriginalName="Customers" Prefix="" SingularName="Customer" PluralName="Customers" DisplayName="CompanyName" Caption="Customer" PluralCaption="Customers" DeletePriority="" InsertPriority="0">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="CustomerID" OriginalName="CustomerID" Caption="Customer ID" Ordinal="1" AllowNulls="false" SQLType="NChar" NETType="System.String" MaxLength="5" IsPrimaryKey="true">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="CompanyName" OriginalName="CompanyName" Caption="Company Name" Ordinal="2" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="ContactName" OriginalName="ContactName" Caption="Contact Name" Ordinal="3" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="30" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="ContactTitle" OriginalName="ContactTitle" Caption="Contact Title" Ordinal="4" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="30" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Address" OriginalName="Address" Caption="Address" Ordinal="5" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="60" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="City" OriginalName="City" Caption="City" Ordinal="6" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Region" OriginalName="Region" Caption="Region" Ordinal="7" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="PostalCode" OriginalName="PostalCode" Caption="Postal Code" Ordinal="8" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="10" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Country" OriginalName="Country" Caption="Country" Ordinal="9" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Phone" OriginalName="Phone" Caption="Phone" Ordinal="10" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="24" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Fax" OriginalName="Fax" Caption="Fax" Ordinal="11" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="24" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges>
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:TablePrivileges>
+          <dbs:TableConstraints>
+            <dbs:PrimaryKey>
+              <dbs:PKField Name="CustomerID" Ordinal="1" />
+            </dbs:PrimaryKey>
+            <dbs:TableRelations>
+              <dbs:ChildTables>
+                <dbs:ChildTable Name="Order">
+                  <dbs:ChildKeyField Name="CustomerID" Ordinal="1" />
+                </dbs:ChildTable>
+                <dbs:ChildTable Name="CustomerCustomerDemo">
+                  <dbs:ChildKeyField Name="CustomerID" Ordinal="1" />
+                </dbs:ChildTable>
+              </dbs:ChildTables>
+            </dbs:TableRelations>
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="Employee" OriginalName="Employees" Prefix="" SingularName="Employee" PluralName="Employees" DisplayName="LastName" Caption="Employee" PluralCaption="Employees" DeletePriority="" InsertPriority="0">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="EmployeeID" OriginalName="EmployeeID" Caption="Employee ID" Ordinal="1" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="true" IsAutoIncrement="true">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="LastName" OriginalName="LastName" Caption="Last Name" Ordinal="2" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="20" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="FirstName" OriginalName="FirstName" Caption="First Name" Ordinal="3" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="10" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Title" OriginalName="Title" Caption="Title" Ordinal="4" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="30" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="TitleOfCourtesy" OriginalName="TitleOfCourtesy" Caption="Title Of Courtesy" Ordinal="5" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="25" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="BirthDate" OriginalName="BirthDate" Caption="Birth Date" Ordinal="6" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints>
+                <dbs:CheckConstraint Clause="([BirthDate] &lt; getdate())" />
+              </dbs:CheckConstraints>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="HireDate" OriginalName="HireDate" Caption="Hire Date" Ordinal="7" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Address" OriginalName="Address" Caption="Address" Ordinal="8" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="60" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="City" OriginalName="City" Caption="City" Ordinal="9" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Region" OriginalName="Region" Caption="Region" Ordinal="10" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="PostalCode" OriginalName="PostalCode" Caption="Postal Code" Ordinal="11" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="10" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Country" OriginalName="Country" Caption="Country" Ordinal="12" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="HomePhone" OriginalName="HomePhone" Caption="Home Phone" Ordinal="13" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="24" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Extension" OriginalName="Extension" Caption="Extension" Ordinal="14" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="4" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Photo" OriginalName="Photo" Caption="Photo" Ordinal="15" AllowNulls="true" SQLType="Image" NETType="System.Byte()" MaxLength="2147483647" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Notes" OriginalName="Notes" Caption="Notes" Ordinal="16" AllowNulls="true" SQLType="NText" NETType="System.String" MaxLength="1073741823" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="ReportsTo" OriginalName="ReportsTo" Caption="Reports To" Ordinal="17" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="PhotoPath" OriginalName="PhotoPath" Caption="Photo Path" Ordinal="18" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="255" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges>
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:TablePrivileges>
+          <dbs:TableConstraints>
+            <dbs:PrimaryKey>
+              <dbs:PKField Name="EmployeeID" Ordinal="1" />
+            </dbs:PrimaryKey>
+            <dbs:TableRelations>
+              <dbs:ChildTables>
+                <dbs:ChildTable Name="Order">
+                  <dbs:ChildKeyField Name="EmployeeID" Ordinal="1" />
+                </dbs:ChildTable>
+                <dbs:ChildTable Name="EmployeeTerritory">
+                  <dbs:ChildKeyField Name="EmployeeID" Ordinal="1" />
+                </dbs:ChildTable>
+                <dbs:ChildTable Name="Employee">
+                  <dbs:ChildKeyField Name="ReportsTo" Ordinal="1" />
+                </dbs:ChildTable>
+              </dbs:ChildTables>
+              <dbs:ParentTables>
+                <dbs:ParentTable Name="Employees">
+                  <dbs:ParentKeyField Name="EmployeeID" Ordinal="1" />
+                  <dbs:ChildField Name="ReportsTo" Ordinal="1" />
+                </dbs:ParentTable>
+              </dbs:ParentTables>
+            </dbs:TableRelations>
+            <dbs:TableCheckConstraints Clause="([BirthDate] &lt; getdate())" />
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="EmployeeTerritory" OriginalName="EmployeeTerritories" Prefix="" SingularName="EmployeeTerritory" PluralName="EmployeeTerritories" DisplayName="TerritoryID" Caption="Employee Territory" PluralCaption="Employee Territories" DeletePriority="" InsertPriority="2">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="EmployeeID" OriginalName="EmployeeID" Caption="Employee ID" Ordinal="1" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="true">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="TerritoryID" OriginalName="TerritoryID" Caption="Territory ID" Ordinal="2" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="20" IsPrimaryKey="true">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges>
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:TablePrivileges>
+          <dbs:TableConstraints>
+            <dbs:PrimaryKey>
+              <dbs:PKField Name="EmployeeID" Ordinal="1" />
+              <dbs:PKField Name="TerritoryID" Ordinal="2" />
+            </dbs:PrimaryKey>
+            <dbs:TableRelations>
+              <dbs:ParentTables>
+                <dbs:ParentTable Name="Employees">
+                  <dbs:ParentKeyField Name="EmployeeID" Ordinal="1" />
+                  <dbs:ChildField Name="EmployeeID" Ordinal="1" />
+                </dbs:ParentTable>
+                <dbs:ParentTable Name="Territories">
+                  <dbs:ParentKeyField Name="TerritoryID" Ordinal="1" />
+                  <dbs:ChildField Name="TerritoryID" Ordinal="1" />
+                </dbs:ParentTable>
+              </dbs:ParentTables>
+            </dbs:TableRelations>
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="Order_Detail" OriginalName="Order Details" Prefix="" SingularName="Order_Detail" PluralName="Order_Details" DisplayName="OrderID" Caption="Order_ Detail" PluralCaption="Order_ Details" DeletePriority="" InsertPriority="2">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="OrderID" OriginalName="OrderID" Caption="Order ID" Ordinal="1" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="true">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="ProductID" OriginalName="ProductID" Caption="Product ID" Ordinal="2" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="true">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="UnitPrice" OriginalName="UnitPrice" Caption="Unit Price" Ordinal="3" Default="(0)" AllowNulls="false" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints>
+                <dbs:CheckConstraint Clause="([UnitPrice] &gt;= 0)" />
+              </dbs:CheckConstraints>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Quantity" OriginalName="Quantity" Caption="Quantity" Ordinal="4" Default="(1)" AllowNulls="false" SQLType="SmallInt" NETType="System.Int16" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints>
+                <dbs:CheckConstraint Clause="([Quantity] &gt; 0)" />
+              </dbs:CheckConstraints>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Discount" OriginalName="Discount" Caption="Discount" Ordinal="5" Default="(0)" AllowNulls="false" SQLType="Real" NETType="System.Single" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints>
+                <dbs:CheckConstraint Clause="([Discount] &gt;= 0 and [Discount] &lt;= 1)" />
+              </dbs:CheckConstraints>
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges>
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:TablePrivileges>
+          <dbs:TableConstraints>
+            <dbs:PrimaryKey>
+              <dbs:PKField Name="OrderID" Ordinal="1" />
+              <dbs:PKField Name="ProductID" Ordinal="2" />
+            </dbs:PrimaryKey>
+            <dbs:TableRelations>
+              <dbs:ParentTables>
+                <dbs:ParentTable Name="Orders">
+                  <dbs:ParentKeyField Name="OrderID" Ordinal="1" />
+                  <dbs:ChildField Name="OrderID" Ordinal="1" />
+                </dbs:ParentTable>
+                <dbs:ParentTable Name="Products">
+                  <dbs:ParentKeyField Name="ProductID" Ordinal="1" />
+                  <dbs:ChildField Name="ProductID" Ordinal="1" />
+                </dbs:ParentTable>
+              </dbs:ParentTables>
+            </dbs:TableRelations>
+            <dbs:TableCheckConstraints Clause="([Discount] &gt;= 0 and [Discount] &lt;= 1)" />
+            <dbs:TableCheckConstraints Clause="([Quantity] &gt; 0)" />
+            <dbs:TableCheckConstraints Clause="([UnitPrice] &gt;= 0)" />
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="Order" OriginalName="Orders" Prefix="" SingularName="Order" PluralName="Orders" DisplayName="ShipName" Caption="Order" PluralCaption="Orders" DeletePriority="" InsertPriority="1">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="OrderID" OriginalName="OrderID" Caption="Order ID" Ordinal="1" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="true" IsAutoIncrement="true">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="CustomerID" OriginalName="CustomerID" Caption="Customer ID" Ordinal="2" AllowNulls="true" SQLType="NChar" NETType="System.String" MaxLength="5" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="EmployeeID" OriginalName="EmployeeID" Caption="Employee ID" Ordinal="3" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="OrderDate" OriginalName="OrderDate" Caption="Order Date" Ordinal="4" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="RequiredDate" OriginalName="RequiredDate" Caption="Required Date" Ordinal="5" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="ShippedDate" OriginalName="ShippedDate" Caption="Shipped Date" Ordinal="6" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="ShipVia" OriginalName="ShipVia" Caption="Ship Via" Ordinal="7" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Freight" OriginalName="Freight" Caption="Freight" Ordinal="8" Default="(0)" AllowNulls="true" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="ShipName" OriginalName="ShipName" Caption="Ship Name" Ordinal="9" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="ShipAddress" OriginalName="ShipAddress" Caption="Ship Address" Ordinal="10" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="60" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="ShipCity" OriginalName="ShipCity" Caption="Ship City" Ordinal="11" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="ShipRegion" OriginalName="ShipRegion" Caption="Ship Region" Ordinal="12" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="ShipPostalCode" OriginalName="ShipPostalCode" Caption="Ship Postal Code" Ordinal="13" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="10" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="ShipCountry" OriginalName="ShipCountry" Caption="Ship Country" Ordinal="14" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges>
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:TablePrivileges>
+          <dbs:TableConstraints>
+            <dbs:PrimaryKey>
+              <dbs:PKField Name="OrderID" Ordinal="1" />
+            </dbs:PrimaryKey>
+            <dbs:TableRelations>
+              <dbs:ChildTables>
+                <dbs:ChildTable Name="Order_Detail">
+                  <dbs:ChildKeyField Name="OrderID" Ordinal="1" />
+                </dbs:ChildTable>
+              </dbs:ChildTables>
+              <dbs:ParentTables>
+                <dbs:ParentTable Name="Customers">
+                  <dbs:ParentKeyField Name="CustomerID" Ordinal="1" />
+                  <dbs:ChildField Name="CustomerID" Ordinal="1" />
+                </dbs:ParentTable>
+                <dbs:ParentTable Name="Employees">
+                  <dbs:ParentKeyField Name="EmployeeID" Ordinal="1" />
+                  <dbs:ChildField Name="EmployeeID" Ordinal="1" />
+                </dbs:ParentTable>
+                <dbs:ParentTable Name="Shippers">
+                  <dbs:ParentKeyField Name="ShipperID" Ordinal="1" />
+                  <dbs:ChildField Name="ShipVia" Ordinal="1" />
+                </dbs:ParentTable>
+              </dbs:ParentTables>
+            </dbs:TableRelations>
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="Product" OriginalName="Products" Prefix="" SingularName="Product" PluralName="Products" DisplayName="ProductName" Caption="Product" PluralCaption="Products" DeletePriority="" InsertPriority="1">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="ProductID" OriginalName="ProductID" Caption="Product ID" Ordinal="1" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="true" IsAutoIncrement="true">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="ProductName" OriginalName="ProductName" Caption="Product Name" Ordinal="2" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="SupplierID" OriginalName="SupplierID" Caption="Supplier ID" Ordinal="3" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="CategoryID" OriginalName="CategoryID" Caption="Category ID" Ordinal="4" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="QuantityPerUnit" OriginalName="QuantityPerUnit" Caption="Quantity Per Unit" Ordinal="5" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="20" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="UnitPrice" OriginalName="UnitPrice" Caption="Unit Price" Ordinal="6" Default="(0)" AllowNulls="true" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints>
+                <dbs:CheckConstraint Clause="([UnitPrice] &gt;= 0)" />
+              </dbs:CheckConstraints>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="UnitsInStock" OriginalName="UnitsInStock" Caption="Units In Stock" Ordinal="7" Default="(0)" AllowNulls="true" SQLType="SmallInt" NETType="System.Int16" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints>
+                <dbs:CheckConstraint Clause="([UnitsInStock] &gt;= 0)" />
+              </dbs:CheckConstraints>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="UnitsOnOrder" OriginalName="UnitsOnOrder" Caption="Units On Order" Ordinal="8" Default="(0)" AllowNulls="true" SQLType="SmallInt" NETType="System.Int16" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints>
+                <dbs:CheckConstraint Clause="([UnitsOnOrder] &gt;= 0)" />
+              </dbs:CheckConstraints>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="ReorderLevel" OriginalName="ReorderLevel" Caption="Reorder Level" Ordinal="9" Default="(0)" AllowNulls="true" SQLType="SmallInt" NETType="System.Int16" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints>
+                <dbs:CheckConstraint Clause="([ReorderLevel] &gt;= 0)" />
+              </dbs:CheckConstraints>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Discontinued" OriginalName="Discontinued" Caption="Discontinued" Ordinal="10" Default="(0)" AllowNulls="false" SQLType="Bit" NETType="System.Boolean" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges>
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:TablePrivileges>
+          <dbs:TableConstraints>
+            <dbs:PrimaryKey>
+              <dbs:PKField Name="ProductID" Ordinal="1" />
+            </dbs:PrimaryKey>
+            <dbs:TableRelations>
+              <dbs:ChildTables>
+                <dbs:ChildTable Name="Order_Detail">
+                  <dbs:ChildKeyField Name="ProductID" Ordinal="1" />
+                </dbs:ChildTable>
+              </dbs:ChildTables>
+              <dbs:ParentTables>
+                <dbs:ParentTable Name="Categories">
+                  <dbs:ParentKeyField Name="CategoryID" Ordinal="1" />
+                  <dbs:ChildField Name="CategoryID" Ordinal="1" />
+                </dbs:ParentTable>
+                <dbs:ParentTable Name="Suppliers">
+                  <dbs:ParentKeyField Name="SupplierID" Ordinal="1" />
+                  <dbs:ChildField Name="SupplierID" Ordinal="1" />
+                </dbs:ParentTable>
+              </dbs:ParentTables>
+            </dbs:TableRelations>
+            <dbs:TableCheckConstraints Clause="([UnitPrice] &gt;= 0)" />
+            <dbs:TableCheckConstraints Clause="([ReorderLevel] &gt;= 0)" />
+            <dbs:TableCheckConstraints Clause="([UnitsInStock] &gt;= 0)" />
+            <dbs:TableCheckConstraints Clause="([UnitsOnOrder] &gt;= 0)" />
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="Region" OriginalName="Region" Prefix="" SingularName="Region" PluralName="Regions" DisplayName="RegionDescription" Caption="Region" PluralCaption="Regions" DeletePriority="" InsertPriority="0">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="RegionID" OriginalName="RegionID" Caption="Region ID" Ordinal="1" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="true">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="RegionDescription" OriginalName="RegionDescription" Caption="Region Description" Ordinal="2" AllowNulls="false" SQLType="NChar" NETType="System.String" MaxLength="50" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges>
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:TablePrivileges>
+          <dbs:TableConstraints>
+            <dbs:PrimaryKey>
+              <dbs:PKField Name="RegionID" Ordinal="1" />
+            </dbs:PrimaryKey>
+            <dbs:TableRelations>
+              <dbs:ChildTables>
+                <dbs:ChildTable Name="Territory">
+                  <dbs:ChildKeyField Name="RegionID" Ordinal="1" />
+                </dbs:ChildTable>
+              </dbs:ChildTables>
+            </dbs:TableRelations>
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="Shipper" OriginalName="Shippers" Prefix="" SingularName="Shipper" PluralName="Shippers" DisplayName="CompanyName" Caption="Shipper" PluralCaption="Shippers" DeletePriority="" InsertPriority="0">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="ShipperID" OriginalName="ShipperID" Caption="Shipper ID" Ordinal="1" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="true" IsAutoIncrement="true">
+              <dbs:TableColumnPrivileges />
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="CompanyName" OriginalName="CompanyName" Caption="Company Name" Ordinal="2" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Phone" OriginalName="Phone" Caption="Phone" Ordinal="3" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="24" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges />
+          <dbs:TableConstraints>
+            <dbs:PrimaryKey>
+              <dbs:PKField Name="ShipperID" Ordinal="1" />
+            </dbs:PrimaryKey>
+            <dbs:TableRelations>
+              <dbs:ChildTables>
+                <dbs:ChildTable Name="Order">
+                  <dbs:ChildKeyField Name="ShipVia" Ordinal="1" />
+                </dbs:ChildTable>
+              </dbs:ChildTables>
+            </dbs:TableRelations>
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="Supplier" OriginalName="Suppliers" Prefix="" SingularName="Supplier" PluralName="Suppliers" DisplayName="CompanyName" Caption="Supplier" PluralCaption="Suppliers" DeletePriority="" InsertPriority="0">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="SupplierID" OriginalName="SupplierID" Caption="Supplier ID" Ordinal="1" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="true" IsAutoIncrement="true">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="CompanyName" OriginalName="CompanyName" Caption="Company Name" Ordinal="2" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="ContactName" OriginalName="ContactName" Caption="Contact Name" Ordinal="3" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="30" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="ContactTitle" OriginalName="ContactTitle" Caption="Contact Title" Ordinal="4" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="30" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Address" OriginalName="Address" Caption="Address" Ordinal="5" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="60" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="City" OriginalName="City" Caption="City" Ordinal="6" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Region" OriginalName="Region" Caption="Region" Ordinal="7" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="PostalCode" OriginalName="PostalCode" Caption="Postal Code" Ordinal="8" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="10" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Country" OriginalName="Country" Caption="Country" Ordinal="9" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Phone" OriginalName="Phone" Caption="Phone" Ordinal="10" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="24" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Fax" OriginalName="Fax" Caption="Fax" Ordinal="11" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="24" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="HomePage" OriginalName="HomePage" Caption="Home Page" Ordinal="12" AllowNulls="true" SQLType="NText" NETType="System.String" MaxLength="1073741823" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges>
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:TablePrivileges>
+          <dbs:TableConstraints>
+            <dbs:PrimaryKey>
+              <dbs:PKField Name="SupplierID" Ordinal="1" />
+            </dbs:PrimaryKey>
+            <dbs:TableRelations>
+              <dbs:ChildTables>
+                <dbs:ChildTable Name="Product">
+                  <dbs:ChildKeyField Name="SupplierID" Ordinal="1" />
+                </dbs:ChildTable>
+              </dbs:ChildTables>
+            </dbs:TableRelations>
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="Territory" OriginalName="Territories" Prefix="" SingularName="Territory" PluralName="Territories" DisplayName="TerritoryDescription" Caption="Territory" PluralCaption="Territories" DeletePriority="" InsertPriority="1">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="TerritoryID" OriginalName="TerritoryID" Caption="Territory ID" Ordinal="1" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="20" IsPrimaryKey="true">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="TerritoryDescription" OriginalName="TerritoryDescription" Caption="Territory Description" Ordinal="2" AllowNulls="false" SQLType="NChar" NETType="System.String" MaxLength="50" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="RegionID" OriginalName="RegionID" Caption="Region ID" Ordinal="3" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges>
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="REFERENCES" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:TablePrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:TablePrivileges>
+          <dbs:TableConstraints>
+            <dbs:PrimaryKey>
+              <dbs:PKField Name="TerritoryID" Ordinal="1" />
+            </dbs:PrimaryKey>
+            <dbs:TableRelations>
+              <dbs:ChildTables>
+                <dbs:ChildTable Name="EmployeeTerritory">
+                  <dbs:ChildKeyField Name="TerritoryID" Ordinal="1" />
+                </dbs:ChildTable>
+              </dbs:ChildTables>
+              <dbs:ParentTables>
+                <dbs:ParentTable Name="Region">
+                  <dbs:ParentKeyField Name="RegionID" Ordinal="1" />
+                  <dbs:ChildField Name="RegionID" Ordinal="1" />
+                </dbs:ParentTable>
+              </dbs:ParentTables>
+            </dbs:TableRelations>
+          </dbs:TableConstraints>
+        </dbs:Table>
+      </dbs:Tables>
+      <dbs:UserDefinedTypes />
+      <dbs:StoredProcs>
+        <dbs:StoredProc Name="Ten Most Expensive Products" Created="8/6/2000 1:34:12 AM" Modified="8/6/2000 1:34:12 AM">
+          <dbs:StoredProcParameters />
+          <dbs:StoredProcPrivileges>
+            <dbs:StoredProcPrivilege Grantor="dbo" Grantee="public" Type="Execute" ProtectType="Grant     " />
+          </dbs:StoredProcPrivileges>
+        </dbs:StoredProc>
+        <dbs:StoredProc Name="Employee Sales by Country" Created="8/6/2000 1:34:12 AM" Modified="8/6/2000 1:34:12 AM">
+          <dbs:StoredProcParameters>
+            <dbs:StoredProcParameter Name="@Beginning_Date" Ordinal="1" Type="datetime" MaxLength="" Direction="IN" />
+            <dbs:StoredProcParameter Name="@Ending_Date" Ordinal="2" Type="datetime" MaxLength="" Direction="IN" />
+          </dbs:StoredProcParameters>
+          <dbs:StoredProcPrivileges>
+            <dbs:StoredProcPrivilege Grantor="dbo" Grantee="public" Type="Execute" ProtectType="Grant     " />
+          </dbs:StoredProcPrivileges>
+        </dbs:StoredProc>
+        <dbs:StoredProc Name="Sales by Year" Created="8/6/2000 1:34:13 AM" Modified="8/6/2000 1:34:13 AM">
+          <dbs:StoredProcParameters>
+            <dbs:StoredProcParameter Name="@Beginning_Date" Ordinal="1" Type="datetime" MaxLength="" Direction="IN" />
+            <dbs:StoredProcParameter Name="@Ending_Date" Ordinal="2" Type="datetime" MaxLength="" Direction="IN" />
+          </dbs:StoredProcParameters>
+          <dbs:StoredProcPrivileges>
+            <dbs:StoredProcPrivilege Grantor="dbo" Grantee="public" Type="Execute" ProtectType="Grant     " />
+          </dbs:StoredProcPrivileges>
+        </dbs:StoredProc>
+        <dbs:StoredProc Name="CustOrdersDetail" Created="8/6/2000 1:34:52 AM" Modified="8/6/2000 1:34:52 AM">
+          <dbs:StoredProcParameters>
+            <dbs:StoredProcParameter Name="@OrderID" Ordinal="1" Type="int" MaxLength="" Direction="IN" />
+          </dbs:StoredProcParameters>
+          <dbs:StoredProcPrivileges>
+            <dbs:StoredProcPrivilege Grantor="dbo" Grantee="public" Type="Execute" ProtectType="Grant     " />
+          </dbs:StoredProcPrivileges>
+        </dbs:StoredProc>
+        <dbs:StoredProc Name="CustOrdersOrders" Created="8/6/2000 1:34:52 AM" Modified="8/6/2000 1:34:52 AM">
+          <dbs:StoredProcParameters>
+            <dbs:StoredProcParameter Name="@CustomerID" Ordinal="1" Type="nchar" MaxLength="5" Direction="IN" />
+          </dbs:StoredProcParameters>
+          <dbs:StoredProcPrivileges>
+            <dbs:StoredProcPrivilege Grantor="dbo" Grantee="public" Type="Execute" ProtectType="Grant     " />
+          </dbs:StoredProcPrivileges>
+        </dbs:StoredProc>
+        <dbs:StoredProc Name="CustOrderHist" Created="8/6/2000 1:34:52 AM" Modified="8/6/2000 1:34:52 AM">
+          <dbs:StoredProcParameters>
+            <dbs:StoredProcParameter Name="@CustomerID" Ordinal="1" Type="nchar" MaxLength="5" Direction="IN" />
+          </dbs:StoredProcParameters>
+          <dbs:StoredProcPrivileges>
+            <dbs:StoredProcPrivilege Grantor="dbo" Grantee="public" Type="Execute" ProtectType="Grant     " />
+          </dbs:StoredProcPrivileges>
+        </dbs:StoredProc>
+        <dbs:StoredProc Name="SalesByCategory" Created="8/6/2000 1:34:53 AM" Modified="8/6/2000 1:34:53 AM">
+          <dbs:StoredProcParameters>
+            <dbs:StoredProcParameter Name="@CategoryName" Ordinal="1" Type="nvarchar" MaxLength="15" Direction="IN" />
+            <dbs:StoredProcParameter Name="@OrdYear" Ordinal="2" Type="nvarchar" MaxLength="4" Direction="IN" />
+          </dbs:StoredProcParameters>
+          <dbs:StoredProcPrivileges>
+            <dbs:StoredProcPrivilege Grantor="dbo" Grantee="public" Type="Execute" ProtectType="Grant     " />
+          </dbs:StoredProcPrivileges>
+        </dbs:StoredProc>
+      </dbs:StoredProcs>
+      <dbs:Functions />
+      <dbs:Views>
+        <dbs:View Name="Alphabetical_list_of_product" OriginalName="Alphabetical list of products" Prefix="" SingularName="Alphabetical_list_of_product" PluralName="Alphabetical_list_of_products" DisplayName="ProductName" Caption="Alphabetical_list_of_product" PluralCaption="Alphabetical_list_of_products">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="ProductID" OriginalName="ProductID" Caption="Product ID" Ordinal="1" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ProductName" OriginalName="ProductName" Caption="Product Name" Ordinal="2" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="SupplierID" OriginalName="SupplierID" Caption="Supplier ID" Ordinal="3" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="CategoryID" OriginalName="CategoryID" Caption="Category ID" Ordinal="4" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="QuantityPerUnit" OriginalName="QuantityPerUnit" Caption="Quantity Per Unit" Ordinal="5" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="20" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="UnitPrice" OriginalName="UnitPrice" Caption="Unit Price" Ordinal="6" AllowNulls="true" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="UnitsInStock" OriginalName="UnitsInStock" Caption="Units In Stock" Ordinal="7" AllowNulls="true" SQLType="SmallInt" NETType="System.Int16" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="UnitsOnOrder" OriginalName="UnitsOnOrder" Caption="Units On Order" Ordinal="8" AllowNulls="true" SQLType="SmallInt" NETType="System.Int16" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ReorderLevel" OriginalName="ReorderLevel" Caption="Reorder Level" Ordinal="9" AllowNulls="true" SQLType="SmallInt" NETType="System.Int16" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Discontinued" OriginalName="Discontinued" Caption="Discontinued" Ordinal="10" AllowNulls="false" SQLType="Bit" NETType="System.Boolean" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="CategoryName" OriginalName="CategoryName" Caption="Category Name" Ordinal="11" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="Category_Sales_for_1997" OriginalName="Category Sales for 1997" Prefix="" SingularName="Category_Sales_for_1997" PluralName="Category_Sales_for_1997s" DisplayName="CategoryName" Caption="Category_ Sales_for_ 1997" PluralCaption="Category_ Sales_for_ 1997s">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="CategoryName" OriginalName="CategoryName" Caption="Category Name" Ordinal="1" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="CategorySales" OriginalName="CategorySales" Caption="Category Sales" Ordinal="2" AllowNulls="true" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="Current_Product_List" OriginalName="Current Product List" Prefix="" SingularName="Current_Product_List" PluralName="Current_Product_Lists" DisplayName="ProductName" Caption="Current_ Product_ List" PluralCaption="Current_ Product_ Lists">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="ProductID" OriginalName="ProductID" Caption="Product ID" Ordinal="1" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false" IsAutoIncrement="true">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ProductName" OriginalName="ProductName" Caption="Product Name" Ordinal="2" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="Customer_and_Suppliers_by_City" OriginalName="Customer and Suppliers by City" Prefix="" SingularName="Customer_and_Suppliers_by_City" PluralName="Customer_and_Suppliers_by_Cities" DisplayName="CompanyName" Caption="Customer_and_ Suppliers_by_ City" PluralCaption="Customer_and_ Suppliers_by_ Cities">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="City" OriginalName="City" Caption="City" Ordinal="1" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="CompanyName" OriginalName="CompanyName" Caption="Company Name" Ordinal="2" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ContactName" OriginalName="ContactName" Caption="Contact Name" Ordinal="3" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="30" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Relationship" OriginalName="Relationship" Caption="Relationship" Ordinal="4" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="9" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="Invoice" OriginalName="Invoices" Prefix="" SingularName="Invoice" PluralName="Invoices" DisplayName="ShipName" Caption="Invoice" PluralCaption="Invoices">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="ShipName" OriginalName="ShipName" Caption="Ship Name" Ordinal="1" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ShipAddress" OriginalName="ShipAddress" Caption="Ship Address" Ordinal="2" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="60" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ShipCity" OriginalName="ShipCity" Caption="Ship City" Ordinal="3" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ShipRegion" OriginalName="ShipRegion" Caption="Ship Region" Ordinal="4" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ShipPostalCode" OriginalName="ShipPostalCode" Caption="Ship Postal Code" Ordinal="5" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="10" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ShipCountry" OriginalName="ShipCountry" Caption="Ship Country" Ordinal="6" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="CustomerID" OriginalName="CustomerID" Caption="Customer ID" Ordinal="7" AllowNulls="true" SQLType="NChar" NETType="System.String" MaxLength="5" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="CustomerName" OriginalName="CustomerName" Caption="Customer Name" Ordinal="8" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Address" OriginalName="Address" Caption="Address" Ordinal="9" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="60" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="City" OriginalName="City" Caption="City" Ordinal="10" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Region" OriginalName="Region" Caption="Region" Ordinal="11" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="PostalCode" OriginalName="PostalCode" Caption="Postal Code" Ordinal="12" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="10" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Country" OriginalName="Country" Caption="Country" Ordinal="13" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Salesperson" OriginalName="Salesperson" Caption="Salesperson" Ordinal="14" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="31" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="OrderID" OriginalName="OrderID" Caption="Order ID" Ordinal="15" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="OrderDate" OriginalName="OrderDate" Caption="Order Date" Ordinal="16" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="RequiredDate" OriginalName="RequiredDate" Caption="Required Date" Ordinal="17" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ShippedDate" OriginalName="ShippedDate" Caption="Shipped Date" Ordinal="18" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ShipperName" OriginalName="ShipperName" Caption="Shipper Name" Ordinal="19" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ProductID" OriginalName="ProductID" Caption="Product ID" Ordinal="20" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ProductName" OriginalName="ProductName" Caption="Product Name" Ordinal="21" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="UnitPrice" OriginalName="UnitPrice" Caption="Unit Price" Ordinal="22" AllowNulls="false" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Quantity" OriginalName="Quantity" Caption="Quantity" Ordinal="23" AllowNulls="false" SQLType="SmallInt" NETType="System.Int16" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Discount" OriginalName="Discount" Caption="Discount" Ordinal="24" AllowNulls="false" SQLType="Real" NETType="System.Single" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ExtendedPrice" OriginalName="ExtendedPrice" Caption="Extended Price" Ordinal="25" AllowNulls="true" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Freight" OriginalName="Freight" Caption="Freight" Ordinal="26" AllowNulls="true" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="Order_Details_Extended" OriginalName="Order Details Extended" Prefix="" SingularName="Order_Details_Extended" PluralName="Order_Details_Extendeds" DisplayName="ProductName" Caption="Order_ Details_ Extended" PluralCaption="Order_ Details_ Extendeds">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="OrderID" OriginalName="OrderID" Caption="Order ID" Ordinal="1" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ProductID" OriginalName="ProductID" Caption="Product ID" Ordinal="2" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ProductName" OriginalName="ProductName" Caption="Product Name" Ordinal="3" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="UnitPrice" OriginalName="UnitPrice" Caption="Unit Price" Ordinal="4" AllowNulls="false" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Quantity" OriginalName="Quantity" Caption="Quantity" Ordinal="5" AllowNulls="false" SQLType="SmallInt" NETType="System.Int16" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Discount" OriginalName="Discount" Caption="Discount" Ordinal="6" AllowNulls="false" SQLType="Real" NETType="System.Single" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ExtendedPrice" OriginalName="ExtendedPrice" Caption="Extended Price" Ordinal="7" AllowNulls="true" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="Order_Subtotal" OriginalName="Order Subtotals" Prefix="" SingularName="Order_Subtotal" PluralName="Order_Subtotals" DisplayName="OrderID" Caption="Order_ Subtotal" PluralCaption="Order_ Subtotals">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="OrderID" OriginalName="OrderID" Caption="Order ID" Ordinal="1" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Subtotal" OriginalName="Subtotal" Caption="Subtotal" Ordinal="2" AllowNulls="true" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="Orders_Qry" OriginalName="Orders Qry" Prefix="" SingularName="Orders_Qry" PluralName="Orders_Qries" DisplayName="ShipName" Caption="Orders_ Qry" PluralCaption="Orders_ Qries">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="OrderID" OriginalName="OrderID" Caption="Order ID" Ordinal="1" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="CustomerID" OriginalName="CustomerID" Caption="Customer ID" Ordinal="2" AllowNulls="true" SQLType="NChar" NETType="System.String" MaxLength="5" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="EmployeeID" OriginalName="EmployeeID" Caption="Employee ID" Ordinal="3" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="OrderDate" OriginalName="OrderDate" Caption="Order Date" Ordinal="4" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="RequiredDate" OriginalName="RequiredDate" Caption="Required Date" Ordinal="5" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ShippedDate" OriginalName="ShippedDate" Caption="Shipped Date" Ordinal="6" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ShipVia" OriginalName="ShipVia" Caption="Ship Via" Ordinal="7" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Freight" OriginalName="Freight" Caption="Freight" Ordinal="8" AllowNulls="true" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ShipName" OriginalName="ShipName" Caption="Ship Name" Ordinal="9" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ShipAddress" OriginalName="ShipAddress" Caption="Ship Address" Ordinal="10" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="60" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ShipCity" OriginalName="ShipCity" Caption="Ship City" Ordinal="11" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ShipRegion" OriginalName="ShipRegion" Caption="Ship Region" Ordinal="12" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ShipPostalCode" OriginalName="ShipPostalCode" Caption="Ship Postal Code" Ordinal="13" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="10" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ShipCountry" OriginalName="ShipCountry" Caption="Ship Country" Ordinal="14" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="CompanyName" OriginalName="CompanyName" Caption="Company Name" Ordinal="15" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Address" OriginalName="Address" Caption="Address" Ordinal="16" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="60" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="City" OriginalName="City" Caption="City" Ordinal="17" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Region" OriginalName="Region" Caption="Region" Ordinal="18" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="PostalCode" OriginalName="PostalCode" Caption="Postal Code" Ordinal="19" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="10" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Country" OriginalName="Country" Caption="Country" Ordinal="20" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="Product_Sales_for_1997" OriginalName="Product Sales for 1997" Prefix="" SingularName="Product_Sales_for_1997" PluralName="Product_Sales_for_1997s" DisplayName="CategoryName" Caption="Product_ Sales_for_ 1997" PluralCaption="Product_ Sales_for_ 1997s">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="CategoryName" OriginalName="CategoryName" Caption="Category Name" Ordinal="1" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ProductName" OriginalName="ProductName" Caption="Product Name" Ordinal="2" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ProductSales" OriginalName="ProductSales" Caption="Product Sales" Ordinal="3" AllowNulls="true" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="Products_Above_Average_Price" OriginalName="Products Above Average Price" Prefix="" SingularName="Products_Above_Average_Price" PluralName="Products_Above_Average_Prices" DisplayName="ProductName" Caption="Products_ Above_ Average_ Price" PluralCaption="Products_ Above_ Average_ Prices">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="ProductName" OriginalName="ProductName" Caption="Product Name" Ordinal="1" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="UnitPrice" OriginalName="UnitPrice" Caption="Unit Price" Ordinal="2" AllowNulls="true" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="Products_by_Category" OriginalName="Products by Category" Prefix="" SingularName="Products_by_Category" PluralName="Products_by_Categories" DisplayName="CategoryName" Caption="Products_by_ Category" PluralCaption="Products_by_ Categories">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="CategoryName" OriginalName="CategoryName" Caption="Category Name" Ordinal="1" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ProductName" OriginalName="ProductName" Caption="Product Name" Ordinal="2" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="QuantityPerUnit" OriginalName="QuantityPerUnit" Caption="Quantity Per Unit" Ordinal="3" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="20" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="UnitsInStock" OriginalName="UnitsInStock" Caption="Units In Stock" Ordinal="4" AllowNulls="true" SQLType="SmallInt" NETType="System.Int16" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Discontinued" OriginalName="Discontinued" Caption="Discontinued" Ordinal="5" AllowNulls="false" SQLType="Bit" NETType="System.Boolean" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="Quarterly_Order" OriginalName="Quarterly Orders" Prefix="" SingularName="Quarterly_Order" PluralName="Quarterly_Orders" DisplayName="CompanyName" Caption="Quarterly_ Order" PluralCaption="Quarterly_ Orders">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="CustomerID" OriginalName="CustomerID" Caption="Customer ID" Ordinal="1" AllowNulls="true" SQLType="NChar" NETType="System.String" MaxLength="5" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="CompanyName" OriginalName="CompanyName" Caption="Company Name" Ordinal="2" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="City" OriginalName="City" Caption="City" Ordinal="3" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Country" OriginalName="Country" Caption="Country" Ordinal="4" AllowNulls="true" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="Sales_by_Category" OriginalName="Sales by Category" Prefix="" SingularName="Sales_by_Category" PluralName="Sales_by_Categories" DisplayName="CategoryName" Caption="Sales_by_ Category" PluralCaption="Sales_by_ Categories">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="CategoryID" OriginalName="CategoryID" Caption="Category ID" Ordinal="1" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="CategoryName" OriginalName="CategoryName" Caption="Category Name" Ordinal="2" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="15" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ProductName" OriginalName="ProductName" Caption="Product Name" Ordinal="3" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ProductSales" OriginalName="ProductSales" Caption="Product Sales" Ordinal="4" AllowNulls="true" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="Sales_Totals_by_Amount" OriginalName="Sales Totals by Amount" Prefix="" SingularName="Sales_Totals_by_Amount" PluralName="Sales_Totals_by_Amounts" DisplayName="CompanyName" Caption="Sales_ Totals_by_ Amount" PluralCaption="Sales_ Totals_by_ Amounts">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="SaleAmount" OriginalName="SaleAmount" Caption="Sale Amount" Ordinal="1" AllowNulls="true" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="OrderID" OriginalName="OrderID" Caption="Order ID" Ordinal="2" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="CompanyName" OriginalName="CompanyName" Caption="Company Name" Ordinal="3" AllowNulls="false" SQLType="NVarChar" NETType="System.String" MaxLength="40" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="ShippedDate" OriginalName="ShippedDate" Caption="Shipped Date" Ordinal="4" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="Summary_of_Sales_by_Quarter" OriginalName="Summary of Sales by Quarter" Prefix="" SingularName="Summary_of_Sales_by_Quarter" PluralName="Summary_of_Sales_by_Quarters" DisplayName="ShippedDate" Caption="Summary_of_ Sales_by_ Quarter" PluralCaption="Summary_of_ Sales_by_ Quarters">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="ShippedDate" OriginalName="ShippedDate" Caption="Shipped Date" Ordinal="1" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="OrderID" OriginalName="OrderID" Caption="Order ID" Ordinal="2" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Subtotal" OriginalName="Subtotal" Caption="Subtotal" Ordinal="3" AllowNulls="true" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="Summary_of_Sales_by_Year" OriginalName="Summary of Sales by Year" Prefix="" SingularName="Summary_of_Sales_by_Year" PluralName="Summary_of_Sales_by_Years" DisplayName="ShippedDate" Caption="Summary_of_ Sales_by_ Year" PluralCaption="Summary_of_ Sales_by_ Years">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="ShippedDate" OriginalName="ShippedDate" Caption="Shipped Date" Ordinal="1" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="OrderID" OriginalName="OrderID" Caption="Order ID" Ordinal="2" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="Subtotal" OriginalName="Subtotal" Caption="Subtotal" Ordinal="3" AllowNulls="true" SQLType="Money" NETType="System.Decimal" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="INSERT" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="DELETE" />
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="UPDATE" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="sysconstraint" OriginalName="sysconstraints" Prefix="sysconstraints" SingularName="sysconstraint" PluralName="sysconstraints" DisplayName="constid" Caption="sysconstraint" PluralCaption="sysconstraints">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="constid" OriginalName="constid" Caption="constid" Ordinal="1" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="id" OriginalName="id" Caption="id" Ordinal="2" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="colid" OriginalName="colid" Caption="colid" Ordinal="3" AllowNulls="true" SQLType="SmallInt" NETType="System.Int16" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="spare1" OriginalName="spare1" Caption="spare 1" Ordinal="4" AllowNulls="true" SQLType="TinyInt" NETType="System.Byte" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="status" OriginalName="status" Caption="status" Ordinal="5" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="actions" OriginalName="actions" Caption="actions" Ordinal="6" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="_error" OriginalName="error" Caption="error" Ordinal="7" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="syssegment" OriginalName="syssegments" Prefix="syssegments" SingularName="syssegment" PluralName="syssegments" DisplayName="name" Caption="syssegment" PluralCaption="syssegments">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="segment" OriginalName="segment" Caption="segment" Ordinal="1" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="name" OriginalName="name" Caption="name" Ordinal="2" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="10" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="status" OriginalName="status" Caption="status" Ordinal="3" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+      </dbs:Views>
+      <dbs:Hierarchy>
+        <dbs:HTable Name="Category">
+          <dbs:HTable Name="Product">
+            <dbs:HTable Name="Order_Detail" />
+          </dbs:HTable>
+        </dbs:HTable>
+        <dbs:HTable Name="CustomerDemographic">
+          <dbs:HTable Name="CustomerCustomerDemo" />
+        </dbs:HTable>
+        <dbs:HTable Name="Customer">
+          <dbs:HTable Name="Order">
+            <dbs:HTable Name="Order_Detail" />
+          </dbs:HTable>
+          <dbs:HTable Name="CustomerCustomerDemo" />
+        </dbs:HTable>
+        <dbs:HTable Name="Region">
+          <dbs:HTable Name="Territory">
+            <dbs:HTable Name="EmployeeTerritory" />
+          </dbs:HTable>
+        </dbs:HTable>
+        <dbs:HTable Name="Shipper">
+          <dbs:HTable Name="Order">
+            <dbs:HTable Name="Order_Detail" />
+          </dbs:HTable>
+        </dbs:HTable>
+        <dbs:HTable Name="Supplier">
+          <dbs:HTable Name="Product">
+            <dbs:HTable Name="Order_Detail" />
+          </dbs:HTable>
+        </dbs:HTable>
+      </dbs:Hierarchy>
+    </dbs:DataStructure>
+  </dbs:DataStructures>
+</dbs:MetaDataRoot>

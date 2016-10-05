@@ -1,0 +1,48 @@
+<?xml version="1.0" standalone="yes"?>
+<kg:GenerationScript xmlns:kg="http://kadgen.com/KADGenDriving.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://kadgen.com/KADGenDriving.xsd ..\..\XFiles\KADGenDriving.xsd" LocalSettings="" ProjectSettings="">
+  <kg:FilePaths>
+    <kg:FilePath Name="BasePath" Path="..\..\" File="" />
+    <kg:FilePath Name="MetadataFileName" Path="[BasePath]Metadata Files\Northwind.xml" File="" />
+    <kg:FilePath Name="Chapter3" Path="[BasePath]VBCode\Chapter 3\" File="" />
+    <kg:FilePath Name="XFilePath" Path="[BasePath]XFiles\" File="" />
+  </kg:FilePaths>
+  <kg:Section>
+    <kg:Standard Name="PreProcessing" Checked="true" />
+    <kg:XSLTProcess>
+      <kg:Standard Name="XSTToFriendly" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputGenType="Overwrite" OutputFileType="XML" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[Chapter3]Sample\Friendly.xml" />
+      <kg:XSLTFiles NamespaceURI="http://www.kadgen/ExtensionObject" AssemblyFileName="" TypeName="Tools" InputFileName="[Chapter3]Sample\TempCustomersOrders.xsd" XSLTFileName="[XFilePath]XSDToFriendlyXML.xslt" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:CreateMetadata Server="localhost" Database="Northwind" SkipStoredProcs="false" SelectPatterns="" SetSelectPatterns="" RemovePrefix="false" LookupPrefix="">
+      <kg:Standard Name="NorthwindExtraction" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[MetadataFileName]" />
+      <kg:AlternateProcess />
+    </kg:CreateMetadata>
+    <kg:BruteForceGeneration>
+      <kg:Standard Name="BruteForceGeneration" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Always" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[MetadataFileName]" SelectNamespace="http://kadgen/DatabaseStructure" SelectNSPrefix="dbs" SelectXPath="//dbs:DataStructures/dbs:DataStructure/dbs:Tables/dbs:Table" OutputDir="[Chapter3]Output\BruteForce Output" OutputFilePattern="&lt;@Name&gt;.vb" />
+      <kg:Process AssemblyFileName="[Chapter3]BruteForceExample\bin\BruteForceExample.dll" TypeName="BruteForceExample" MethodName="GetStream" AssemblyName="" />
+    </kg:BruteForceGeneration>
+    <kg:CodeDOMGeneration TargetLanguage="VB">
+      <kg:Standard Name="CodeDOMGeneration - VB" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[MetadataFileName]" SelectNamespace="http://kadgen/DatabaseStructure" SelectNSPrefix="dbs" SelectXPath="//dbs:DataStructures/dbs:DataStructure/dbs:Tables/dbs:Table" OutputDir="[Chapter3]Output\CodeDOM VB Output" OutputFilePattern="&lt;@Name&gt;.vb" />
+      <kg:Process AssemblyFileName="[Chapter3]CodeDOMExample\bin\CodeDOMExample.dll" TypeName="CodeDOMExample" MethodName="BuildGraph" AssemblyName="" />
+    </kg:CodeDOMGeneration>
+    <kg:CodeDOMGeneration TargetLanguage="CSharp">
+      <kg:Standard Name="CodeDOMGeneration CSharp)" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[MetadataFileName]" SelectNamespace="http://kadgen/DatabaseStructure" SelectNSPrefix="dbs" SelectXPath="//dbs:DataStructures/dbs:DataStructure/dbs:Tables/dbs:Table" OutputDir="[Chapter3]Output\CodeDOM CS Output" OutputFilePattern="&lt;@Name&gt;.cs" />
+      <kg:Process AssemblyFileName="[Chapter3]CodeDOMExample\bin\CodeDOMExample.dll" TypeName="CodeDOMExample" MethodName="BuildGraph" AssemblyName="" />
+    </kg:CodeDOMGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="XSLTTest" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[MetadataFileName]" SelectNamespace="http://kadgen/DatabaseStructure" SelectNSPrefix="dbs" SelectXPath="//dbs:DataStructures/dbs:DataStructure/dbs:Tables/dbs:Table" OutputDir="[Chapter3]Output\XSLT Output" OutputFilePattern="&lt;@Name&gt;.vb" />
+      <kg:XSLTFiles InputFileName="[MetadataFileName]" XSLTFileName="[Chapter3]XSLTExample\SimpleDataContainer.xslt" AssemblyFileName="" AssemblyName="" TypeName="" NamespaceURI="" />
+    </kg:XSLTGeneration>
+  </kg:Section>
+</kg:GenerationScript>

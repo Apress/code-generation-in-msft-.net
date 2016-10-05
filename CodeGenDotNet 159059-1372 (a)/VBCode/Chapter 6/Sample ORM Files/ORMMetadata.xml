@@ -1,0 +1,921 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dbs:MetaDataRoot FreeForm="true" xmlns:dbs="http://kadgen/DatabaseStructure">
+  <dbs:DataStructures>
+    <dbs:DataStructure Name="PTracker">
+      <dbs:Tables>
+        <dbs:Table Name="Assignments" OriginalName="Assignments" SingularName="Assignment" PluralName="Assignments" DisplayName="ResourceID" Caption="Assignment" DeletePriority="" InsertPriority="1">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="ProjectID" OriginalName="ProjectID" Caption="Project ID" Ordinal="1" Default="" AllowNulls="false" SQLType="UniqueIdentifier" NETType="System.Guid" MaxLength="" IsPrimaryKey="true">
+              <dbs:TableColumnPrivileges />
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="ResourceID" OriginalName="ResourceID" Caption="Resource ID" Ordinal="2" Default="" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="10" IsPrimaryKey="true">
+              <dbs:TableColumnPrivileges />
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Assigned" OriginalName="Assigned" Caption="Assigned" Ordinal="3" Default="" AllowNulls="false" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Role" OriginalName="Role" Caption="Role" Ordinal="4" Default="" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges />
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges />
+          <dbs:TableConstraints>
+            <dbs:PrimaryKey>
+              <dbs:PKField Name="ProjectID" Ordinal="1" />
+              <dbs:PKField Name="ResourceID" Ordinal="2" />
+            </dbs:PrimaryKey>
+            <dbs:TableRelations>
+              <dbs:ParentTables>
+                <dbs:ParentTable Name="Roles">
+                  <dbs:ParentKeyField Name="ID" Ordinal="1" />
+                  <dbs:ChildField Name="Role" Ordinal="1" />
+                </dbs:ParentTable>
+                <dbs:ParentTable Name="Projects">
+                  <dbs:ParentKeyField Name="ID" Ordinal="1" />
+                  <dbs:ChildField Name="ProjectID" Ordinal="1" />
+                </dbs:ParentTable>
+                <dbs:ParentTable Name="Resources">
+                  <dbs:ParentKeyField Name="ID" Ordinal="1" />
+                  <dbs:ChildField Name="ResourceID" Ordinal="1" />
+                </dbs:ParentTable>
+              </dbs:ParentTables>
+            </dbs:TableRelations>
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="Buildings" OriginalName="Buildings" SingularName="Building" PluralName="Buildings" DisplayName="Name" Caption="Building" DeletePriority="" InsertPriority="0">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="ID" OriginalName="ID" Caption="ID" Ordinal="1" Default="" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false" IsAutoIncrement="true">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Name" OriginalName="Name" Caption="Name" Ordinal="2" Default="" AllowNulls="true" SQLType="VarChar" NETType="System.String" MaxLength="50" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="CompanyID" OriginalName="CompanyID" Caption="Company ID" Ordinal="3" Default="" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges />
+          <dbs:TableConstraints>
+            <dbs:TableRelations />
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="Companies" OriginalName="Companies" SingularName="Company" PluralName="Companies" DisplayName="Name" Caption="Company" DeletePriority="" InsertPriority="0">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="ID" OriginalName="ID" Caption="ID" Ordinal="1" Default="" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Name" OriginalName="Name" Caption="Name" Ordinal="2" Default="" AllowNulls="true" SQLType="VarChar" NETType="System.String" MaxLength="50" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges />
+          <dbs:TableConstraints>
+            <dbs:TableRelations />
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="Departments" OriginalName="Departments" SingularName="Department" PluralName="Departments" DisplayName="Name" Caption="Department" DeletePriority="" InsertPriority="0">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="ID" OriginalName="ID" Caption="ID" Ordinal="1" Default="" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false" IsAutoIncrement="true">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Name" OriginalName="Name" Caption="Name" Ordinal="2" Default="" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="50" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="BuildingID" OriginalName="BuildingID" Caption="Building ID" Ordinal="3" Default="" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges />
+          <dbs:TableConstraints>
+            <dbs:TableRelations />
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="Projects" OriginalName="Projects" SingularName="Project" PluralName="Projects" DisplayName="Name" Caption="Project" DeletePriority="" InsertPriority="0">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="ID" OriginalName="ID" Caption="ID" Ordinal="1" Default="" AllowNulls="false" SQLType="UniqueIdentifier" NETType="System.Guid" MaxLength="" IsPrimaryKey="true">
+              <dbs:TableColumnPrivileges />
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Name" OriginalName="Name" Caption="Name" Ordinal="2" Default="" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="50" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Started" OriginalName="Started" Caption="Started" Ordinal="3" Default="" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Ended" OriginalName="Ended" Caption="Ended" Ordinal="4" Default="" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Description" OriginalName="Description" Caption="Description" Ordinal="5" Default="" AllowNulls="false" SQLType="Text" NETType="System.String" MaxLength="2147483647" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="DepartmentID" OriginalName="DepartmentID" Caption="Department ID" Ordinal="6" Default="" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges />
+          <dbs:TableConstraints>
+            <dbs:PrimaryKey>
+              <dbs:PKField Name="ID" Ordinal="1" />
+            </dbs:PrimaryKey>
+            <dbs:TableRelations>
+              <dbs:ChildTables>
+                <dbs:ChildTable Name="Assignments">
+                  <dbs:ChildKeyField Name="ProjectID" Ordinal="1" />
+                </dbs:ChildTable>
+              </dbs:ChildTables>
+            </dbs:TableRelations>
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="Resources" OriginalName="Resources" SingularName="Resource" PluralName="Resources" DisplayName="LastName" Caption="Resource" DeletePriority="" InsertPriority="0">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="ID" OriginalName="ID" Caption="ID" Ordinal="1" Default="" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="10" IsPrimaryKey="true">
+              <dbs:TableColumnPrivileges />
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="LastName" OriginalName="LastName" Caption="Last Name" Ordinal="2" Default="" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="50" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="FirstName" OriginalName="FirstName" Caption="First Name" Ordinal="3" Default="" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="50" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges />
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges />
+          <dbs:TableConstraints>
+            <dbs:PrimaryKey>
+              <dbs:PKField Name="ID" Ordinal="1" />
+            </dbs:PrimaryKey>
+            <dbs:TableRelations>
+              <dbs:ChildTables>
+                <dbs:ChildTable Name="Assignments">
+                  <dbs:ChildKeyField Name="ResourceID" Ordinal="1" />
+                </dbs:ChildTable>
+              </dbs:ChildTables>
+            </dbs:TableRelations>
+          </dbs:TableConstraints>
+        </dbs:Table>
+        <dbs:Table Name="Roles" OriginalName="Roles" SingularName="Role" PluralName="Roles" DisplayName="Name" Caption="Role" DeletePriority="" InsertPriority="0">
+          <dbs:TableColumns>
+            <dbs:TableColumn Name="ID" OriginalName="ID" Caption="ID" Ordinal="1" Default="" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="true">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="KAD-XP1600\ASPNET" Type="SELECT" />
+              </dbs:TableColumnPrivileges>
+              <dbs:CheckConstraints />
+            </dbs:TableColumn>
+            <dbs:TableColumn Name="Name" OriginalName="Name" Caption="Name" Ordinal="2" Default="" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="50" IsPrimaryKey="false">
+              <dbs:TableColumnPrivileges>
+                <dbs:TableColumnPrivilege Grantor="dbo" Grantee="KAD-XP1600\ASPNET" Type="SELECT" />
+              </dbs:TableColumnPrivileges>
+            </dbs:TableColumn>
+          </dbs:TableColumns>
+          <dbs:TablePrivileges>
+            <dbs:TablePrivilege Grantor="dbo" Grantee="KAD-XP1600\ASPNET" Type="SELECT" />
+          </dbs:TablePrivileges>
+          <dbs:TableConstraints>
+            <dbs:PrimaryKey>
+              <dbs:PKField Name="ID" Ordinal="1" />
+            </dbs:PrimaryKey>
+            <dbs:TableRelations>
+              <dbs:ChildTables>
+                <dbs:ChildTable Name="Assignments">
+                  <dbs:ChildKeyField Name="Role" Ordinal="1" />
+                </dbs:ChildTable>
+              </dbs:ChildTables>
+            </dbs:TableRelations>
+          </dbs:TableConstraints>
+        </dbs:Table>
+      </dbs:Tables>
+      <dbs:UserDefinedTypes />
+      <dbs:StoredProcs>
+        <dbs:StoredProc Name="dt_dropuserobjectbyid" />
+        <dbs:StoredProc Name="dt_droppropertiesbyid" />
+        <dbs:StoredProc Name="dt_verstamp006" />
+        <dbs:StoredProc Name="dt_verstamp007" />
+        <dbs:StoredProc Name="dt_getpropertiesbyid_vcs" />
+        <dbs:StoredProc Name="dt_displayoaerror" />
+        <dbs:StoredProc Name="dt_adduserobject_vcs" />
+        <dbs:StoredProc Name="getAssignment" Created="7/21/2003 11:09:27 PM" Modified="7/21/2003 11:09:27 PM">
+          <dbs:StoredProcParameters>
+            <dbs:StoredProcParameter Name="@ProjectID" Ordinal="1" Type="uniqueidentifier" MaxLength="" Direction="IN" />
+            <dbs:StoredProcParameter Name="@ResourceID" Ordinal="2" Type="varchar" MaxLength="1" Direction="IN" />
+          </dbs:StoredProcParameters>
+          <dbs:DataSet />
+        </dbs:StoredProc>
+        <dbs:StoredProc Name="dt_addtosourcecontrol" />
+        <dbs:StoredProc Name="getProject" Created="7/21/2003 11:09:27 PM" Modified="7/21/2003 11:09:27 PM">
+          <dbs:StoredProcParameters>
+            <dbs:StoredProcParameter Name="@ID" Ordinal="1" Type="uniqueidentifier" MaxLength="" Direction="IN" />
+          </dbs:StoredProcParameters>
+          <dbs:DataSet />
+        </dbs:StoredProc>
+        <dbs:StoredProc Name="dt_checkinobject" />
+        <dbs:StoredProc Name="dt_checkoutobject" />
+        <dbs:StoredProc Name="getRole" Created="7/21/2003 11:09:27 PM" Modified="7/21/2003 11:09:27 PM">
+          <dbs:StoredProcParameters>
+            <dbs:StoredProcParameter Name="@ID" Ordinal="1" Type="int" MaxLength="" Direction="IN" />
+          </dbs:StoredProcParameters>
+          <dbs:DataSet />
+        </dbs:StoredProc>
+        <dbs:StoredProc Name="dt_isundersourcecontrol" />
+        <dbs:StoredProc Name="dt_removefromsourcecontrol" />
+        <dbs:StoredProc Name="dt_validateloginparams" />
+        <dbs:StoredProc Name="dt_vcsenabled" />
+        <dbs:StoredProc Name="getResource" Created="7/25/2003 8:48:03 AM" Modified="7/25/2003 8:48:03 AM">
+          <dbs:StoredProcParameters>
+            <dbs:StoredProcParameter Name="@ID" Ordinal="1" Type="varchar" MaxLength="1" Direction="IN" />
+          </dbs:StoredProcParameters>
+          <dbs:DataSet />
+        </dbs:StoredProc>
+        <dbs:StoredProc Name="dt_whocheckedout" />
+        <dbs:StoredProc Name="dt_getpropertiesbyid_vcs_u" />
+        <dbs:StoredProc Name="dt_displayoaerror_u" />
+        <dbs:StoredProc Name="dt_addtosourcecontrol_u" />
+        <dbs:StoredProc Name="dt_checkinobject_u" />
+        <dbs:StoredProc Name="dt_checkoutobject_u" />
+        <dbs:StoredProc Name="dt_isundersourcecontrol_u" />
+        <dbs:StoredProc Name="dt_validateloginparams_u" />
+        <dbs:StoredProc Name="dt_whocheckedout_u" />
+        <dbs:StoredProc Name="orm2_Project_Retrieve" Created="7/26/2003 9:12:07 AM" Modified="7/26/2003 9:12:07 AM">
+          <dbs:StoredProcParameters>
+            <dbs:StoredProcParameter Name="@ProjectID" Ordinal="1" Type="uniqueidentifier" MaxLength="" Direction="IN" />
+          </dbs:StoredProcParameters>
+          <dbs:DataSet>
+            <dbs:Recordset Name="Table">
+              <dbs:Column Name="ID" NETType="System.Guid" Caption="ID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+              <dbs:Column Name="Name" NETType="System.String" Caption="Name" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+              <dbs:Column Name="Started" NETType="System.DateTime" Caption="Started" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+              <dbs:Column Name="Ended" NETType="System.DateTime" Caption="Ended" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+              <dbs:Column Name="Description" NETType="System.String" Caption="Description" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="4" />
+              <dbs:Column Name="DepartmentID" NETType="System.Int32" Caption="DepartmentID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="5" />
+            </dbs:Recordset>
+            <dbs:Recordset Name="Table1">
+              <dbs:Column Name="ProjectID" NETType="System.Guid" Caption="ProjectID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+              <dbs:Column Name="ResourceID" NETType="System.String" Caption="ResourceID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+              <dbs:Column Name="Assigned" NETType="System.DateTime" Caption="Assigned" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+              <dbs:Column Name="Role" NETType="System.Int32" Caption="Role" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+            </dbs:Recordset>
+          </dbs:DataSet>
+        </dbs:StoredProc>
+        <dbs:StoredProc Name="getdtproperty" Created="7/21/2003 9:35:30 PM" Modified="7/21/2003 9:35:30 PM">
+          <dbs:StoredProcParameters />
+          <dbs:DataSet>
+            <dbs:Recordset Name="Table">
+              <dbs:Column Name="id" NETType="System.Int32" Caption="id" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+              <dbs:Column Name="objectid" NETType="System.Int32" Caption="objectid" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+              <dbs:Column Name="property" NETType="System.String" Caption="property" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+              <dbs:Column Name="value" NETType="System.String" Caption="value" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+              <dbs:Column Name="uvalue" NETType="System.String" Caption="uvalue" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="4" />
+              <dbs:Column Name="lvalue" NETType="System.Byte[]" Caption="lvalue" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="5" />
+              <dbs:Column Name="version" NETType="System.Int32" Caption="version" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="6" />
+            </dbs:Recordset>
+          </dbs:DataSet>
+        </dbs:StoredProc>
+        <dbs:StoredProc Name="orm2_Projects_Retrieve" Created="8/7/2003 2:54:22 PM" Modified="8/7/2003 2:54:22 PM">
+          <dbs:StoredProcParameters>
+            <dbs:StoredProcParameter Name="@ProjectID" Ordinal="1" Type="uniqueidentifier" MaxLength="" Direction="IN" />
+          </dbs:StoredProcParameters>
+          <dbs:DataSet>
+            <dbs:Recordset Name="Table">
+              <dbs:Column Name="ID" NETType="System.Guid" Caption="ID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+              <dbs:Column Name="Name" NETType="System.String" Caption="Name" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+              <dbs:Column Name="Started" NETType="System.DateTime" Caption="Started" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+              <dbs:Column Name="Ended" NETType="System.DateTime" Caption="Ended" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+              <dbs:Column Name="Description" NETType="System.String" Caption="Description" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="4" />
+              <dbs:Column Name="DepartmentID" NETType="System.Int32" Caption="DepartmentID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="5" />
+            </dbs:Recordset>
+            <dbs:Recordset Name="Table1">
+              <dbs:Column Name="ProjectID" NETType="System.Guid" Caption="ProjectID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+              <dbs:Column Name="ResourceID" NETType="System.String" Caption="ResourceID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+              <dbs:Column Name="Assigned" NETType="System.DateTime" Caption="Assigned" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+              <dbs:Column Name="Role" NETType="System.Int32" Caption="Role" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+            </dbs:Recordset>
+          </dbs:DataSet>
+        </dbs:StoredProc>
+        <dbs:StoredProc Name="orm2_Resources_Retrieve" Created="8/7/2003 2:54:22 PM" Modified="8/7/2003 2:54:22 PM">
+          <dbs:StoredProcParameters>
+            <dbs:StoredProcParameter Name="@ResourceID" Ordinal="1" Type="uniqueidentifier" MaxLength="" Direction="IN" />
+          </dbs:StoredProcParameters>
+          <dbs:DataSet>
+            <dbs:Recordset Name="Table">
+              <dbs:Column Name="ID" NETType="System.String" Caption="ID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+              <dbs:Column Name="LastName" NETType="System.String" Caption="LastName" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+              <dbs:Column Name="FirstName" NETType="System.String" Caption="FirstName" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+            </dbs:Recordset>
+            <dbs:Recordset Name="Table1">
+              <dbs:Column Name="ProjectID" NETType="System.Guid" Caption="ProjectID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+              <dbs:Column Name="ResourceID" NETType="System.String" Caption="ResourceID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+              <dbs:Column Name="Assigned" NETType="System.DateTime" Caption="Assigned" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+              <dbs:Column Name="Role" NETType="System.Int32" Caption="Role" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+            </dbs:Recordset>
+          </dbs:DataSet>
+        </dbs:StoredProc>
+        <dbs:StoredProc Name="orm2_Assignments_Retrieve" Created="8/7/2003 2:54:22 PM" Modified="8/7/2003 2:54:22 PM">
+          <dbs:StoredProcParameters>
+            <dbs:StoredProcParameter Name="@ProjectID" Ordinal="1" Type="uniqueidentifier" MaxLength="" Direction="IN" />
+            <dbs:StoredProcParameter Name="@ResourceID" Ordinal="2" Type="varchar" MaxLength="1" Direction="IN" />
+          </dbs:StoredProcParameters>
+          <dbs:DataSet>
+            <dbs:Recordset Name="Table">
+              <dbs:Column Name="ProjectID" NETType="System.Guid" Caption="ProjectID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+              <dbs:Column Name="ResourceID" NETType="System.String" Caption="ResourceID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+              <dbs:Column Name="Assigned" NETType="System.DateTime" Caption="Assigned" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+              <dbs:Column Name="Role" NETType="System.Int32" Caption="Role" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+            </dbs:Recordset>
+          </dbs:DataSet>
+        </dbs:StoredProc>
+        <dbs:StoredProc Name="orm2_BroadTest_Retrieve" Created="8/7/2003 2:54:22 PM" Modified="8/7/2003 2:54:22 PM">
+          <dbs:StoredProcParameters>
+            <dbs:StoredProcParameter Name="@ProjectID" Ordinal="1" Type="uniqueidentifier" MaxLength="" Direction="IN" />
+          </dbs:StoredProcParameters>
+          <dbs:DataSet>
+            <dbs:Recordset Name="Table">
+              <dbs:Column Name="ID" NETType="System.Guid" Caption="ID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+              <dbs:Column Name="Name" NETType="System.String" Caption="Name" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+              <dbs:Column Name="Started" NETType="System.DateTime" Caption="Started" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+              <dbs:Column Name="Ended" NETType="System.DateTime" Caption="Ended" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+              <dbs:Column Name="Description" NETType="System.String" Caption="Description" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="4" />
+              <dbs:Column Name="DepartmentID" NETType="System.Int32" Caption="DepartmentID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="5" />
+              <dbs:Column Name="DepartmentName" NETType="System.String" Caption="DepartmentName" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="6" />
+              <dbs:Column Name="DepartmentID1" NETType="System.Int32" Caption="DepartmentID1" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="7" />
+              <dbs:Column Name="BuildingName" NETType="System.String" Caption="BuildingName" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="8" />
+              <dbs:Column Name="BuildingID" NETType="System.Int32" Caption="BuildingID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="9" />
+              <dbs:Column Name="CompanyName" NETType="System.String" Caption="CompanyName" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="10" />
+              <dbs:Column Name="CompanyID" NETType="System.Int32" Caption="CompanyID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="11" />
+            </dbs:Recordset>
+            <dbs:Recordset Name="Table1">
+              <dbs:Column Name="ProjectID" NETType="System.Guid" Caption="ProjectID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+              <dbs:Column Name="ResourceID" NETType="System.String" Caption="ResourceID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+              <dbs:Column Name="Assigned" NETType="System.DateTime" Caption="Assigned" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+              <dbs:Column Name="Role" NETType="System.Int32" Caption="Role" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+            </dbs:Recordset>
+          </dbs:DataSet>
+        </dbs:StoredProc>
+        <dbs:StoredProc Name="dt_generateansiname" />
+        <dbs:StoredProc Name="dt_adduserobject" />
+        <dbs:StoredProc Name="dt_setpropertybyid" />
+        <dbs:StoredProc Name="dt_getobjwithprop" />
+        <dbs:StoredProc Name="dt_getpropertiesbyid" />
+        <dbs:StoredProc Name="dt_setpropertybyid_u" />
+        <dbs:StoredProc Name="dt_getobjwithprop_u" />
+        <dbs:StoredProc Name="dt_getpropertiesbyid_u" />
+      </dbs:StoredProcs>
+      <dbs:Functions />
+      <dbs:Views>
+        <dbs:View Name="sysconstraints" OriginalName="sysconstraints" SingularName="sysconstraint" PluralName="sysconstraints" DisplayName="constid" Caption="sysconstraint">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="constid" OriginalName="constid" Caption="constid" Ordinal="1" Default="" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="id" OriginalName="id" Caption="id" Ordinal="2" Default="" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="colid" OriginalName="colid" Caption="colid" Ordinal="3" Default="" AllowNulls="true" SQLType="SmallInt" NETType="System.Int16" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="spare1" OriginalName="spare1" Caption="spare1" Ordinal="4" Default="" AllowNulls="true" SQLType="TinyInt" NETType="System.Byte" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="status" OriginalName="status" Caption="status" Ordinal="5" Default="" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="actions" OriginalName="actions" Caption="actions" Ordinal="6" Default="" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="_error" OriginalName="error" Caption="error" Ordinal="7" Default="" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+        <dbs:View Name="syssegments" OriginalName="syssegments" SingularName="syssegment" PluralName="syssegments" DisplayName="name" Caption="syssegment">
+          <dbs:ViewColumns>
+            <dbs:ViewColumn Name="segment" OriginalName="segment" Caption="segment" Ordinal="1" Default="" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="name" OriginalName="name" Caption="name" Ordinal="2" Default="" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="10" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+            <dbs:ViewColumn Name="status" OriginalName="status" Caption="status" Ordinal="3" Default="" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+              <dbs:ViewColumnPrivileges>
+                <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+              </dbs:ViewColumnPrivileges>
+            </dbs:ViewColumn>
+          </dbs:ViewColumns>
+          <dbs:ViewPrivileges>
+            <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+          </dbs:ViewPrivileges>
+          <dbs:ViewConstraints>
+            <dbs:ViewRelations />
+          </dbs:ViewConstraints>
+        </dbs:View>
+      </dbs:Views>
+      <dbs:Hierarchy>
+        <dbs:HTable Name="Buildings" />
+        <dbs:HTable Name="Companies" />
+        <dbs:HTable Name="Departments" />
+        <dbs:HTable Name="Projects">
+          <dbs:HTable Name="Assignments" />
+        </dbs:HTable>
+        <dbs:HTable Name="Resources">
+          <dbs:HTable Name="Assignments" />
+        </dbs:HTable>
+        <dbs:HTable Name="Roles">
+          <dbs:HTable Name="Assignments" />
+        </dbs:HTable>
+      </dbs:Hierarchy>
+    </dbs:DataStructure>
+  </dbs:DataStructures>
+  <orm:MappingRoot xmlns:orm="http://kadgen.com/KADORM.xsd" MapDataStructure="PTracker" TransactionType="ADONET" Namespace="cslaTest" TransactionForRetrieve="false" RetrievePattern="wx_app[Object]_SelectOne" RetrieveSetPattern="wx_app[Object]_SelectAll" CreatePattern="wx_app[Object]_Insert" UpdatePattern="wx_app[Object]_Update" DeletePattern="wx_app[Object]_Delete" Generate="CRUDS">
+    <!-- The current templates expect that the ToString for each object is unique, because its used for the hashcode -->
+    <!-- Transactions can be ADONET or Enterprise 
+			     CreateNew can be LocalAutoPK, LocalUserPK, DB 
+			     *** LocalAutoPK only supported for GUID right now *** -->
+    <orm:Assembly Name="BusinessLayer">
+      <orm:AllObjects />
+    </orm:Assembly>
+    <orm:SpecialTypes>
+      <orm:SpecialType Name="SmartDate">
+        <orm:Property Retrieve="Text" Set="Text" AccessVia="System.String" />
+        <orm:SafeDataRetrieve Name="GetSmartDate">
+          <orm:SafeDataProperty Explicit="ToString" />
+        </orm:SafeDataRetrieve>
+        <orm:SafeDataStore Name="DBValue" />
+      </orm:SpecialType>
+    </orm:SpecialTypes>
+    <dbs:DataStructures xmlns:dbs="http://kadgen/DatabaseStructure">
+      <dbs:DataStructure Name="PTracker">
+        <dbs:Tables>
+          <dbs:Table Name="Assignments" OriginalName="Assignments" SingularName="Assignment" PluralName="Assignments" DisplayName="ResourceID" Caption="Assignment" DeletePriority="" InsertPriority="1">
+            <dbs:TableColumns>
+              <dbs:TableColumn Name="ProjectID" OriginalName="ProjectID" Caption="Project ID" Ordinal="1" Default="" AllowNulls="false" SQLType="UniqueIdentifier" NETType="System.Guid" MaxLength="" IsPrimaryKey="true">
+                <dbs:TableColumnPrivileges />
+                <dbs:CheckConstraints />
+              </dbs:TableColumn>
+              <dbs:TableColumn Name="ResourceID" OriginalName="ResourceID" Caption="Resource ID" Ordinal="2" Default="" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="10" IsPrimaryKey="true">
+                <dbs:TableColumnPrivileges />
+                <dbs:CheckConstraints />
+              </dbs:TableColumn>
+              <dbs:TableColumn Name="Assigned" OriginalName="Assigned" Caption="Assigned" Ordinal="3" Default="" AllowNulls="false" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+                <dbs:TableColumnPrivileges />
+              </dbs:TableColumn>
+              <dbs:TableColumn Name="Role" OriginalName="Role" Caption="Role" Ordinal="4" Default="" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+                <dbs:TableColumnPrivileges />
+                <dbs:CheckConstraints />
+              </dbs:TableColumn>
+            </dbs:TableColumns>
+            <dbs:TablePrivileges />
+            <dbs:TableConstraints>
+              <dbs:PrimaryKey>
+                <dbs:PKField Name="ProjectID" Ordinal="1" />
+                <dbs:PKField Name="ResourceID" Ordinal="2" />
+              </dbs:PrimaryKey>
+              <dbs:TableRelations>
+                <dbs:ParentTables>
+                  <dbs:ParentTable Name="Roles">
+                    <dbs:ParentKeyField Name="ID" Ordinal="1" />
+                    <dbs:ChildField Name="Role" Ordinal="1" />
+                  </dbs:ParentTable>
+                  <dbs:ParentTable Name="Projects">
+                    <dbs:ParentKeyField Name="ID" Ordinal="1" />
+                    <dbs:ChildField Name="ProjectID" Ordinal="1" />
+                  </dbs:ParentTable>
+                  <dbs:ParentTable Name="Resources">
+                    <dbs:ParentKeyField Name="ID" Ordinal="1" />
+                    <dbs:ChildField Name="ResourceID" Ordinal="1" />
+                  </dbs:ParentTable>
+                </dbs:ParentTables>
+              </dbs:TableRelations>
+            </dbs:TableConstraints>
+          </dbs:Table>
+          <dbs:Table Name="Buildings" OriginalName="Buildings" SingularName="Building" PluralName="Buildings" DisplayName="Name" Caption="Building" DeletePriority="" InsertPriority="0">
+            <dbs:TableColumns>
+              <dbs:TableColumn Name="ID" OriginalName="ID" Caption="ID" Ordinal="1" Default="" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false" IsAutoIncrement="true">
+                <dbs:TableColumnPrivileges />
+              </dbs:TableColumn>
+              <dbs:TableColumn Name="Name" OriginalName="Name" Caption="Name" Ordinal="2" Default="" AllowNulls="true" SQLType="VarChar" NETType="System.String" MaxLength="50" IsPrimaryKey="false">
+                <dbs:TableColumnPrivileges />
+              </dbs:TableColumn>
+              <dbs:TableColumn Name="CompanyID" OriginalName="CompanyID" Caption="Company ID" Ordinal="3" Default="" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+                <dbs:TableColumnPrivileges />
+              </dbs:TableColumn>
+            </dbs:TableColumns>
+            <dbs:TablePrivileges />
+            <dbs:TableConstraints>
+              <dbs:TableRelations />
+            </dbs:TableConstraints>
+          </dbs:Table>
+          <dbs:Table Name="Companies" OriginalName="Companies" SingularName="Company" PluralName="Companies" DisplayName="Name" Caption="Company" DeletePriority="" InsertPriority="0">
+            <dbs:TableColumns>
+              <dbs:TableColumn Name="ID" OriginalName="ID" Caption="ID" Ordinal="1" Default="" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+                <dbs:TableColumnPrivileges />
+              </dbs:TableColumn>
+              <dbs:TableColumn Name="Name" OriginalName="Name" Caption="Name" Ordinal="2" Default="" AllowNulls="true" SQLType="VarChar" NETType="System.String" MaxLength="50" IsPrimaryKey="false">
+                <dbs:TableColumnPrivileges />
+              </dbs:TableColumn>
+            </dbs:TableColumns>
+            <dbs:TablePrivileges />
+            <dbs:TableConstraints>
+              <dbs:TableRelations />
+            </dbs:TableConstraints>
+          </dbs:Table>
+          <dbs:Table Name="Departments" OriginalName="Departments" SingularName="Department" PluralName="Departments" DisplayName="Name" Caption="Department" DeletePriority="" InsertPriority="0">
+            <dbs:TableColumns>
+              <dbs:TableColumn Name="ID" OriginalName="ID" Caption="ID" Ordinal="1" Default="" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false" IsAutoIncrement="true">
+                <dbs:TableColumnPrivileges />
+              </dbs:TableColumn>
+              <dbs:TableColumn Name="Name" OriginalName="Name" Caption="Name" Ordinal="2" Default="" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="50" IsPrimaryKey="false">
+                <dbs:TableColumnPrivileges />
+              </dbs:TableColumn>
+              <dbs:TableColumn Name="BuildingID" OriginalName="BuildingID" Caption="Building ID" Ordinal="3" Default="" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+                <dbs:TableColumnPrivileges />
+              </dbs:TableColumn>
+            </dbs:TableColumns>
+            <dbs:TablePrivileges />
+            <dbs:TableConstraints>
+              <dbs:TableRelations />
+            </dbs:TableConstraints>
+          </dbs:Table>
+          <dbs:Table Name="Projects" OriginalName="Projects" SingularName="Project" PluralName="Projects" DisplayName="Name" Caption="Project" DeletePriority="" InsertPriority="0">
+            <dbs:TableColumns>
+              <dbs:TableColumn Name="ID" OriginalName="ID" Caption="ID" Ordinal="1" Default="" AllowNulls="false" SQLType="UniqueIdentifier" NETType="System.Guid" MaxLength="" IsPrimaryKey="true">
+                <dbs:TableColumnPrivileges />
+                <dbs:CheckConstraints />
+              </dbs:TableColumn>
+              <dbs:TableColumn Name="Name" OriginalName="Name" Caption="Name" Ordinal="2" Default="" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="50" IsPrimaryKey="false">
+                <dbs:TableColumnPrivileges />
+              </dbs:TableColumn>
+              <dbs:TableColumn Name="Started" OriginalName="Started" Caption="Started" Ordinal="3" Default="" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+                <dbs:TableColumnPrivileges />
+              </dbs:TableColumn>
+              <dbs:TableColumn Name="Ended" OriginalName="Ended" Caption="Ended" Ordinal="4" Default="" AllowNulls="true" SQLType="DateTime" NETType="System.DateTime" MaxLength="" IsPrimaryKey="false">
+                <dbs:TableColumnPrivileges />
+              </dbs:TableColumn>
+              <dbs:TableColumn Name="Description" OriginalName="Description" Caption="Description" Ordinal="5" Default="" AllowNulls="false" SQLType="Text" NETType="System.String" MaxLength="2147483647" IsPrimaryKey="false">
+                <dbs:TableColumnPrivileges />
+              </dbs:TableColumn>
+              <dbs:TableColumn Name="DepartmentID" OriginalName="DepartmentID" Caption="Department ID" Ordinal="6" Default="" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+                <dbs:TableColumnPrivileges />
+              </dbs:TableColumn>
+            </dbs:TableColumns>
+            <dbs:TablePrivileges />
+            <dbs:TableConstraints>
+              <dbs:PrimaryKey>
+                <dbs:PKField Name="ID" Ordinal="1" />
+              </dbs:PrimaryKey>
+              <dbs:TableRelations>
+                <dbs:ChildTables>
+                  <dbs:ChildTable Name="Assignments">
+                    <dbs:ChildKeyField Name="ProjectID" Ordinal="1" />
+                  </dbs:ChildTable>
+                </dbs:ChildTables>
+              </dbs:TableRelations>
+            </dbs:TableConstraints>
+          </dbs:Table>
+          <dbs:Table Name="Resources" OriginalName="Resources" SingularName="Resource" PluralName="Resources" DisplayName="LastName" Caption="Resource" DeletePriority="" InsertPriority="0">
+            <dbs:TableColumns>
+              <dbs:TableColumn Name="ID" OriginalName="ID" Caption="ID" Ordinal="1" Default="" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="10" IsPrimaryKey="true">
+                <dbs:TableColumnPrivileges />
+                <dbs:CheckConstraints />
+              </dbs:TableColumn>
+              <dbs:TableColumn Name="LastName" OriginalName="LastName" Caption="Last Name" Ordinal="2" Default="" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="50" IsPrimaryKey="false">
+                <dbs:TableColumnPrivileges />
+              </dbs:TableColumn>
+              <dbs:TableColumn Name="FirstName" OriginalName="FirstName" Caption="First Name" Ordinal="3" Default="" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="50" IsPrimaryKey="false">
+                <dbs:TableColumnPrivileges />
+              </dbs:TableColumn>
+            </dbs:TableColumns>
+            <dbs:TablePrivileges />
+            <dbs:TableConstraints>
+              <dbs:PrimaryKey>
+                <dbs:PKField Name="ID" Ordinal="1" />
+              </dbs:PrimaryKey>
+              <dbs:TableRelations>
+                <dbs:ChildTables>
+                  <dbs:ChildTable Name="Assignments">
+                    <dbs:ChildKeyField Name="ResourceID" Ordinal="1" />
+                  </dbs:ChildTable>
+                </dbs:ChildTables>
+              </dbs:TableRelations>
+            </dbs:TableConstraints>
+          </dbs:Table>
+          <dbs:Table Name="Roles" OriginalName="Roles" SingularName="Role" PluralName="Roles" DisplayName="Name" Caption="Role" DeletePriority="" InsertPriority="0">
+            <dbs:TableColumns>
+              <dbs:TableColumn Name="ID" OriginalName="ID" Caption="ID" Ordinal="1" Default="" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="true">
+                <dbs:TableColumnPrivileges>
+                  <dbs:TableColumnPrivilege Grantor="dbo" Grantee="KAD-XP1600\ASPNET" Type="SELECT" />
+                </dbs:TableColumnPrivileges>
+                <dbs:CheckConstraints />
+              </dbs:TableColumn>
+              <dbs:TableColumn Name="Name" OriginalName="Name" Caption="Name" Ordinal="2" Default="" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="50" IsPrimaryKey="false">
+                <dbs:TableColumnPrivileges>
+                  <dbs:TableColumnPrivilege Grantor="dbo" Grantee="KAD-XP1600\ASPNET" Type="SELECT" />
+                </dbs:TableColumnPrivileges>
+              </dbs:TableColumn>
+            </dbs:TableColumns>
+            <dbs:TablePrivileges>
+              <dbs:TablePrivilege Grantor="dbo" Grantee="KAD-XP1600\ASPNET" Type="SELECT" />
+            </dbs:TablePrivileges>
+            <dbs:TableConstraints>
+              <dbs:PrimaryKey>
+                <dbs:PKField Name="ID" Ordinal="1" />
+              </dbs:PrimaryKey>
+              <dbs:TableRelations>
+                <dbs:ChildTables>
+                  <dbs:ChildTable Name="Assignments">
+                    <dbs:ChildKeyField Name="Role" Ordinal="1" />
+                  </dbs:ChildTable>
+                </dbs:ChildTables>
+              </dbs:TableRelations>
+            </dbs:TableConstraints>
+          </dbs:Table>
+        </dbs:Tables>
+        <dbs:UserDefinedTypes />
+        <dbs:StoredProcs>
+          <dbs:StoredProc Name="dt_dropuserobjectbyid" />
+          <dbs:StoredProc Name="dt_droppropertiesbyid" />
+          <dbs:StoredProc Name="dt_verstamp006" />
+          <dbs:StoredProc Name="dt_verstamp007" />
+          <dbs:StoredProc Name="dt_getpropertiesbyid_vcs" />
+          <dbs:StoredProc Name="dt_displayoaerror" />
+          <dbs:StoredProc Name="dt_adduserobject_vcs" />
+          <dbs:StoredProc Name="getAssignment" Created="7/21/2003 11:09:27 PM" Modified="7/21/2003 11:09:27 PM">
+            <dbs:StoredProcParameters>
+              <dbs:StoredProcParameter Name="@ProjectID" Ordinal="1" Type="uniqueidentifier" MaxLength="" Direction="IN" />
+              <dbs:StoredProcParameter Name="@ResourceID" Ordinal="2" Type="varchar" MaxLength="1" Direction="IN" />
+            </dbs:StoredProcParameters>
+            <dbs:DataSet />
+          </dbs:StoredProc>
+          <dbs:StoredProc Name="dt_addtosourcecontrol" />
+          <dbs:StoredProc Name="getProject" Created="7/21/2003 11:09:27 PM" Modified="7/21/2003 11:09:27 PM">
+            <dbs:StoredProcParameters>
+              <dbs:StoredProcParameter Name="@ID" Ordinal="1" Type="uniqueidentifier" MaxLength="" Direction="IN" />
+            </dbs:StoredProcParameters>
+            <dbs:DataSet />
+          </dbs:StoredProc>
+          <dbs:StoredProc Name="dt_checkinobject" />
+          <dbs:StoredProc Name="dt_checkoutobject" />
+          <dbs:StoredProc Name="getRole" Created="7/21/2003 11:09:27 PM" Modified="7/21/2003 11:09:27 PM">
+            <dbs:StoredProcParameters>
+              <dbs:StoredProcParameter Name="@ID" Ordinal="1" Type="int" MaxLength="" Direction="IN" />
+            </dbs:StoredProcParameters>
+            <dbs:DataSet />
+          </dbs:StoredProc>
+          <dbs:StoredProc Name="dt_isundersourcecontrol" />
+          <dbs:StoredProc Name="dt_removefromsourcecontrol" />
+          <dbs:StoredProc Name="dt_validateloginparams" />
+          <dbs:StoredProc Name="dt_vcsenabled" />
+          <dbs:StoredProc Name="getResource" Created="7/25/2003 8:48:03 AM" Modified="7/25/2003 8:48:03 AM">
+            <dbs:StoredProcParameters>
+              <dbs:StoredProcParameter Name="@ID" Ordinal="1" Type="varchar" MaxLength="1" Direction="IN" />
+            </dbs:StoredProcParameters>
+            <dbs:DataSet />
+          </dbs:StoredProc>
+          <dbs:StoredProc Name="dt_whocheckedout" />
+          <dbs:StoredProc Name="dt_getpropertiesbyid_vcs_u" />
+          <dbs:StoredProc Name="dt_displayoaerror_u" />
+          <dbs:StoredProc Name="dt_addtosourcecontrol_u" />
+          <dbs:StoredProc Name="dt_checkinobject_u" />
+          <dbs:StoredProc Name="dt_checkoutobject_u" />
+          <dbs:StoredProc Name="dt_isundersourcecontrol_u" />
+          <dbs:StoredProc Name="dt_validateloginparams_u" />
+          <dbs:StoredProc Name="dt_whocheckedout_u" />
+          <dbs:StoredProc Name="orm2_Project_Retrieve" Created="7/26/2003 9:12:07 AM" Modified="7/26/2003 9:12:07 AM">
+            <dbs:StoredProcParameters>
+              <dbs:StoredProcParameter Name="@ProjectID" Ordinal="1" Type="uniqueidentifier" MaxLength="" Direction="IN" />
+            </dbs:StoredProcParameters>
+            <dbs:DataSet>
+              <dbs:Recordset Name="Table">
+                <dbs:Column Name="ID" NETType="System.Guid" Caption="ID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+                <dbs:Column Name="Name" NETType="System.String" Caption="Name" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+                <dbs:Column Name="Started" NETType="System.DateTime" Caption="Started" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+                <dbs:Column Name="Ended" NETType="System.DateTime" Caption="Ended" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+                <dbs:Column Name="Description" NETType="System.String" Caption="Description" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="4" />
+                <dbs:Column Name="DepartmentID" NETType="System.Int32" Caption="DepartmentID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="5" />
+              </dbs:Recordset>
+              <dbs:Recordset Name="Table1">
+                <dbs:Column Name="ProjectID" NETType="System.Guid" Caption="ProjectID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+                <dbs:Column Name="ResourceID" NETType="System.String" Caption="ResourceID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+                <dbs:Column Name="Assigned" NETType="System.DateTime" Caption="Assigned" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+                <dbs:Column Name="Role" NETType="System.Int32" Caption="Role" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+              </dbs:Recordset>
+            </dbs:DataSet>
+          </dbs:StoredProc>
+          <dbs:StoredProc Name="getdtproperty" Created="7/21/2003 9:35:30 PM" Modified="7/21/2003 9:35:30 PM">
+            <dbs:StoredProcParameters />
+            <dbs:DataSet>
+              <dbs:Recordset Name="Table">
+                <dbs:Column Name="id" NETType="System.Int32" Caption="id" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+                <dbs:Column Name="objectid" NETType="System.Int32" Caption="objectid" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+                <dbs:Column Name="property" NETType="System.String" Caption="property" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+                <dbs:Column Name="value" NETType="System.String" Caption="value" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+                <dbs:Column Name="uvalue" NETType="System.String" Caption="uvalue" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="4" />
+                <dbs:Column Name="lvalue" NETType="System.Byte[]" Caption="lvalue" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="5" />
+                <dbs:Column Name="version" NETType="System.Int32" Caption="version" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="6" />
+              </dbs:Recordset>
+            </dbs:DataSet>
+          </dbs:StoredProc>
+          <dbs:StoredProc Name="orm2_Projects_Retrieve" Created="8/7/2003 2:54:22 PM" Modified="8/7/2003 2:54:22 PM">
+            <dbs:StoredProcParameters>
+              <dbs:StoredProcParameter Name="@ProjectID" Ordinal="1" Type="uniqueidentifier" MaxLength="" Direction="IN" />
+            </dbs:StoredProcParameters>
+            <dbs:DataSet>
+              <dbs:Recordset Name="Table">
+                <dbs:Column Name="ID" NETType="System.Guid" Caption="ID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+                <dbs:Column Name="Name" NETType="System.String" Caption="Name" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+                <dbs:Column Name="Started" NETType="System.DateTime" Caption="Started" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+                <dbs:Column Name="Ended" NETType="System.DateTime" Caption="Ended" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+                <dbs:Column Name="Description" NETType="System.String" Caption="Description" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="4" />
+                <dbs:Column Name="DepartmentID" NETType="System.Int32" Caption="DepartmentID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="5" />
+              </dbs:Recordset>
+              <dbs:Recordset Name="Table1">
+                <dbs:Column Name="ProjectID" NETType="System.Guid" Caption="ProjectID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+                <dbs:Column Name="ResourceID" NETType="System.String" Caption="ResourceID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+                <dbs:Column Name="Assigned" NETType="System.DateTime" Caption="Assigned" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+                <dbs:Column Name="Role" NETType="System.Int32" Caption="Role" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+              </dbs:Recordset>
+            </dbs:DataSet>
+          </dbs:StoredProc>
+          <dbs:StoredProc Name="orm2_Resources_Retrieve" Created="8/7/2003 2:54:22 PM" Modified="8/7/2003 2:54:22 PM">
+            <dbs:StoredProcParameters>
+              <dbs:StoredProcParameter Name="@ResourceID" Ordinal="1" Type="uniqueidentifier" MaxLength="" Direction="IN" />
+            </dbs:StoredProcParameters>
+            <dbs:DataSet>
+              <dbs:Recordset Name="Table">
+                <dbs:Column Name="ID" NETType="System.String" Caption="ID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+                <dbs:Column Name="LastName" NETType="System.String" Caption="LastName" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+                <dbs:Column Name="FirstName" NETType="System.String" Caption="FirstName" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+              </dbs:Recordset>
+              <dbs:Recordset Name="Table1">
+                <dbs:Column Name="ProjectID" NETType="System.Guid" Caption="ProjectID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+                <dbs:Column Name="ResourceID" NETType="System.String" Caption="ResourceID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+                <dbs:Column Name="Assigned" NETType="System.DateTime" Caption="Assigned" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+                <dbs:Column Name="Role" NETType="System.Int32" Caption="Role" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+              </dbs:Recordset>
+            </dbs:DataSet>
+          </dbs:StoredProc>
+          <dbs:StoredProc Name="orm2_Assignments_Retrieve" Created="8/7/2003 2:54:22 PM" Modified="8/7/2003 2:54:22 PM">
+            <dbs:StoredProcParameters>
+              <dbs:StoredProcParameter Name="@ProjectID" Ordinal="1" Type="uniqueidentifier" MaxLength="" Direction="IN" />
+              <dbs:StoredProcParameter Name="@ResourceID" Ordinal="2" Type="varchar" MaxLength="1" Direction="IN" />
+            </dbs:StoredProcParameters>
+            <dbs:DataSet>
+              <dbs:Recordset Name="Table">
+                <dbs:Column Name="ProjectID" NETType="System.Guid" Caption="ProjectID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+                <dbs:Column Name="ResourceID" NETType="System.String" Caption="ResourceID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+                <dbs:Column Name="Assigned" NETType="System.DateTime" Caption="Assigned" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+                <dbs:Column Name="Role" NETType="System.Int32" Caption="Role" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+              </dbs:Recordset>
+            </dbs:DataSet>
+          </dbs:StoredProc>
+          <dbs:StoredProc Name="orm2_BroadTest_Retrieve" Created="8/7/2003 2:54:22 PM" Modified="8/7/2003 2:54:22 PM">
+            <dbs:StoredProcParameters>
+              <dbs:StoredProcParameter Name="@ProjectID" Ordinal="1" Type="uniqueidentifier" MaxLength="" Direction="IN" />
+            </dbs:StoredProcParameters>
+            <dbs:DataSet>
+              <dbs:Recordset Name="Table">
+                <dbs:Column Name="ID" NETType="System.Guid" Caption="ID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+                <dbs:Column Name="Name" NETType="System.String" Caption="Name" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+                <dbs:Column Name="Started" NETType="System.DateTime" Caption="Started" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+                <dbs:Column Name="Ended" NETType="System.DateTime" Caption="Ended" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+                <dbs:Column Name="Description" NETType="System.String" Caption="Description" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="4" />
+                <dbs:Column Name="DepartmentID" NETType="System.Int32" Caption="DepartmentID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="5" />
+                <dbs:Column Name="DepartmentName" NETType="System.String" Caption="DepartmentName" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="6" />
+                <dbs:Column Name="DepartmentID1" NETType="System.Int32" Caption="DepartmentID1" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="7" />
+                <dbs:Column Name="BuildingName" NETType="System.String" Caption="BuildingName" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="8" />
+                <dbs:Column Name="BuildingID" NETType="System.Int32" Caption="BuildingID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="9" />
+                <dbs:Column Name="CompanyName" NETType="System.String" Caption="CompanyName" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="10" />
+                <dbs:Column Name="CompanyID" NETType="System.Int32" Caption="CompanyID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="11" />
+              </dbs:Recordset>
+              <dbs:Recordset Name="Table1">
+                <dbs:Column Name="ProjectID" NETType="System.Guid" Caption="ProjectID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="0" />
+                <dbs:Column Name="ResourceID" NETType="System.String" Caption="ResourceID" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="1" />
+                <dbs:Column Name="Assigned" NETType="System.DateTime" Caption="Assigned" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="2" />
+                <dbs:Column Name="Role" NETType="System.Int32" Caption="Role" AllowDBNull="true" AutoIncrement="false" DefaultValue="" MaxLength="-1" Unique="false" Ordinal="3" />
+              </dbs:Recordset>
+            </dbs:DataSet>
+          </dbs:StoredProc>
+          <dbs:StoredProc Name="dt_generateansiname" />
+          <dbs:StoredProc Name="dt_adduserobject" />
+          <dbs:StoredProc Name="dt_setpropertybyid" />
+          <dbs:StoredProc Name="dt_getobjwithprop" />
+          <dbs:StoredProc Name="dt_getpropertiesbyid" />
+          <dbs:StoredProc Name="dt_setpropertybyid_u" />
+          <dbs:StoredProc Name="dt_getobjwithprop_u" />
+          <dbs:StoredProc Name="dt_getpropertiesbyid_u" />
+        </dbs:StoredProcs>
+        <dbs:Functions />
+        <dbs:Views>
+          <dbs:View Name="sysconstraints" OriginalName="sysconstraints" SingularName="sysconstraint" PluralName="sysconstraints" DisplayName="constid" Caption="sysconstraint">
+            <dbs:ViewColumns>
+              <dbs:ViewColumn Name="constid" OriginalName="constid" Caption="constid" Ordinal="1" Default="" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+                <dbs:ViewColumnPrivileges>
+                  <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                </dbs:ViewColumnPrivileges>
+              </dbs:ViewColumn>
+              <dbs:ViewColumn Name="id" OriginalName="id" Caption="id" Ordinal="2" Default="" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+                <dbs:ViewColumnPrivileges>
+                  <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                </dbs:ViewColumnPrivileges>
+              </dbs:ViewColumn>
+              <dbs:ViewColumn Name="colid" OriginalName="colid" Caption="colid" Ordinal="3" Default="" AllowNulls="true" SQLType="SmallInt" NETType="System.Int16" MaxLength="" IsPrimaryKey="false">
+                <dbs:ViewColumnPrivileges>
+                  <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                </dbs:ViewColumnPrivileges>
+              </dbs:ViewColumn>
+              <dbs:ViewColumn Name="spare1" OriginalName="spare1" Caption="spare1" Ordinal="4" Default="" AllowNulls="true" SQLType="TinyInt" NETType="System.Byte" MaxLength="" IsPrimaryKey="false">
+                <dbs:ViewColumnPrivileges>
+                  <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                </dbs:ViewColumnPrivileges>
+              </dbs:ViewColumn>
+              <dbs:ViewColumn Name="status" OriginalName="status" Caption="status" Ordinal="5" Default="" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+                <dbs:ViewColumnPrivileges>
+                  <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                </dbs:ViewColumnPrivileges>
+              </dbs:ViewColumn>
+              <dbs:ViewColumn Name="actions" OriginalName="actions" Caption="actions" Ordinal="6" Default="" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+                <dbs:ViewColumnPrivileges>
+                  <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                </dbs:ViewColumnPrivileges>
+              </dbs:ViewColumn>
+              <dbs:ViewColumn Name="_error" OriginalName="error" Caption="error" Ordinal="7" Default="" AllowNulls="true" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+                <dbs:ViewColumnPrivileges>
+                  <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                </dbs:ViewColumnPrivileges>
+              </dbs:ViewColumn>
+            </dbs:ViewColumns>
+            <dbs:ViewPrivileges>
+              <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            </dbs:ViewPrivileges>
+            <dbs:ViewConstraints>
+              <dbs:ViewRelations />
+            </dbs:ViewConstraints>
+          </dbs:View>
+          <dbs:View Name="syssegments" OriginalName="syssegments" SingularName="syssegment" PluralName="syssegments" DisplayName="name" Caption="syssegment">
+            <dbs:ViewColumns>
+              <dbs:ViewColumn Name="segment" OriginalName="segment" Caption="segment" Ordinal="1" Default="" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+                <dbs:ViewColumnPrivileges>
+                  <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                </dbs:ViewColumnPrivileges>
+              </dbs:ViewColumn>
+              <dbs:ViewColumn Name="name" OriginalName="name" Caption="name" Ordinal="2" Default="" AllowNulls="false" SQLType="VarChar" NETType="System.String" MaxLength="10" IsPrimaryKey="false">
+                <dbs:ViewColumnPrivileges>
+                  <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                </dbs:ViewColumnPrivileges>
+              </dbs:ViewColumn>
+              <dbs:ViewColumn Name="status" OriginalName="status" Caption="status" Ordinal="3" Default="" AllowNulls="false" SQLType="Int" NETType="System.Int32" MaxLength="" IsPrimaryKey="false">
+                <dbs:ViewColumnPrivileges>
+                  <dbs:ViewColumnPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+                </dbs:ViewColumnPrivileges>
+              </dbs:ViewColumn>
+            </dbs:ViewColumns>
+            <dbs:ViewPrivileges>
+              <dbs:ViewPrivilege Grantor="dbo" Grantee="public" Type="SELECT" />
+            </dbs:ViewPrivileges>
+            <dbs:ViewConstraints>
+              <dbs:ViewRelations />
+            </dbs:ViewConstraints>
+          </dbs:View>
+        </dbs:Views>
+        <dbs:Hierarchy>
+          <dbs:HTable Name="Buildings" />
+          <dbs:HTable Name="Companies" />
+          <dbs:HTable Name="Departments" />
+          <dbs:HTable Name="Projects">
+            <dbs:HTable Name="Assignments" />
+          </dbs:HTable>
+          <dbs:HTable Name="Resources">
+            <dbs:HTable Name="Assignments" />
+          </dbs:HTable>
+          <dbs:HTable Name="Roles">
+            <dbs:HTable Name="Assignments" />
+          </dbs:HTable>
+        </dbs:Hierarchy>
+      </dbs:DataStructure>
+    </dbs:DataStructures>
+  </orm:MappingRoot>
+</dbs:MetaDataRoot>

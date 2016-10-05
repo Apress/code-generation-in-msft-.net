@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<orm:MappingRoot xmlns:orm="http://kadgen.com/KADORM.xsd" 
+			MapDataStructure="PTracker"
+			TransactionType="ADONET"
+			Namespace="cslaTest"
+			TransactionForRetrieve="false"
+			RetrievePattern="wx_app[Object]_SelectOne"
+			SetSelectPattern="wx_app[Object]_SelectAll"
+			CreatePattern="wx_app[Object]_Insert"
+			UpdatePattern="wx_app[Object]_Update"
+			DeletePattern="wx_app[Object]_Delete" 
+			Generate="CRUDS"> 
+			<!-- The current templates expect that the ToString for each object is unique, because its used for the hashcode -->
+			<!-- Transactions can be ADONET or Enterprise 
+			     CreateNew can be LocalAutoPK, LocalUserPK, DB 
+			     *** LocalAutoPK only supported for GUID right now *** -->
+
+	<orm:DefaultPrivileges>
+		<orm:DefaultPrivilege Grantee="public" Rights="RS" />
+		<orm:DefaultPrivilege Grantee="Admin" Rights="CRUDS" />
+		<orm:DefaultPrivilege Grantee="Manager" Rights="RUS"	/>
+	</orm:DefaultPrivileges>
+	
+	<orm:Assembly Name="BusinessLayer" >
+		<orm:AllObjects/>
+	</orm:Assembly>
+   	
+	<orm:SpecialTypes>
+		<orm:SpecialType Name="SmartDate" >
+			<orm:Property Retrieve="Text" Set="Text" AccessVia="System.String" />
+			<orm:SafeDataRetrieve Name="GetSmartDate">
+				<orm:SafeDataProperty Explicit="ToString" />
+			</orm:SafeDataRetrieve>
+			<orm:SafeDataStore Name="DBValue" />
+		</orm:SpecialType>
+	</orm:SpecialTypes>
+	
+	<orm:Build>
+		<orm:SPSet Name="Projects">
+			<orm:BuildRecordset>
+				<orm:BuildTable Name="Projects" />
+			</orm:BuildRecordset>
+			<orm:BuildRecordset >
+				<orm:BuildTable Name="Assignments" />
+				<orm:BuildTable Name="Roles" />
+				<orm:Joins>
+					<orm:Join Type="Inner">
+						<orm:Left JoinTable="Assignments"  />
+						<orm:Right JoinTable="Roles" />
+						<orm:JoinOn Clause="Assignments.Role=Roles.ID" />
+					</orm:Join>
+				</orm:Joins>
+			</orm:BuildRecordset>
+		</orm:SPSet>
+	</orm:Build>
+</orm:MappingRoot>

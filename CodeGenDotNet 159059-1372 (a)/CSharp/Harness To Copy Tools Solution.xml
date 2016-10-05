@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="yes"?>
+<kg:GenerationScript xmlns:kg="http://kadgen.com/KADGenDriving.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://kadgen.com/KADGenDriving.xsd ..\XFiles\KADGenDriving.xsd" LocalSettings="" ProjectSettings="">
+  <kg:FilePaths>
+    <kg:FilePath Name="TargetPath" Path="../../Code Gen CSharp" File="" />
+  </kg:FilePaths>
+  <kg:Section>
+    <kg:Standard Name="Create Working Solutions" Checked="true" />
+    <kg:RunProcess>
+      <kg:Standard Name="Create Component Shells Copy" Checked="true" Ordinal="97" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Once" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[TargetPath]CSharp/Component Shells" />
+      <kg:Parameter Parameter="Component Shells|BaseWinFormsSolution.sln|{bin,obj}|{}" />
+      <kg:Process AssemblyName="CodeGeneration" TypeName="ProjectSupport" MethodName="CreateNewSolution" AssemblyFileName="" />
+    </kg:RunProcess>
+    <kg:RunProcess>
+      <kg:Standard Name="Create Combined Templates Copy" Checked="true" Ordinal="97" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Once" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[TargetPath]CSharp/Combined Templates" />
+      <kg:Parameter Parameter="Combined Templates|Combined Templates.sln|{bin,obj}|{}" />
+      <kg:Process AssemblyName="CodeGeneration" TypeName="ProjectSupport" MethodName="CreateNewSolution" AssemblyFileName="" />
+    </kg:RunProcess>
+    <kg:RunProcess>
+      <kg:Standard Name="Create Tools Copy" Checked="true" Ordinal="97" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Once" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[TargetPath]CSharp/Tools" />
+      <kg:Parameter Parameter="Tools|Tools.sln|{bin,obj}|{}" />
+      <kg:Process AssemblyName="CodeGeneration" TypeName="ProjectSupport" MethodName="CreateNewSolution" AssemblyFileName="" />
+    </kg:RunProcess>
+    <kg:CopyFiles SourceFileName="..\XFiles" TargetFileName="[TargetPath]\XFiles">
+      <kg:Standard Name="Copy XFiles Directory" Ordinal="0" Checked="true" />
+    </kg:CopyFiles>
+    <kg:CopyFiles SourceFileName="Combined Templates\Harness To Create New Project.xml" TargetFileName="[TargetPath]\CSharp\Combined Templates\Harness To Create New Project.xml">
+      <kg:Standard Name="Copy ORM Input File" Ordinal="0" Checked="true" />
+    </kg:CopyFiles>
+    <kg:CopyFiles SourceFileName="Combined Templates\ORMInput.xml" TargetFileName="[TargetPath]\CSharp\Combined Templates\ORMInput.xml">
+      <kg:Standard Name="Copy Harness to create new project" Ordinal="0" Checked="true" />
+    </kg:CopyFiles>
+    <kg:CopyFiles SourceFileName="Combined Templates\UIInfo.xml" TargetFileName="[TargetPath]\CSharp\Combined Templates\UIInfo.xml">
+      <kg:Standard Name="Copy UI Info Manual Metadata File" Ordinal="0" Checked="true" />
+    </kg:CopyFiles>
+    <kg:CopyFiles SourceFileName="Combined Templates\HarnessWin.xml" TargetFileName="[TargetPath]\CSharp\Combined Templates\HarnessWin.xml">
+      <kg:Standard Name="Copy Harness to use in new project" Ordinal="0" Checked="true" />
+    </kg:CopyFiles>
+  </kg:Section>
+</kg:GenerationScript>

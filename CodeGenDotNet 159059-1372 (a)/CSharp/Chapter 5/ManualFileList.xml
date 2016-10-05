@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FileList> 
+   <Dir Name="MiddleTier" >
+      <Dir Name="Autogen" >
+         <Dir Name='GenDataContainer'>
+            <File Name='genShippers.vb' Exclude='true'/>
+         </Dir>
+      </Dir>
+   </Dir>
+</FileList>
+ 

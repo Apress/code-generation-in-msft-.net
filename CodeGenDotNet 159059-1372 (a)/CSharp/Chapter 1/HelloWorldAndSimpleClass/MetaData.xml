@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DataSet Name="Northwind">
+	<Table Name="Customers">
+		<Column Name="CustomerID" Type="String" />
+		<Column Name="CompanyName" Type="String" />
+		<Column Name="ContactName" Type="String" />
+		<Column Name="ContactTitle" Type="String" />
+		<Column Name="Address" Type="String" />
+		<Column Name="City" Type="String" />
+		<Column Name="Region" Type="String" />
+		<Column Name="PostalCode" Type="String" />
+		<Column Name="Country" Type="String" />
+		<Column Name="Phone" Type="String" />
+		<Column Name="Fax" Type="String" />
+	</Table>
+	<Table Name="Orders">
+		<Column Name="OrderID" Type="Int32"	/>
+		<Column Name="CustomerID" Type="String" />
+		<Column Name="EmployeeID" Type="Int32" /> 
+		<Column Name="OrderDate" Type="DateTime" /> 
+		<Column Name="RequiredDate" Type="DateTime" /> 
+		<Column Name="ShippedDate" Type="DateTime" /> 
+		<Column Name="ShipVia" Type="Int32" /> 
+		<Column Name="Freight" Type="Decimal" /> 
+		<Column Name="ShipName" Type="String" />
+		<Column Name="ShipAddress" Type="String" />
+		<Column Name="ShipCity" Type="String" />
+		<Column Name="ShipRegion" Type="String" />
+		<Column Name="ShipPostalCode" Type="String" />
+		<Column Name="ShipCountry" Type="String" />
+	</Table>
+</DataSet> 

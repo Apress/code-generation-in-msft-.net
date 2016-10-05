@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSLA.Core.Bindablebase</name>
+    </assembly>
+    <members>
+        <member name="T:CSLA.Core.BindableBase">
+            <summary>
+            This base class declares the IsDirtyChanged event
+            to be NonSerialized so serialization will work.
+            </summary>
+        </member>
+        <member name="M:CSLA.Core.BindableBase.OnIsDirtyChanged">
+            <summary>
+            Call this method to raise the IsDirtyChanged event.
+            </summary>
+        </member>
+        <member name="E:CSLA.Core.BindableBase.IsDirtyChanged">
+            <summary>
+            Declares a serialization-safe IsDirtyChanged event.
+            </summary>
+        </member>
+        <member name="T:CSLA.Core.BindableCollectionBase">
+            <summary>
+            This is a base class that exposes an implementation
+            of IBindableList that does nothing other than
+            create a nonserialized version of the listchanged
+            event.
+            </summary>
+        </member>
+        <member name="F:CSLA.Core.BindableCollectionBase.AllowNew">
+            <summary>
+            Set this to True to allow data binding to add new
+            child objects to the collection.
+            </summary>
+            <remarks>
+            If you set this to True, you must also override the OnAddNew
+            method. You must also set AllowEdit to True.
+            </remarks>
+        </member>
+        <member name="F:CSLA.Core.BindableCollectionBase.AllowEdit">
+            <summary>
+            Set this to True to allow data binding to do in-place
+            editing of child objects in a grid control.
+            </summary>
+        </member>
+        <member name="F:CSLA.Core.BindableCollectionBase.AllowRemove">
+            <summary>
+            Set this to True to allow data binding to automatically
+            remove child objects from the collection.
+            </summary>
+        </member>
+        <member name="F:CSLA.Core.BindableCollectionBase.AllowSort">
+            <summary>
+            Set this to True to allow this collection to be sorted.
+            </summary>
+            <remarks>
+            <para>
+            There is an overhead cost to enabling sorting. Specifically,
+            the collection must contain an internal collection containing
+            the original order of the items in the collection, so the order
+            can be reset if the sort is removed.
+            </para><para>
+            This overhead is only incurred if AllowSort is set to True, and is
+            only a major concern if you are using a remote DataPortal. The concern
+            there is that this extra collection must also be serialized, thus
+            increasing the overall amount of data sent across the wire.
+            </para>
+            </remarks>
+        </member>
+        <member name="F:CSLA.Core.BindableCollectionBase.AllowFind">
+            <summary>
+            Set this to True to allow this collection to be
+            searched.
+            </summary>
+        </member>
+        <member name="M:CSLA.Core.BindableCollectionBase.OnListChanged(System.ComponentModel.ListChangedEventArgs)">
+            <summary>
+            Call this method to raise the ListChanged event.
+            </summary>
+        </member>
+        <member name="M:CSLA.Core.BindableCollectionBase.OnInsertComplete(System.Int32,System.Object)">
+            <summary>
+            Ensures that the OnListChanged event is raised when a
+            new child is inserted.
+            </summary>
+        </member>
+        <member name="M:CSLA.Core.BindableCollectionBase.OnClearComplete">
+            <summary>
+            Ensures that the OnListChanged event is raised when the
+            list is cleared.
+            </summary>
+        </member>
+        <member name="M:CSLA.Core.BindableCollectionBase.OnRemoveComplete(System.Int32,System.Object)">
+            <summary>
+            Ensures that the OnListChanged event is raised when an
+            item is removed.
+            </summary>
+        </member>
+        <member name="M:CSLA.Core.BindableCollectionBase.OnSetComplete(System.Int32,System.Object,System.Object)">
+            <summary>
+            Ensures that the OnListChanged event is raised when an
+            item is changed.
+            </summary>
+        </member>
+        <member name="M:CSLA.Core.BindableCollectionBase.OnAddNew">
+            <summary>
+            Override this method to allow data binding to automatically
+            add new child objects to a collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSLA.Core.BindableCollectionBase.IBindingList_Find(System.ComponentModel.PropertyDescriptor,System.Object)">
+            <summary>
+            Override this method to implement search/find functionality
+            for the collection.
+            </summary>
+            <param name="property">The property to search.</param>
+            <param name="key">The value to searched for.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSLA.Core.BindableCollectionBase.IBindingList_ApplySort(System.ComponentModel.PropertyDescriptor,System.ComponentModel.ListSortDirection)">
+            <summary>
+            Override this method to provide sorting functionality
+            (if you implement sorting).
+            </summary>
+            <param name="property">The property on which to sort.</param>
+            <param name="direction">The sort direction.</param>
+        </member>
+        <member name="M:CSLA.Core.BindableCollectionBase.IBindingList_RemoveSort">
+            <summary>
+            Override this method to remove any existing sort
+            (if you implement sorting).
+            </summary>
+        </member>
+        <member name="E:CSLA.Core.BindableCollectionBase.ListChanged">
+            <summary>
+            Declares a serialization-safe ListChanged event.
+            </summary>
+        </member>
+        <member name="P:CSLA.Core.BindableCollectionBase.IBindingList_IsSorted">
+            <summary>
+            Override this method to indicate whether your collection
+            is currently sorted. This returns False by default.
+            </summary>
+        </member>
+        <member name="P:CSLA.Core.BindableCollectionBase.IBindingList_SortProperty">
+            <summary>
+            Override this method to return the property by which
+            the collection is sorted (if you implement sorting).
+            </summary>
+        </member>
+        <member name="P:CSLA.Core.BindableCollectionBase.IBindingList_SortDirection">
+            <summary>
+            Override this method to return the current sort direction
+            (if you implement sorting).
+            </summary>
+        </member>
+    </members>
+</doc>

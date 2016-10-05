@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- TODO: Add XSD and xsiLocation -->
+<!-- Set label widths with the LabelWidth attribute of the ui:Form element. Or can set for all forms in UIRoot. -->
+<orm:MappingRoot xmlns:orm="http://kadgen.com/KADORM.xsd" FreeForm="true" >
+<ui:UIRoot xmlns:ui="http://kadgen.com/UserInterface.xsd" 
+	VerticalMargin="5" 
+	LabelWidth="120"
+	BusinessObjectNamespace="KADGen.BusinessObjects" >
+	<ui:ControlMapping>
+	   <ui:ControlMapping NETType="System.DateTime" ControlType="KADGen.WinSupport.DateTimeUC" />
+	   <ui:ControlMapping NETType="CSLA.SmartDate" ControlType="KADGen.WinSupport.DateTimeUC" />
+	</ui:ControlMapping>
+	<ui:ControlInfos>
+	   <ui:ControlInfo ControlType="DateTimeUC" Prefix="dtc" ChangedEvent="TextChanged" BindProperty="Text" />
+	</ui:ControlInfos>
+	<ui:Forms>
+		<ui:AllForms/>
+	</ui:Forms>
+</ui:UIRoot> 
+</orm:MappingRoot>
+
+

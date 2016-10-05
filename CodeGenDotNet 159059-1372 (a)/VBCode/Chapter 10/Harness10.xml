@@ -1,0 +1,83 @@
+<?xml version="1.0" standalone="yes"?>
+<kg:GenerationScript xmlns:kg="http://kadgen.com/KADGenDriving.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://kadgen.com/KADGenDriving.xsd ..\..\XFiles\KADGenDriving.xsd" LocalSettings="Harness7_LocalOptions.xml" ProjectSettings="Harness7_ProjectOptions.xml">
+  <kg:FilePaths>
+    <kg:FilePath Name="Chapter6" Path="..\Chapter 6" File="" />
+    <kg:FilePath Name="Metadata" Path="[MetadataPath]" File="WebInputMetadata.xml" />
+    <kg:FilePath Name="WebOutput" Path="Output\WebProject" File="" />
+    <kg:FilePath Name="XSLTWeb" Path="WebClient" File="" />
+    <kg:FilePath Name="MetadataPath" Path="[BasePath]..\..\Metadata Files\" File="" />
+    <kg:FilePath Name="Temp" Path="Temp" File="" />
+    <kg:FilePath Name="FileList" Path="" File="FileList.xml" />
+    <kg:FilePath Name="ProjectDir" Path="Output\WebProject" File="" />
+  </kg:FilePaths>
+  <kg:Section>
+    <kg:Standard Name="Create Web.Forms" Checked="true" />
+    <kg:MergeMetadata BaseXMLFileName="[MetadataPath]GenInputMetadata.xml" MergingXMLFileName="UIInfo.xml" OutputXMLFileName="[Temp]Interim1.xml">
+      <kg:Standard Name="Merge Manual UI Inforamtion" Ordinal="0" Checked="false" />
+    </kg:MergeMetadata>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Transform to Special Web Input" Checked="false" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSUtility]" />
+      <kg:SinglePass OutputFile="[Metadata]" />
+      <kg:XSLTFiles InputFileName="[Temp]Interim1.xml" XSLTFileName="[XSLTWeb]WebInputTransform.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create Autogen Detail Class" Checked="false" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[Metadata]" SelectXPath="//ui:Form[@FormType='Edit' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WebOutput]Autogen\genWebEdit" OutputFilePattern="gen&lt;@Name&gt;.vb" />
+      <kg:XSLTFiles InputFileName="[Metadata]" XSLTFileName="[XSLTWeb]genWebEdit.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create Editable Detail Class" Checked="false" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[Metadata]" SelectXPath="//ui:Form[@FormType='Edit' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WebOutput]Editable\WebEdit" OutputFilePattern="&lt;@Name&gt;.vb" />
+      <kg:XSLTFiles InputFileName="[Metadata]" XSLTFileName="[XSLTWeb]WebEdit.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create Codebehnd Detail Form" Checked="false" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[Metadata]" SelectXPath="//ui:Form[@FormType='Edit' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WebOutput]ASPX\WebEdit" OutputFilePattern="&lt;@Name&gt;.aspx.vb" />
+      <kg:XSLTFiles InputFileName="[Metadata]" XSLTFileName="[XSLTWeb]codebehindWebEdit.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create ASPX Detail Form" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[Metadata]" SelectXPath="//ui:Form[@FormType='Edit' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WebOutput]ASPX\WebEdit" OutputFilePattern="&lt;@Name&gt;.aspx" />
+      <kg:XSLTFiles InputFileName="[Metadata]" XSLTFileName="[XSLTWeb]aspxWebEdit.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create Autogen Select Forms" Checked="false" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[Metadata]" SelectXPath="//ui:Form[@FormType='Select' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WebOutput]Autogen\genWebSelect" OutputFilePattern="gen&lt;@Name&gt;.vb" />
+      <kg:XSLTFiles InputFileName="[Metadata]" XSLTFileName="[XSLTWeb]genWebSelect.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create Editable Select Forms" Checked="false" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[Metadata]" SelectXPath="//ui:Form[@FormType='Select' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WebOutput]ASPX\WebSelect" OutputFilePattern="&lt;@Name&gt;.aspx.vb" />
+      <kg:XSLTFiles InputFileName="[Metadata]" XSLTFileName="[XSLTWeb]WebSelect.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create ASPX Select Forms" Checked="false" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[Metadata]" SelectXPath="//ui:Form[@FormType='Select' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WebOutput]ASPX\WebSelect" OutputFilePattern="&lt;@Name&gt;.aspx" />
+      <kg:XSLTFiles InputFileName="[Metadata]" XSLTFileName="[XSLTWeb]aspxWebSelect.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+  </kg:Section>
+  <kg:Section>
+    <kg:Standard Name="Create File List" Checked="false" />
+    <kg:RunProcess xmlns:kg="http://kadgen.com/KADGenDriving.xsd">
+      <kg:Standard Name="BuildFileList" Checked="true" Ordinal="97" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[FileList]" />
+      <kg:Parameter Parameter="[ProjectDir]" />
+      <kg:Process AssemblyName="Utility" TypeName="FileTools" MethodName="GetFileListXML" AssemblyFileName="" />
+    </kg:RunProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Create Navigation Class" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="VB" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[WebOutput]\Autogen\genNavigation.vb" />
+      <kg:XSLTFiles InputFileName="[FileList]" XSLTFileName="[XSLTWeb]genNavigation.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+  </kg:Section>
+</kg:GenerationScript>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<orm:MappingRoot xmlns:orm="http://kadgen.com/KADORM.xsd" 
+         xmlns:dbs="http://kadgen/DatabaseStructure"
+			MapDataStructure="PTracker"
+			TransactionType="ADONET"
+			Namespace="cslaMiddleTierTest"
+			TransactionForRetrieve="false"
+			RetrievePattern="wx_app[Object]_SelectOne"
+			SetSelectPattern="wx_app[Object]_SelectAll"
+			CreatePattern="wx_app[Object]_Insert"
+			UpdatePattern="wx_app[Object]_Update"
+			DeletePattern="wx_app[Object]_Delete" 
+			Generate="CRUDS"> 
+
+	<orm:DefaultPrivileges>
+		<orm:DefaultPrivilege Grantee="public" Rights="RS" />
+		<orm:DefaultPrivilege Grantee="Admin" Rights="CRUDS" />
+		<orm:DefaultPrivilege Grantee="Manager" Rights="RUS"	/>
+	</orm:DefaultPrivileges>
+	
+	<orm:Assembly Name="BusinessLayer" >
+		<orm:AllObjects/>
+		<orm:ObjectInfo Name="Role" IsLookup="true"/>
+		<orm:ObjectInfo Name="Project" Root="true" Collection="false" Child="false" >
+		   <orm:PropertyInfo Name="Name" IsRequired="true"/>
+		</orm:ObjectInfo>
+		<orm:ObjectInfo Name="User" HideInUI="true"/>
+	</orm:Assembly>
+   	
+	<orm:SpecialTypes>
+		<orm:SpecialType Name="SmartDate" >
+	      <orm:UseForAllType Name="System.DateTime"/>
+			<orm:Property Retrieve="Text" Set="Text" AccessVia="System.String" />
+			<orm:SafeDataRetrieve Name="GetSmartDate">
+				<orm:SafeDataProperty Explicit="ToString" />
+			</orm:SafeDataRetrieve>
+			<orm:SafeDataStore Name="DBValue" />
+		</orm:SpecialType>
+	</orm:SpecialTypes>
+	
+   <dbs:DataStructureInfo Name="PTracker">
+      <dbs:TableInfo Name="Assignments" >
+         <dbs:TableColumnInfo Name="ProjectID" UseForDesc="true"/>
+      </dbs:TableInfo>
+   </dbs:DataStructureInfo>
+             
+   <orm:Build>
+		<orm:SPSet Name="Projects">
+			<orm:BuildRecordset>
+				<orm:BuildTable Name="Projects" />
+			</orm:BuildRecordset>
+			<orm:BuildRecordset >
+				<orm:BuildTable Name="Assignments" />
+				<orm:BuildTable Name="Resources" >
+				   <orm:BuildColumn Name="LastName"/>
+				   <orm:BuildColumn Name="FirstName"/>
+				</orm:BuildTable>
+				<orm:Joins>
+					<orm:Join Type="Inner">
+						<orm:Left JoinTable="Assignments"  />
+						<orm:Right JoinTable="Resources" />
+						<orm:JoinOn Clause="Assignments.ResourceID=Resources.ID" />
+					</orm:Join>
+				</orm:Joins>
+			</orm:BuildRecordset>
+		</orm:SPSet>
+	</orm:Build>
+</orm:MappingRoot>

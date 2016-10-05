@@ -1,0 +1,45 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WinProject", "WinProject\WinProject.vbproj", "{234FCD8F-CDC4-4E88-86BA-BB0D3A639488}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WinSupport", "WinSupport\WinSupport.vbproj", "{C37F49C5-D4BE-4EBB-9944-7D4C1D1F6D00}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BusinessObjectSupport", "BusinessObjectSupport\BusinessObjectSupport.vbproj", "{D8CAAE2A-7112-47AF-B348-A56424C2B908}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BusinessObjects", "BusinessObjects\BusinessObjects.vbproj", "{3C50242B-3710-41CA-8407-7340DEBE55B9}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{234FCD8F-CDC4-4E88-86BA-BB0D3A639488}.Debug.ActiveCfg = Debug|.NET
+		{234FCD8F-CDC4-4E88-86BA-BB0D3A639488}.Debug.Build.0 = Debug|.NET
+		{234FCD8F-CDC4-4E88-86BA-BB0D3A639488}.Release.ActiveCfg = Release|.NET
+		{234FCD8F-CDC4-4E88-86BA-BB0D3A639488}.Release.Build.0 = Release|.NET
+		{C37F49C5-D4BE-4EBB-9944-7D4C1D1F6D00}.Debug.ActiveCfg = Debug|.NET
+		{C37F49C5-D4BE-4EBB-9944-7D4C1D1F6D00}.Debug.Build.0 = Debug|.NET
+		{C37F49C5-D4BE-4EBB-9944-7D4C1D1F6D00}.Release.ActiveCfg = Release|.NET
+		{C37F49C5-D4BE-4EBB-9944-7D4C1D1F6D00}.Release.Build.0 = Release|.NET
+		{D8CAAE2A-7112-47AF-B348-A56424C2B908}.Debug.ActiveCfg = Debug|.NET
+		{D8CAAE2A-7112-47AF-B348-A56424C2B908}.Debug.Build.0 = Debug|.NET
+		{D8CAAE2A-7112-47AF-B348-A56424C2B908}.Release.ActiveCfg = Release|.NET
+		{D8CAAE2A-7112-47AF-B348-A56424C2B908}.Release.Build.0 = Release|.NET
+		{3C50242B-3710-41CA-8407-7340DEBE55B9}.Debug.ActiveCfg = Debug|.NET
+		{3C50242B-3710-41CA-8407-7340DEBE55B9}.Debug.Build.0 = Debug|.NET
+		{3C50242B-3710-41CA-8407-7340DEBE55B9}.Release.ActiveCfg = Release|.NET
+		{3C50242B-3710-41CA-8407-7340DEBE55B9}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

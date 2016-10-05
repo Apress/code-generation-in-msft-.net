@@ -1,0 +1,318 @@
+<?xml version="1.0" standalone="yes"?>
+<kg:GenerationScript xmlns:kg="http://kadgen.com/KADGenDriving.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://kadgen.com/KADGenDriving.xsd ..\..\XFiles\KADGenDriving.xsd" >
+  <kg:Filters xmlns:kg="http://kadgen.com/KADGenDriving.xsd">
+    <kg:Filter Name="BONoLookup" Filter="//orm:Object" />
+    <kg:Filter Name="BOLookup" Filter="//orm:Object[@NameValueList='true' and @Name]" />
+    <kg:Filter Name="BOCollection" Filter="//orm:Object[@Collection='true' and not(@IsLookup='true')]" />
+    <kg:Filter Name="BOList" Filter="//orm:Object[orm:SetSelectSP/*]" />
+    <kg:Filter Name="RetrieveSP" Filter="//orm:SPSet[contains(@Generate,'R')]" />
+    <kg:Filter Name="CreateSP" Filter="//orm:SPSet[contains(@Generate,'C')]" />
+    <kg:Filter Name="UpdateSP" Filter="//orm:SPSet[contains(@Generate,'U')]" />
+    <kg:Filter Name="DeleteSP" Filter="//orm:SPSet[contains(@Generate,'D')]" />
+    <kg:Filter Name="SetSelectSP" Filter="//orm:SPSet[orm:SetSelect/*]" />
+    <kg:Filter Name="WinUI" Filter="" />
+  </kg:Filters>
+  <kg:FilePaths xmlns:ab="http://kadgen.com/KADGenDriving.xsd">
+    <kg:FilePath Name="Database" Path="" File="PTracker" />
+    <kg:FilePath Name="BasePath" Path="." File="" />
+    <kg:FilePath Name="TemplatePath" Path="..\Combined Templates" File="" />
+    <kg:FilePath Name="ORMInput" Path="[BasePath]" File="ORMInput.xml" />
+    <kg:FilePath Name="BusinessObjects" Path="[TemplatePath]Business Objects" File="" />
+    <kg:FilePath Name="GenInputMetadata" Path="[MetadataPath]" File="GenInputMetadata.xml" />
+    <kg:FilePath Name="Metadata" Path="[MetadataPath]" File="BaseMetadata.xml" />
+    <kg:FilePath Name="WinMetadata" Path="[MetadataPath]" File="WinMetadata.xml" />
+    <kg:FilePath Name="MetadataPath" Path="[BasePath]\Metadata Files\" File="" />
+    <kg:FilePath Name="ORM" Path="[BasePath]" File="ORM2.xml" />
+    <kg:FilePath Name="ORMMetadata" Path="[BasePath]" File="ORMMetadata.xml" />
+    <kg:FilePath Name="ORMOrig" Path="[BasePath]" File="ORMSimplest.xml" />
+    <kg:FilePath Name="ORMTransform" Path="[TemplatePath]ORM Transform" File="" />
+    <kg:FilePath Name="Output" Path="[BasePath]" File="" />
+    <kg:FilePath Name="SPInputMetadata" Path="[MetadataPath]" File="SPInputMetadata.xml" />
+    <kg:FilePath Name="StoredProc" Path="[TemplatePath]Stored Procedures" File="" />
+    <kg:FilePath Name="Temp" Path="[BasePath]Temp" File="" />
+    <kg:FilePath Name="WindowsOutput" Path="[Output]WinProject" File="" />
+    <kg:FilePath Name="XSLT" Path="[BasePath]" File="" />
+    <kg:FilePath Name="XSLTWindows" Path="[TemplatePath]Windows UI" File="" />
+    <kg:FilePath Name="BOOutput" Path="[Output]BusinessObjects" File="" />
+  </kg:FilePaths>
+  <kg:Section>
+    <kg:Standard Name="Prepare Metadata, Pre-SP Generation" Checked="false" />
+    <kg:CreateMetadata Server="localhost" Database="[Database]" SkipStoredProcs="true" SelectPatterns="" SetSelectPatterns="" RemovePrefix="true" LookupPrefix="lu">
+      <kg:Standard Name="Preliminary SQL Extraction" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSMetaData]" />
+      <kg:SinglePass OutputFile="[Metadata]" />
+      <kg:AlternateProcess />
+    </kg:CreateMetadata>
+    <kg:MergeMetadata BaseXMLFileName="[ORMInput]" MergingXMLFileName="[Metadata]" OutputXMLFileName="[Temp]ORM2WithDBS.xml">
+      <kg:Standard Name="Merge ORM" Checked="true" Ordinal="0" />
+    </kg:MergeMetadata>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Initial Incorporate Info" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[Temp]ORM2WithDBSWithInfo.xml" />
+      <kg:XSLTFiles InputFileName="[Temp]ORM2WithDBS.xml" XSLTFileName="[ORMTransform]IncorporateTableInfo.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Create Interim Object New" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSUtility]" />
+      <kg:SinglePass OutputFile="[Temp]ORMObjectNewOutput.xml" />
+      <kg:XSLTFiles InputFileName="[Temp]ORM2WithDBSWithInfo.xml" XSLTFileName="[ORMTransform]ORMObjectOne.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Create Interim Object New Two" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSUtility]" />
+      <kg:SinglePass OutputFile="[Temp]ORMObjectNewOutputTwo.xml" />
+      <kg:XSLTFiles InputFileName="[Temp]ORMObjectNewOutput.xml" XSLTFileName="[ORMTransform]ORMObjectTwo.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Create Interim Build New One" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSUtility]" />
+      <kg:SinglePass OutputFile="[Temp]ORMBuildNewOutput.xml" />
+      <kg:XSLTFiles InputFileName="[Temp]ORMObjectNewOutputTwo.xml" XSLTFileName="[ORMTransform]ORMBuildOne.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Create Interim Build New Two" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSUtility]" />
+      <kg:SinglePass OutputFile="[Temp]ORMBuildNewOutput2.xml" />
+      <kg:XSLTFiles InputFileName="[Temp]ORMBuildNewOutput.xml" XSLTFileName="[ORMTransform]ORMBuildTwo.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="GenMetadata One" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSUtility]" />
+      <kg:SinglePass OutputFile="[SPInputMetadata]" />
+      <kg:XSLTFiles InputFileName="[Temp]ORMBuildNewOutput2.xml" XSLTFileName="[ORMTransform]IncorporateInfo.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Create Interim Object New Two" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSUtility]" />
+      <kg:SinglePass OutputFile="[GenInputMetadata]" />
+      <kg:XSLTFiles InputFileName="[SPInputMetadata]" XSLTFileName="[ORMTransform]ORMFilterForGen.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+  </kg:Section>
+  <kg:Section>
+    <kg:Standard Name="Create Stored Procedures" Checked="false" />
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Build 'Retrieve' Stored Procs" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="StoredProc" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="[RetrieveSP]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output]StoredProc\Retrieve" OutputFilePattern="&lt;orm:RunSP[@Task='Retrieve']/@Name&gt;.sql" />
+      <kg:XSLTFiles InputFileName="[SPInputMetadata]" XSLTFileName="[XSLT][StoredProc]SPRetrieve.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Build 'Create' Stored Procs" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="StoredProc" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="[CreateSP]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output]StoredProc\Create" OutputFilePattern="&lt;orm:RunSP[@Task='Create']/@Name&gt;.sql" />
+      <kg:XSLTFiles InputFileName="[SPInputMetadata]" XSLTFileName="[XSLT][StoredProc]SPCreate.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Build 'Update' Stored Procs" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="StoredProc" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="[UpdateSP]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output]StoredProc\Update" OutputFilePattern="&lt;orm:RunSP[@Task='Update']/@Name&gt;.sql" />
+      <kg:XSLTFiles InputFileName="[SPInputMetadata]" XSLTFileName="[XSLT][StoredProc]SPUpdate.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Build 'Delete' Stored Procs" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="StoredProc" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="[DeleteSP]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output]StoredProc\Delete" OutputFilePattern="&lt;orm:RunSP[@Task='Delete']/@Name&gt;.sql" />
+      <kg:XSLTFiles InputFileName="[SPInputMetadata]" XSLTFileName="[XSLT][StoredProc]SPDelete.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Build 'SetSelect' Stored Procs" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="StoredProc" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="[SetSelectSP]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output]StoredProc\SetSelect" OutputFilePattern="&lt;orm:RunSP[@Task='SetSelect']/@Name&gt;.sql" />
+      <kg:XSLTFiles InputFileName="[SPInputMetadata]" XSLTFileName="[XSLT][StoredProc]SPSetSelect.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+  </kg:Section>
+  <kg:Section>
+    <kg:Standard Name="Build Stored Procedures in Database" Checked="false" />
+    <kg:RunSQLScripts Server="localhost" Database="[Database]">
+      <kg:Standard Name="Run 'Retrieve' Scripts" Ordinal="0" Checked="true" />
+      <kg:OutputRules OutputFileType="CSharp" OutputGenType="Overwrite" HashOutput="true" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="[RetrieveSP]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output]StoredProc\Retrieve" OutputFilePattern="&lt;orm:RunSP[@Task='Retrieve']/@Name&gt;.sql" />
+    </kg:RunSQLScripts>
+    <kg:RunSQLScripts Server="localhost" Database="[Database]">
+      <kg:Standard Name="Run 'Create' Scripts" Ordinal="0" Checked="true" />
+      <kg:OutputRules OutputFileType="StoredProc" OutputGenType="Overwrite" HashOutput="true" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="[CreateSP]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output]StoredProc\Create" OutputFilePattern="&lt;orm:RunSP[@Task='Create']/@Name&gt;.sql" />
+    </kg:RunSQLScripts>
+    <kg:RunSQLScripts Server="localhost" Database="[Database]">
+      <kg:Standard Name="Run 'Update' Scripts" Ordinal="0" Checked="true" />
+      <kg:OutputRules OutputFileType="StoredProc" OutputGenType="Overwrite" HashOutput="true" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="[UpdateSP]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output]StoredProc\Update" OutputFilePattern="&lt;orm:RunSP[@Task='Update']/@Name&gt;.sql" />
+    </kg:RunSQLScripts>
+    <kg:RunSQLScripts Server="localhost" Database="[Database]">
+      <kg:Standard Name="Run 'Delete' Scripts" Ordinal="0" Checked="true" />
+      <kg:OutputRules OutputFileType="StoredProc" OutputGenType="Overwrite" HashOutput="true" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="[DeleteSP]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output]StoredProc\Delete" OutputFilePattern="&lt;orm:RunSP[@Task='Delete']/@Name&gt;.sql" />
+    </kg:RunSQLScripts>
+    <kg:RunSQLScripts Server="localhost" Database="[Database]">
+      <kg:Standard Name="Run 'SetSelect' Scripts" Ordinal="0" Checked="true" />
+      <kg:OutputRules OutputFileType="StoredProc" OutputGenType="Overwrite" HashOutput="true" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="[SetSelectSP]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output]StoredProc\SetSelect" OutputFilePattern="&lt;orm:RunSP[@Task='SetSelect']/@Name&gt;.sql" />
+    </kg:RunSQLScripts>
+  </kg:Section>
+  <kg:Section>
+    <kg:Standard Name="Re-Prepare Metadata, Post-SP Generation" Checked="false" />
+    <kg:CreateMetadata Server="localhost" Database="[Database]" SkipStoredProcs="false" SelectPatterns="" SetSelectPatterns="" RemovePrefix="true" LookupPrefix="lu">
+      <kg:Standard Name="Preliminary SQL Extraction" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSMetaData]" />
+      <kg:SinglePass OutputFile="[Metadata]" />
+      <kg:AlternateProcess />
+    </kg:CreateMetadata>
+    <kg:MergeMetadata BaseXMLFileName="[ORMInput]" MergingXMLFileName="[Metadata]" OutputXMLFileName="[Temp]ORM2WithDBS.xml">
+      <kg:Standard Name="Merge ORM" Checked="true" Ordinal="0" />
+    </kg:MergeMetadata>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Initial Incorporate Info" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[Temp]ORM2WithDBSWithInfo.xml" />
+      <kg:XSLTFiles InputFileName="[Temp]ORM2WithDBS.xml" XSLTFileName="[ORMTransform]IncorporateTableInfo.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Create Interim Object New" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSUtility]" />
+      <kg:SinglePass OutputFile="[Temp]ORMObjectNewOutput.xml" />
+      <kg:XSLTFiles InputFileName="[Temp]ORM2WithDBSWithInfo.xml" XSLTFileName="[ORMTransform]ORMObjectOne.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Create Interim Object New Two" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSUtility]" />
+      <kg:SinglePass OutputFile="[Temp]ORMObjectNewOutputTwo.xml" />
+      <kg:XSLTFiles InputFileName="[Temp]ORMObjectNewOutput.xml" XSLTFileName="[ORMTransform]ORMObjectTwo.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Create Interim Build New One" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSUtility]" />
+      <kg:SinglePass OutputFile="[Temp]ORMBuildNewOutput.xml" />
+      <kg:XSLTFiles InputFileName="[Temp]ORMObjectNewOutputTwo.xml" XSLTFileName="[ORMTransform]ORMBuildOne.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Create Interim Build New Two" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSUtility]" />
+      <kg:SinglePass OutputFile="[Temp]ORMBuildNewOutput2.xml" />
+      <kg:XSLTFiles InputFileName="[Temp]ORMBuildNewOutput.xml" XSLTFileName="[ORMTransform]ORMBuildTwo.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="GenMetadata One" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSUtility]" />
+      <kg:SinglePass OutputFile="[SPInputMetadata]" />
+      <kg:XSLTFiles InputFileName="[Temp]ORMBuildNewOutput2.xml" XSLTFileName="[ORMTransform]IncorporateInfo.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Create Interim Object New Two" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSUtility]" />
+      <kg:SinglePass OutputFile="[Temp]ORMBuildNewOutput3.xml" />
+      <kg:XSLTFiles InputFileName="[SPInputMetadata]" XSLTFileName="[ORMTransform]ORMFilterForGen.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="GenMetadata One" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSUtility]" />
+      <kg:SinglePass OutputFile="[GenInputMetadata]" />
+      <kg:XSLTFiles InputFileName="[Temp]ORMBuildNewOutput3.xml" XSLTFileName="[ORMTransform]ORMTranslateTSQL.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+  </kg:Section>
+  <kg:Section>
+    <kg:Standard Name="Generate Middle Tier" Checked="false" Ordinal="0" />
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Genned Business Objects" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="CSharp" OutputGenType="Always" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[GenInputMetadata]" SelectXPath="[BONoLookup]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[BOOutput]Autogen\genCSLAEditSwitchable" OutputFilePattern="gen&lt;@Name&gt;.cs" />
+      <kg:XSLTFiles InputFileName="[GenInputMetadata]" XSLTFileName="[XSLT][BusinessObjects]genCSLAEditSwitchable.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Genned Business Name/Value Pairs" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="CSharp" OutputGenType="Always" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[GenInputMetadata]" SelectXPath="[BOLookup]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[BOOutput]Autogen\genCSLANameValueList" OutputFilePattern="gen&lt;@Name&gt;.cs" />
+      <kg:XSLTFiles InputFileName="[GenInputMetadata]" XSLTFileName="[XSLT][BusinessObjects]genCSLANameValueList.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Genned Collections" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="CSharp" OutputGenType="Always" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[GenInputMetadata]" SelectXPath="[BOCollection]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[BOOutput]Autogen\genCSLAEditCollection" OutputFilePattern="gen&lt;@CollectionName&gt;.cs" />
+      <kg:XSLTFiles InputFileName="[GenInputMetadata]" XSLTFileName="[XSLT][BusinessObjects]genCSLAEditCollection.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Genned List" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="CSharp" OutputGenType="Always" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[GenInputMetadata]" SelectXPath="[BOList]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[BOOutput]Autogen\genCSLAList" OutputFilePattern="gen&lt;@Name&gt;List.cs" />
+      <kg:XSLTFiles InputFileName="[GenInputMetadata]" XSLTFileName="[XSLT][BusinessObjects]genCSLAList.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Editable Business Objects" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="CSharp" OutputGenType="UntilEdited" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[GenInputMetadata]" SelectXPath="[BONoLookup]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[BOOutput]Editable\CSLAEditSwitchable" OutputFilePattern="&lt;@Name&gt;.cs" />
+      <kg:XSLTFiles InputFileName="[GenInputMetadata]" XSLTFileName="[XSLT][BusinessObjects]CSLAEditSwitchable.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Editable Collections" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="CSharp" OutputGenType="UntilEdited" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[GenInputMetadata]" SelectXPath="[BOCollection]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[BOOutput]Editable\CSLAEditCollection" OutputFilePattern="&lt;@CollectionName&gt;.cs" />
+      <kg:XSLTFiles InputFileName="[GenInputMetadata]" XSLTFileName="[XSLT][BusinessObjects]CSLAEditCollection.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Editable NameValue Pairs" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="CSharp" OutputGenType="UntilEdited" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[GenInputMetadata]" SelectXPath="[BOLookup]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[BOOutput]Editable\CSLANameValueList" OutputFilePattern="&lt;@Name&gt;.cs" />
+      <kg:XSLTFiles InputFileName="[GenInputMetadata]" XSLTFileName="[XSLT][BusinessObjects]CSLANameValueList.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Editable List" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="CSharp" OutputGenType="Always" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[GenInputMetadata]" SelectXPath="[BOList]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[BOOutput]Editable\CSLAList" OutputFilePattern="&lt;@Name&gt;List.cs" />
+      <kg:XSLTFiles InputFileName="[GenInputMetadata]" XSLTFileName="[XSLT][BusinessObjects]CSLAList.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+  </kg:Section>
+  <kg:Section>
+    <kg:Standard Name="Create Windows.Forms" Checked="false" Ordinal="0" />
+    <kg:MergeMetadata BaseXMLFileName="[MetadataPath]GenInputMetadata.xml" MergingXMLFileName="UIInfo.xml" OutputXMLFileName="[Temp]Interim1.xml">
+      <kg:Standard Name="Merge Manual UI Inforamtion" Ordinal="0" Checked="true" />
+    </kg:MergeMetadata>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Transform to Special Windows Input" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="[SSUtility]" />
+      <kg:SinglePass OutputFile="[WinMetadata]" />
+      <kg:XSLTFiles InputFileName="[Temp]Interim1.xml" XSLTFileName="[XSLTWindows]WinInputTransform.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create Detail Layout Forms" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="CSharp" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[WinMetadata]" SelectXPath="//ui:Form[@FormType='Edit' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WindowsOutput]Layout\layoutWinEdit" OutputFilePattern="layout&lt;@Name&gt;.cs" />
+      <kg:XSLTFiles InputFileName="[WinMetadata]" XSLTFileName="[XSLTWindows]layoutWinEdit.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create Autogen Detail Forms" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="CSharp" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[WinMetadata]" SelectXPath="//ui:Form[@FormType='Edit' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WindowsOutput]Autogen\genWinEdit" OutputFilePattern="gen&lt;@Name&gt;.cs" />
+      <kg:XSLTFiles InputFileName="[WinMetadata]" XSLTFileName="[XSLTWindows]genWinEdit.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create Editable Detail Forms" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="CSharp" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[WinMetadata]" SelectXPath="//ui:Form[@FormType='Edit' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WindowsOutput]Editable\WinEdit" OutputFilePattern="&lt;@Name&gt;.cs" />
+      <kg:XSLTFiles InputFileName="[WinMetadata]" XSLTFileName="[XSLTWindows]WinEdit.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create Autogen Select Forms" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="CSharp" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[WinMetadata]" SelectXPath="//ui:Form[@FormType='Select' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WindowsOutput]Autogen\genWinSelect" OutputFilePattern="gen&lt;@Name&gt;.cs" />
+      <kg:XSLTFiles InputFileName="[WinMetadata]" XSLTFileName="[XSLTWindows]genWinSelect.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create Editable Select Forms" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="CSharp" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[WinMetadata]" SelectXPath="//ui:Form[@FormType='Select' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WindowsOutput]Editable\WinSelect" OutputFilePattern="&lt;@Name&gt;.cs" />
+      <kg:XSLTFiles InputFileName="[WinMetadata]" XSLTFileName="[XSLTWindows]WinSelect.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create Autogen Select User Control" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="CSharp" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[WinMetadata]" SelectXPath="//ui:Form[@FormType='SelectUC' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WindowsOutput]Autogen\genWinSelectUserControl" OutputFilePattern="gen&lt;@Name&gt;.cs" />
+      <kg:XSLTFiles InputFileName="[WinMetadata]" XSLTFileName="[XSLTWindows]genWinSelectUserControl.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Create Editable Select User Control" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="CSharp" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[WinMetadata]" SelectXPath="//ui:Form[@FormType='SelectUC' and not(@NoGen='true')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[WindowsOutput]Editable\WinSelectUserControl" OutputFilePattern="&lt;@Name&gt;.cs" />
+      <kg:XSLTFiles InputFileName="[WinMetadata]" XSLTFileName="[XSLTWindows]WinSelect.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+  </kg:Section>
+</kg:GenerationScript>

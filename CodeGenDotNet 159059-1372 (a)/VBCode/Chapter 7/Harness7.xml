@@ -1,0 +1,84 @@
+<?xml version="1.0" standalone="yes"?>
+<kg:GenerationScript xmlns:kg="http://kadgen.com/KADGenDriving.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://kadgen.com/KADGenDriving.xsd ..\..\XFiles\KADGenDriving.xsd" LocalSettings="" ProjectSettings="">
+  <kg:FilePaths>
+    <kg:FilePath Name="BasePath" Path="." File="" />
+    <kg:FilePath Name="Temp" Path="[BasePath]Temp" />
+    <kg:FilePath Name="Metadata" Path="[MetadataPath]" File="PTracker.xml" />
+    <kg:FilePath Name="ORMOrig" Path="[BasePath]" File="ORMSimplest.xml" />
+    <kg:FilePath Name="ORM" Path="[BasePath]" File="ORM2.xml" />
+    <kg:FilePath Name="ORMMetadata" Path="[BasePath]" File="ORMMetadata.xml" />
+    <kg:FilePath Name="XSLT" Path="[BasePath]" File="" />
+    <kg:FilePath Name="ORMTransform" Path="ORMTransform" File="" />
+    <kg:FilePath Name="Output" Path="[BasePath]Output" File="" />
+    <kg:FilePath Name="StoredProc" Path="Database" File="" />
+    <kg:FilePath Name="BusinessObjects" Path="BusinessObjects" File="" />
+    <kg:FilePath Name="SPInputMetadata" Path="[MetadataPath]" File="SPInputMetadata.xml" />
+    <kg:FilePath Name="GenInputMetadata" Path="[MetadataPath]" File="GenInputMetadata.xml" />
+    <kg:FilePath Name="MetadataPath" Path="[BasePath]..\..\Metadata Files\" File="" />
+    <kg:FilePath Name="Chapter6" Path="..\Chapter 6" File="" />
+  </kg:FilePaths>
+  <kg:Section>
+    <kg:Standard Name="Run Ch 6" Checked="false" />
+    <kg:NestedScript ScriptName="[Chapter6]Harness6StoredProc.xml">
+      <kg:Standard Name="Chapter 6 Operations" Checked="true" Ordinal="0" />
+    </kg:NestedScript>
+  </kg:Section>
+  <kg:Section>
+    <kg:Standard Name="Ch7 ORM Create Stored Procs" Checked="true" />
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Build 'Retrieve' Stored Procs" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="StoredProc" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="//orm:SPSet[contains(@Generate,'R')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][StoredProc]Retrieve" OutputFilePattern="&lt;orm:RunSP[@Task='Retrieve']/@Name&gt;.prc" />
+      <kg:XSLTFiles InputFileName="[SPInputMetadata]" XSLTFileName="[XSLT][StoredProc]SPRetrieve.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:RunSQLScripts Server="localhost" Database="PTracker">
+      <kg:Standard Name="Run 'Retrieve' Scripts" Ordinal="0" Checked="true" />
+      <kg:OutputRules OutputFileType="StoredProc" OutputGenType="Overwrite" HashOutput="true" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="//orm:SPSet[contains(@Generate,'R')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][StoredProc]Retrieve" OutputFilePattern="&lt;orm:RunSP[@Task='Retrieve']/@Name&gt;.prc" />
+    </kg:RunSQLScripts>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Build 'Create' Stored Procs" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="StoredProc" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="//orm:SPSet[contains(@Generate,'U')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][StoredProc]Create" OutputFilePattern="&lt;orm:RunSP[@Task='Create']/@Name&gt;.prc" />
+      <kg:XSLTFiles InputFileName="[SPInputMetadata]" XSLTFileName="[XSLT][StoredProc]SPCreate.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:RunSQLScripts Server="localhost" Database="PTracker">
+      <kg:Standard Name="Run 'Create' Scripts" Ordinal="0" Checked="true" />
+      <kg:OutputRules OutputFileType="StoredProc" OutputGenType="Overwrite" HashOutput="true" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="//orm:SPSet[contains(@Generate,'C')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][StoredProc]Create" OutputFilePattern="&lt;orm:RunSP[@Task='Create']/@Name&gt;.prc" />
+    </kg:RunSQLScripts>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Build 'Update' Stored Procs" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="StoredProc" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="//orm:SPSet[contains(@Generate,'U')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][StoredProc]Update" OutputFilePattern="&lt;orm:RunSP[@Task='Update']/@Name&gt;.prc" />
+      <kg:XSLTFiles InputFileName="[SPInputMetadata]" XSLTFileName="[XSLT][StoredProc]SPUpdate.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:RunSQLScripts Server="localhost" Database="PTracker">
+      <kg:Standard Name="Run 'Update' Scripts" Ordinal="0" Checked="true" />
+      <kg:OutputRules OutputFileType="StoredProc" OutputGenType="Overwrite" HashOutput="true" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="//orm:SPSet[contains(@Generate,'U')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][StoredProc]Update" OutputFilePattern="&lt;orm:RunSP[@Task='Update']/@Name&gt;.prc" />
+    </kg:RunSQLScripts>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Build 'Delete' Stored Procs" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="StoredProc" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="//orm:SPSet[contains(@Generate,'U')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][StoredProc]Delete" OutputFilePattern="&lt;orm:RunSP[@Task='Delete']/@Name&gt;.prc" />
+      <kg:XSLTFiles InputFileName="[SPInputMetadata]" XSLTFileName="[XSLT][StoredProc]SPDelete.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:RunSQLScripts Server="localhost" Database="PTracker">
+      <kg:Standard Name="Run 'Delete' Scripts" Ordinal="0" Checked="true" />
+      <kg:OutputRules OutputFileType="StoredProc" OutputGenType="Overwrite" HashOutput="true" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="//orm:SPSet[contains(@Generate,'U')]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][StoredProc]Delete" OutputFilePattern="&lt;orm:RunSP[@Task='Delete']/@Name&gt;.prc" />
+    </kg:RunSQLScripts>
+    <kg:XSLTGeneration>
+      <kg:Standard Name="Build 'SetSelect' Stored Procs" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="true" OutputFileType="StoredProc" OutputGenType="Always" CheckOut="false" CheckOutProject="[SSStoredProc]Select" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="//orm:SPSet[orm:SetSelect/*]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][StoredProc]SetSelect" OutputFilePattern="&lt;orm:RunSP[@Task='SetSelect']/@Name&gt;.prc" />
+      <kg:XSLTFiles InputFileName="[SPInputMetadata]" XSLTFileName="[XSLT][StoredProc]SPSetSelect.xslt" AssemblyFileName="" TypeName="" NamespaceURI="" AssemblyName="" />
+    </kg:XSLTGeneration>
+    <kg:RunSQLScripts Server="localhost" Database="PTracker">
+      <kg:Standard Name="Run 'SetSelect' Scripts" Ordinal="0" Checked="true" />
+      <kg:OutputRules OutputFileType="StoredProc" OutputGenType="Overwrite" HashOutput="true" CheckOut="false" CheckOutProject="" />
+      <kg:MultiPass SelectFile="[SPInputMetadata]" SelectXPath="//orm:SPSet[orm:SetSelect/*]" SelectNamespace="http://kadgen.com/KADORM.xsd" SelectNSPrefix="orm" OutputDir="[Output][StoredProc]SetSelect" OutputFilePattern="&lt;orm:RunSP[@Task='SetSelect']/@Name&gt;.prc" />
+    </kg:RunSQLScripts>
+  </kg:Section>
+</kg:GenerationScript>

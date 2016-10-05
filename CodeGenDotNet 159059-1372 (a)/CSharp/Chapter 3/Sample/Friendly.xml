@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dbs:DataStructures xmlns:dbs="http://www.kadgen/DatabaseStructure">
+  <dbs:DataStructure Name="TempCustomersOrders">
+    <dbs:Tables>
+      <dbs:Table Name="Customers" OriginalName="Customers" SingularName="Customer" PluralName="Customers">
+        <dbs:TableColumns>
+          <dbs:TableColumn Name="CustomerID" OriginalName="CustomerID" Ordinal="1" Default="" AllowNulls="false" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="CompanyName" OriginalName="CompanyName" Ordinal="2" Default="" AllowNulls="false" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="ContactName" OriginalName="ContactName" Ordinal="3" Default="" AllowNulls="true" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="ContactTitle" OriginalName="ContactTitle" Ordinal="4" Default="" AllowNulls="true" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="Address" OriginalName="Address" Ordinal="5" Default="" AllowNulls="true" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="City" OriginalName="City" Ordinal="6" Default="" AllowNulls="true" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="Region" OriginalName="Region" Ordinal="7" Default="" AllowNulls="true" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="PostalCode" OriginalName="PostalCode" Ordinal="8" Default="" AllowNulls="true" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="Country" OriginalName="Country" Ordinal="9" Default="" AllowNulls="true" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="Phone" OriginalName="Phone" Ordinal="10" Default="" AllowNulls="true" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="Fax" OriginalName="Fax" Ordinal="11" Default="" AllowNulls="true" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="timestamp" OriginalName="timestamp" Ordinal="12" Default="" AllowNulls="true" OriginalType="xs:base64Binary" SQLType="base64binary" NETType="">
+          </dbs:TableColumn>
+        </dbs:TableColumns>
+        <dbs:TableConstraints>
+          <dbs:PrimaryKey>
+            <dbs:PKField Name="CustomerID" Ordinal="1">
+            </dbs:PKField>
+          </dbs:PrimaryKey>
+          <dbs:TableRelations>
+            <dbs:ChildTable Name="Orders">
+              <dbs:ChildKeyFields Name="CustomerID" Ordinal="1">
+              </dbs:ChildKeyFields>
+            </dbs:ChildTable>
+          </dbs:TableRelations>
+        </dbs:TableConstraints>
+      </dbs:Table>
+      <dbs:Table Name="Orders" OriginalName="Orders" SingularName="Order" PluralName="Orders">
+        <dbs:TableColumns>
+          <dbs:TableColumn Name="OrderID" OriginalName="OrderID" Ordinal="1" Default="" AllowNulls="false" OriginalType="xs:int" SQLType="int" NETType="System.Int32">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="CustomerID" OriginalName="CustomerID" Ordinal="2" Default="" AllowNulls="true" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="EmployeeID" OriginalName="EmployeeID" Ordinal="3" Default="" AllowNulls="true" OriginalType="xs:int" SQLType="int" NETType="System.Int32">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="OrderDate" OriginalName="OrderDate" Ordinal="4" Default="" AllowNulls="true" OriginalType="xs:dateTime" SQLType="datetime" NETType="System.DateTime">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="RequiredDate" OriginalName="RequiredDate" Ordinal="5" Default="" AllowNulls="true" OriginalType="xs:dateTime" SQLType="datetime" NETType="System.DateTime">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="ShippedDate" OriginalName="ShippedDate" Ordinal="6" Default="" AllowNulls="true" OriginalType="xs:dateTime" SQLType="datetime" NETType="System.DateTime">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="ShipVia" OriginalName="ShipVia" Ordinal="7" Default="" AllowNulls="true" OriginalType="xs:int" SQLType="int" NETType="System.Int32">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="Freight" OriginalName="Freight" Ordinal="8" Default="" AllowNulls="true" OriginalType="xs:decimal" SQLType="decimal" NETType="System.Decimal">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="ShipName" OriginalName="ShipName" Ordinal="9" Default="" AllowNulls="true" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="ShipAddress" OriginalName="ShipAddress" Ordinal="10" Default="" AllowNulls="true" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="ShipCity" OriginalName="ShipCity" Ordinal="11" Default="" AllowNulls="true" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="ShipRegion" OriginalName="ShipRegion" Ordinal="12" Default="" AllowNulls="true" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="ShipPostalCode" OriginalName="ShipPostalCode" Ordinal="13" Default="" AllowNulls="true" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+          <dbs:TableColumn Name="ShipCountry" OriginalName="ShipCountry" Ordinal="14" Default="" AllowNulls="true" OriginalType="xs:string" SQLType="char" NETType="System.String">
+          </dbs:TableColumn>
+        </dbs:TableColumns>
+        <dbs:TableConstraints>
+          <dbs:PrimaryKey>
+            <dbs:PKField Name="OrderID" Ordinal="1">
+            </dbs:PKField>
+          </dbs:PrimaryKey>
+          <dbs:TableRelations>
+            <dbs:ParentRelations>
+              <dbs:ParentRelation ParentTable="Customers">
+                <dbs:ParentKeyField Name="CustomerID" Ordinal="1">
+                </dbs:ParentKeyField>
+                <dbs:ChildField Name="CustomerID" Ordinal="1">
+                </dbs:ChildField>
+              </dbs:ParentRelation>
+            </dbs:ParentRelations>
+          </dbs:TableRelations>
+        </dbs:TableConstraints>
+      </dbs:Table>
+    </dbs:Tables>
+  </dbs:DataStructure>
+</dbs:DataStructures>

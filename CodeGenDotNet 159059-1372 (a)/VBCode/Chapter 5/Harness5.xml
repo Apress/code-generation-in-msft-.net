@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="yes"?>
+<kg:GenerationScript xmlns:kg="http://kadgen.com/KADGenDriving.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://kadgen.com/KADGenDriving.xsd ..\..\XFiles\KADGenDriving.xsd" LocalSettings="" ProjectSettings="">
+  <kg:FilePaths>
+    <kg:FilePath Name="BasePath" Path=".." File="" />
+    <kg:FilePath Name="ProjectDir" Path="[BasePath]Chapter 8\Output\BusinessObjects" File="" />
+    <kg:FilePath Name="ProjectFile" Path="[ProjectDir]" File="BusinessObjects.vbproj" />
+    <kg:FilePath Name="FileList" Path="[BasePath]Chapter 5\Temp" File="FileList.xml" />
+    <kg:FilePath Name="ManualFileList" Path="[BasePath]Chapter 5" File="ManualFileList.xml" />
+    <kg:FilePath Name="OutputProjectFile" Path="[BasePath]Chapter 5" File="Test.vbproj" />
+  </kg:FilePaths>
+  <kg:Section>
+    <kg:Standard Name="Create Project File" Checked="true" />
+    <kg:RunProcess>
+      <kg:Standard Name="BuildFileList" Checked="true" Ordinal="97" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" 
+                      OutputGenType="Overwrite" />
+      <kg:SinglePass OutputFile="[FileList]" />
+      <kg:Parameter Parameter="[ProjectDir]" />
+      <kg:Process AssemblyName="Utility" TypeName="FileTools" 
+                      MethodName="GetFileListXML" AssemblyFileName="" />
+    </kg:RunProcess>
+    <kg:MergeMetadata BaseXMLFileName="[FileList]" 
+                      MergingXMLFileName="[ManualFileList]"
+                      OutputXMLFileName="[FileList]">
+      <kg:Standard Name="Merge File Lists" Checked="true" Ordinal="98" />
+    </kg:MergeMetadata>
+    <kg:RunProcess>
+      <kg:Standard Name="Update Project File" Checked="true" Ordinal="99" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" 
+                        OutputGenType="Overwrite" />
+      <kg:SinglePass OutputFile="[OutputProjectFile]" />
+      <kg:Parameter Parameter="[ProjectFile]|
+                               [FileList]| 
+                               {Autogen,Editable}" />
+      <kg:Process AssemblyName="CodeGeneration" TypeName="ProjectSupport" 
+                      MethodName="UpdateProjectFile" AssemblyFileName="" />
+    </kg:RunProcess>
+  </kg:Section>
+</kg:GenerationScript>

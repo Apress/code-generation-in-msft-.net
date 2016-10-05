@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BruteForceExample", "BruteForceExample\BruteForceExample.csproj", "{B069BFB6-2921-4B41-A291-FC0A2A86214C}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeDOMExample", "CodeDOMExample\CodeDOMExample.csproj", "{8FC72AF9-0AB5-473B-9434-0F065392AE84}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{B069BFB6-2921-4B41-A291-FC0A2A86214C}.Debug.ActiveCfg = Debug|.NET
+		{B069BFB6-2921-4B41-A291-FC0A2A86214C}.Debug.Build.0 = Debug|.NET
+		{B069BFB6-2921-4B41-A291-FC0A2A86214C}.Release.ActiveCfg = Release|.NET
+		{B069BFB6-2921-4B41-A291-FC0A2A86214C}.Release.Build.0 = Release|.NET
+		{8FC72AF9-0AB5-473B-9434-0F065392AE84}.Debug.ActiveCfg = Debug|.NET
+		{8FC72AF9-0AB5-473B-9434-0F065392AE84}.Debug.Build.0 = Debug|.NET
+		{8FC72AF9-0AB5-473B-9434-0F065392AE84}.Release.ActiveCfg = Release|.NET
+		{8FC72AF9-0AB5-473B-9434-0F065392AE84}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

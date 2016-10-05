@@ -1,0 +1,99 @@
+<VisualStudioProject>
+    <VisualBasic
+        ProjectType = "Local"
+        ProductVersion = "7.10.3077"
+        SchemaVersion = "2.0"
+        ProjectGuid = "{DBD09A0C-6A10-428F-A72F-20898BCA46BC}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = ""
+                AssemblyKeyContainerName = ""
+                AssemblyName = "RichClient"
+                AssemblyOriginatorKeyFile = ""
+                AssemblyOriginatorKeyMode = "None"
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "WinExe"
+                OptionCompare = "Binary"
+                OptionExplicit = "On"
+                OptionStrict = "Off"
+                RootNamespace = "RichClient"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    BaseAddress = "285212672"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = ""
+                    DefineDebug = "true"
+                    DefineTrace = "true"
+                    DebugSymbols = "true"
+                    IncrementalBuild = "true"
+                    Optimize = "false"
+                    OutputPath = "bin\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "1"
+                />
+                <Config
+                    Name = "Release"
+                    BaseAddress = "285212672"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = ""
+                    DefineDebug = "false"
+                    DefineTrace = "true"
+                    DebugSymbols = "false"
+                    IncrementalBuild = "false"
+                    Optimize = "true"
+                    OutputPath = "bin\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "1"
+                />
+            </Settings>
+            <References/>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "genWinEdit.xslt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "genWinSelect.xslt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "genWinSelectUserControl.xslt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "layoutWinEdit.xslt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "WinEdit.xslt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "WinInputTransform.xslt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "WinSelect.xslt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "WinSupport.xslt"
+                    BuildAction = "Content"
+                />
+            </Include>
+        </Files>
+    </VisualBasic>
+</VisualStudioProject>
+

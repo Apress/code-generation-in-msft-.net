@@ -1,0 +1,84 @@
+<?xml version="1.0" standalone="yes"?>
+<kg:GenerationScript xmlns:kg="http://kadgen.com/KADGenDriving.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://kadgen.com/KADGenDriving.xsd ..\..\XFiles\KADGenDriving.xsd" LocalSettings="Harness6_LocalOptions.xml" ProjectSettings="Harness6_ProjectOptions.xml">
+  <kg:Filters>
+    <kg:Filter Name="BONoLookup" Filter="//orm:Object[not(@IsLookup='true')]" />
+    <kg:Filter Name="BOLookup" Filter="//orm:Object[@NameValueList='true' and @Name]" />
+    <kg:Filter Name="BOCollection" Filter="//orm:Object[@Collection='true']" />
+    <kg:Filter Name="BOList" Filter="//orm:Object[orm:SetSelectSP/*]" />
+    <kg:Filter Name="RetrieveSP" Filter="//orm:SPSet[contains(@Generate,'R')]" />
+    <kg:Filter Name="CreateSP" Filter="//orm:SPSet[contains(@Generate,'C')]" />
+    <kg:Filter Name="UpdateSP" Filter="//orm:SPSet[contains(@Generate,'U')]" />
+    <kg:Filter Name="DeleteSP" Filter="//orm:SPSet[contains(@Generate,'D')]" />
+    <kg:Filter Name="SetSelectSP" Filter="//orm:SPSet[orm:SetSelect/*]" />
+    <kg:Filter Name="WinUI" Filter="" />
+  </kg:Filters>
+  <kg:FilePaths>
+    <kg:FilePath Name="BasePath" Path="." File="" />
+    <kg:FilePath Name="Temp" Path="[BasePath]Temp" />
+    <kg:FilePath Name="Metadata" Path="[MetadataPath]" File="PTracker.xml" />
+    <kg:FilePath Name="ORMTransform" Path="ORMTransform" File="" />
+    <kg:FilePath Name="MetadataPath" Path="[BasePath]..\..\Metadata Files\" File="" />
+    <kg:FilePath Name="SPInputMetadata" Path="[MetadataPath]" File="SPInputMetadata.xml" />
+    <kg:FilePath Name="GenInputMetadata" Path="[MetadataPath]" File="GenInputMetadata.xml" />
+  </kg:FilePaths>
+  <kg:Section>
+    <kg:Standard Name="Ch 6 Prepare Metadata - 1" Checked="true" />
+    <kg:CreateMetadata Server="localhost" Database="PTracker" SkipStoredProcs="false" SelectPatterns="" SetSelectPatterns="" RemovePrefix="false">
+      <kg:Standard Name="SQL Extraction" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[Metadata]" />
+      <kg:AlternateProcess />
+    </kg:CreateMetadata>
+    <kg:MergeMetadata BaseXMLFileName="[BasePath]ORMChapter8.xml" MergingXMLFileName="[Metadata]" OutputXMLFileName="[Temp]ORM2WithDBS.xml">
+      <kg:Standard Name="Merge ORM" Checked="true" Ordinal="0" />
+    </kg:MergeMetadata>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Initial Incorporate Info" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[Temp]ORM2WithDBSWithInfo.xml" />
+      <kg:XSLTFiles InputFileName="[Temp]ORM2WithDBS.xml" XSLTFileName="[ORMTransform]IncorporateTableInfo.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Create Interim Object " Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[Temp]ORMObjectOutput.xml" />
+      <kg:XSLTFiles InputFileName="[Temp]ORM2WithDBSWithInfo.xml" XSLTFileName="[ORMTransform]ORMObjectOne.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess xmlns:kg="http://kadgen.com/KADGenDriving.xsd">
+      <kg:Standard Name="Create Interim Object " Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[Temp]ORMObjectOutput.xml" />
+      <kg:XSLTFiles InputFileName="[Temp]ORM2WithDBS.xml" XSLTFileName="[ORMTransform]ORMObjectOne.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Create Interim Object  Two" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[Temp]ORMObjectOutputTwo.xml" />
+      <kg:XSLTFiles InputFileName="[Temp]ORMObjectOutput.xml" XSLTFileName="[ORMTransform]ORMObjectTwo.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Create Interim Build  One" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[Temp]ORMBuildOutput.xml" />
+      <kg:XSLTFiles InputFileName="[Temp]ORMObjectOutputTwo.xml" XSLTFileName="[ORMTransform]ORMBuildOne.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Create Interim Build  Two" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[Temp]ORMBuildOutput2.xml" />
+      <kg:XSLTFiles InputFileName="[Temp]ORMBuildOutput.xml" XSLTFileName="[ORMTransform]ORMBuildTwo.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="GenMetadata One" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[SPInputMetadata]" />
+      <kg:XSLTFiles InputFileName="[Temp]ORMBuildOutput2.xml" XSLTFileName="[ORMTransform]IncorporateInfo.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+    <kg:XSLTProcess>
+      <kg:Standard Name="Create Interim Object  Two" Checked="true" Ordinal="0" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Overwrite" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[GenInputMetadata]" />
+      <kg:XSLTFiles InputFileName="[SPInputMetadata]" XSLTFileName="[ORMTransform]ORMFilterForGen.xslt" AssemblyFileName="" TypeName="Tools" NamespaceURI="http://kadgen.com/NETTools" AssemblyName="Utility" />
+    </kg:XSLTProcess>
+  </kg:Section>
+</kg:GenerationScript>

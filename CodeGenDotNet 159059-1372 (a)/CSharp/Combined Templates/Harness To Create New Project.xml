@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<kg:GenerationScript xmlns:kg="http://kadgen.com/KADGenDriving.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://kadgen.com/KADGenDriving.xsd ..\..\XFiles\KADGenDriving.xsd" LocalSettings="" ProjectSettings="">
+  <kg:FilePaths>
+    <kg:FilePath Name="SourcePath" Path="..\Component Shells" File="" />
+    <kg:FilePath Name="TargetWinFormsPath" Path="..\NewWinFormsProject" File="" />
+    <kg:FilePath Name="TempPath" Path="[SourcePath]\Temp" File="" />
+    <kg:FilePath Name="TargetWebFormsPath" Path="..\NewWebFormsProject" File="" />
+    <kg:FilePath Name="HarnessSourcePath" Path="." File="" />
+    <kg:FilePath Name="HarnessWinName" Path="" File="HarnessWin.xml" />
+    <kg:FilePath Name="HarnessWebName" Path="" File="HarnessWeb.xml" />
+    <kg:FilePath Name="ORMInput" Path="" File="ORMInput.xml" />
+    <kg:FilePath Name="UIInput" Path="" File="UIInfo.xml" />
+  </kg:FilePaths>
+  <kg:Section>
+    <kg:Standard Name="Create Win Forms Solution" Checked="true" />
+    <kg:RunProcess>
+      <kg:Standard Name="Create Basic Files" Checked="true" Ordinal="97" />
+      <kg:OutputRules HashOutput="false" OutputFileType="XML" OutputGenType="Once" CheckOut="false" CheckOutProject="" />
+      <kg:SinglePass OutputFile="[TargetWinFormsPath]" />
+      <kg:Parameter Parameter="[SourcePath]|BaseWinFormsSolution.sln|{bin,obj}|{Autogen,Editable,Layout,ASPX,Create,Retrieve,Update,Delete,SetSelect}" />
+      <kg:Process AssemblyName="CodeGeneration" TypeName="ProjectSupport" MethodName="CreateNewSolution" AssemblyFileName="" />
+    </kg:RunProcess>
+    <kg:CopyFiles SourceFileName="[HarnessSourcePath][HarnessWinName]" TargetFileName="[TargetWinFormsPath][HarnessWinName]">
+      <kg:Standard Name="Copy Harness File" Ordinal="0" Checked="true" />
+    </kg:CopyFiles>
+    <kg:CopyFiles SourceFileName="[HarnessSourcePath][ORMInput]" TargetFileName="[TargetWinFormsPath][ORMInput]">
+      <kg:Standard Name="Copy Harness File" Ordinal="0" Checked="true" />
+    </kg:CopyFiles>
+    <kg:CopyFiles SourceFileName="[HarnessSourcePath][UIInput]" TargetFileName="[TargetWinFormsPath][UIInput]">
+      <kg:Standard Name="Copy Harness File" Ordinal="0" Checked="true" />
+    </kg:CopyFiles>
+  </kg:Section>
+</kg:GenerationScript>

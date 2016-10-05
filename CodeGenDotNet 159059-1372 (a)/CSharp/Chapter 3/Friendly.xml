@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataSet Name="">
+  <Table Name="Customers">
+    <PrimaryKey>
+      <Field Name="CustomerID">
+      </Field>
+    </PrimaryKey>
+    <!--
+				I am including parent and child fields because otherwise people might
+				be lazy, not track down the correct primary key and get messed up when
+				they differ
+		-->
+    <ChildTable Name="Orders">
+      <ChildField Name="CustomerID">
+      </ChildField>
+      <ParentField Name="CustomerID">
+      </ParentField>
+    </ChildTable>
+    <Column Name="CustomerID" SQLType="xs:string" NETType="">
+    </Column>
+    <Column Name="CompanyName" SQLType="xs:string" NETType="">
+    </Column>
+    <Column Name="ContactName" SQLType="xs:string" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="ContactTitle" SQLType="xs:string" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="Address" SQLType="xs:string" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="City" SQLType="xs:string" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="Region" SQLType="xs:string" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="PostalCode" SQLType="xs:string" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="Country" SQLType="xs:string" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="Phone" SQLType="xs:string" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="Fax" SQLType="xs:string" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="timestamp" SQLType="xs:base64Binary" NETType="" AllowNulls="True">
+    </Column>
+  </Table>
+  <Table Name="Orders">
+    <PrimaryKey>
+      <Field Name="OrderID">
+      </Field>
+    </PrimaryKey>
+    <ParentTable Name="Customers">
+      <ParentField Name="CustomerID">
+      </ParentField>
+      <ChildField Name="CustomerID">
+      </ChildField>
+    </ParentTable>
+    <Column Name="OrderID" SQLType="xs:int" NETType="">
+    </Column>
+    <Column Name="CustomerID" SQLType="xs:string" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="EmployeeID" SQLType="xs:int" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="OrderDate" SQLType="xs:dateTime" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="RequiredDate" SQLType="xs:dateTime" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="ShippedDate" SQLType="xs:dateTime" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="ShipVia" SQLType="xs:int" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="Freight" SQLType="xs:decimal" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="ShipName" SQLType="xs:string" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="ShipAddress" SQLType="xs:string" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="ShipCity" SQLType="xs:string" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="ShipRegion" SQLType="xs:string" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="ShipPostalCode" SQLType="xs:string" NETType="" AllowNulls="True">
+    </Column>
+    <Column Name="ShipCountry" SQLType="xs:string" NETType="" AllowNulls="True">
+    </Column>
+  </Table>
+</DataSet>

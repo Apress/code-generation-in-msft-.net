@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<xs:schema id="MappingRoot" targetNamespace="http://kadgen.com/KADORM.xsd" xmlns:mstns="http://kadgen.com/KADORM.xsd" xmlns="http://kadgen.com/KADORM.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="MappingRoot" msdata:IsDataSet="true" msdata:Prefix="orm" msdata:EnforceConstraints="False">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Assembly" msdata:Prefix="orm">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Object" msdata:Prefix="orm" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="AllProperties" msdata:Prefix="orm" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+                    <xs:element name="BuildInfo" msdata:Prefix="orm" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="BuildTable" msdata:Prefix="orm" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="AllColumns" msdata:Prefix="orm" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+                                <xs:element name="ChildTable" msdata:Prefix="orm" minOccurs="0" maxOccurs="unbounded">
+                                  <xs:complexType>
+                                    <xs:attribute name="Name" form="unqualified" type="xs:string" />
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="BuildColumn" msdata:Prefix="orm" minOccurs="0" maxOccurs="unbounded">
+                                  <xs:complexType>
+                                    <xs:attribute name="Name" form="unqualified" type="xs:string" />
+                                    <xs:attribute name="Column" form="unqualified" type="xs:string" />
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="Name" form="unqualified" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="Joins" msdata:Prefix="orm" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Join" msdata:Prefix="orm" minOccurs="0" maxOccurs="unbounded">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Left" msdata:Prefix="orm" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:attribute name="JoinTable" form="unqualified" type="xs:string" />
+                                          <xs:attribute name="Where" form="unqualified" type="xs:string" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="Right" msdata:Prefix="orm" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                          <xs:attribute name="Join" form="unqualified" type="xs:string" />
+                                          <xs:attribute name="JoinTable" form="unqualified" type="xs:string" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="Type" form="unqualified" type="xs:string" />
+                                    <xs:attribute name="Name" form="unqualified" type="xs:string" />
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="BuildInfoSP" msdata:Prefix="orm" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="Task" form="unqualified" type="xs:string" />
+                              <xs:attribute name="Name" form="unqualified" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="StoredProcBase" form="unqualified" type="xs:string" />
+                        <xs:attribute name="DataStructure" form="unqualified" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Property" msdata:Prefix="orm" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="Name" form="unqualified" type="xs:string" />
+                        <xs:attribute name="MapColumn" form="unqualified" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="Name" form="unqualified" type="xs:string" />
+                  <xs:attribute name="PluralName" form="unqualified" type="xs:string" />
+                  <xs:attribute name="SingularName" form="unqualified" type="xs:string" />
+                  <xs:attribute name="GenerateProcs" form="unqualified" type="xs:string" />
+                  <xs:attribute name="Namespace" form="unqualified" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="Namespace" form="unqualified" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
